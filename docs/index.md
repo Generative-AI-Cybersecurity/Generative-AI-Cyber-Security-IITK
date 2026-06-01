@@ -16,13 +16,14 @@ This platform contains hands-on security labs covering:
 
 ## Featured Labs
 
-### Zero Trust & Identity Lab
+### Microsoft Threat Modeling Software
 
 Learn how to:
-- Build identity-based networking with Tailscale
-- Configure micro-segmentation using ACLs
-- Implement least privilege using sudoers
-- Use Generative AI for log analysis
+
+- Create a threat model for an Online Exam System using MTMT
+- Generate and analyze threats using the STRIDE methodology
+- Interpret threat reports and understand the associated security risks
+- Use Generative AI to explain, analyze, and suggest remediations for identified threats
 
 Use the sidebar to navigate to the lab.
 
@@ -31,6 +32,7 @@ Use the sidebar to navigate to the lab.
 ## Lab Format
 
 Each lab includes:
+
 - Step-by-step instructions
 - Security concepts
 - Verification steps
@@ -39,4 +41,4 @@ Each lab includes:
 
 ---
 
-> Developed by Dhruti Avadhani
+> Developed by Dhruti Avadhani and Karrthik Adabettu

@@ -1,7 +1,11 @@
 # Microsoft Threat Modeling Tool (MTMT)
 
-> Beginner Friendly • 2 Hours • Hands-on Security Lab  
+> Beginner Friendly • 2 Hours • Hands-on Security Lab
+> Framework: STRIDE
+> Tool: Microsoft Threat Modeling Tool (MTMT)
+> System: Online Exam System
 > Author: Dhruti Avadhani
+> Reviewer: Karrthik Adabettu
 
 ---
 

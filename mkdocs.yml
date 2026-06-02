@@ -55,3 +55,4 @@ nav:
   - Labs:
       - Zero Trust & Identity Lab: test-lab/index.md
       - Microsoft Threat Modeling Software: microsoft-threat-model-software/index.md
+      - Threat Modeling with OWASP Threat Dragon: owasp-threat-dragon/index.md

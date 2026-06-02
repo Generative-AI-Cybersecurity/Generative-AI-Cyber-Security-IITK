@@ -104,11 +104,15 @@ Description: Threat model for an HMS covering patient records,
 
 Click **Save**.
 
+![Filling details](assets/3.png)
+
 ### Step 4 — Add a Diagram
 
 Click **+ Add a new diagram**. Name it `HMS Data Flow Diagram`, select **STRIDE** as the type, and click Save. Then click the diagram name to open the canvas editor.
 
 ![Threat Dragon Model Setup](assets/step1-model-setup.png)
+
+![Adding diagram](assets/4.png)
 
 ---
 
@@ -162,6 +166,12 @@ This is the core of the lab. Open the canvas editor and follow these steps exact
 
 Find the **Actor** shape in the left sidebar (rectangle with a double border). Drag four onto the canvas and label them: Patient, Doctor, Nurse, Admin. Place them on the left side.
 
+This is how the screen will look once you save and go back to click on the diagram:
+
+![Starting](assets/5.png)
+
+![Actors](assets/6.png)
+
 ### Step 2 — Place the Processes
 
 Find the **Process** shape (circle or rounded rectangle). Drag five onto the center of the canvas:
@@ -185,6 +195,8 @@ DS3: Prescription DB
 DS4: User Credentials DB
 ```
 
+![Data stores](assets/7.png)
+
 ### Step 4 — Draw the Arrows
 
 Hover over any shape's edge until a small dot appears. Click and drag to the destination to draw an arrow (data flow). Label each one:
@@ -203,13 +215,19 @@ Hover over any shape's edge until a small dot appears. Click and drag to the des
 | Admin                  | Admin commands       | 5.0 Admin Panel        |
 | 5.0 Admin Panel        | Read/Write           | DS1: Patient DB        |
 
+![Arrows](assets/8.png)
+
 ### Step 5 — Draw the Trust Boundary
 
 Find the **Trust Boundary** shape (dashed rectangle). Draw it as a large box enclosing all five processes and all four data stores. Leave all actors outside it. Label it `Internal Server Boundary`.
 
+![Local session](assets/9.png)
+
 ### The Completed Diagram
 
 ![HMS Data Flow Diagram](assets/hms-dfd-diagram.png)
+
+![Final flow diagram](assets/12.png)
 
 ---
 
@@ -232,9 +250,11 @@ Here are all eight threats identified for this system:
 | T7  | Information Disclosure | DS4: Credentials DB  | Database breach exposes plain-text passwords, instantly compromising all accounts           | Hash all passwords with bcrypt or Argon2; enforce minimum password complexity                | Mitigated |
 | T8  | Tampering              | DS2: Appointment DB  | Staff member directly queries the database and changes appointment times, bypassing the app | Restrict direct DB access; all changes must go through the application layer only            | Mitigated |
 
+![Adding a threat](assets/10.png)
+
 ### Threat List in Threat Dragon
 
-![Threat List Screenshot](assets/hms-threats-list.png)
+![Threat List Screenshot](assets/11.png)
 
 ---
 

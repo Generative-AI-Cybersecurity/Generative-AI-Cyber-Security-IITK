@@ -110,8 +110,6 @@ Click **Save**.
 
 Click **+ Add a new diagram**. Name it `HMS Data Flow Diagram`, select **STRIDE** as the type, and click Save. Then click the diagram name to open the canvas editor.
 
-![Threat Dragon Model Setup](assets/step1-model-setup.png)
-
 ![Adding diagram](assets/4.png)
 
 ---
@@ -224,8 +222,6 @@ Find the **Trust Boundary** shape (dashed rectangle). Draw it as a large box enc
 ![Local session](assets/9.png)
 
 ### The Completed Diagram
-
-![HMS Data Flow Diagram](assets/hms-dfd-diagram.png)
 
 ![Final flow diagram](assets/12.png)
 

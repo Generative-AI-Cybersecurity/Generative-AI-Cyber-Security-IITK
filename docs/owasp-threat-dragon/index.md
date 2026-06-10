@@ -1,11 +1,10 @@
 # Threat Modeling with OWASP Threat Dragon
 
-> **Lab Type:** Hands-on Security Analysis  
-> **Tool:** OWASP Threat Dragon v2.6  
-> **Framework:** STRIDE  
-> **System:** Hospital Management System (HMS)  
-> **Author:** Karrthik Adabettu  
-> **Reviewer:** Dhruti Avadhani
+> Lab Type: Hands-on Security Analysis  
+> Tool: OWASP Threat Dragon v2.6  
+> Framework: STRIDE  
+> System: Hospital Management System (HMS)  
+
 
 ---
 

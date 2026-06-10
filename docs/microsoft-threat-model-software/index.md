@@ -4,8 +4,7 @@
 > Framework: STRIDE    
 > Tool: Microsoft Threat Modeling Tool (MTMT)    
 > System: Online Exam System    
-> Author: Dhruti Avadhani    
-> Reviewer: Karrthik Adabettu
+
 
 ---
 

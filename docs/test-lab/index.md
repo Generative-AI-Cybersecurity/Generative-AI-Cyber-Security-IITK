@@ -540,31 +540,22 @@ The AI should identify:
 
     Zero Trust validates every request regardless of network location.
 
----
-
 ??? question "Why was port 9090 blocked?"
 
     Only port 8080 was explicitly allowed in the ACL.
-
----
 
 ??? question "Why use visudo?"
 
     `visudo` validates syntax before saving changes.
 
----
-
 ??? question "What would happen if junior-admin ran sudo reboot?"
 
     The action would be denied because it is not allowed in sudoers.
-
----
 
 ??? question "Why should production logs not be pasted into public AI tools?"
 
     Logs may contain sensitive or confidential organisational data.
 
----
 
 # Final Summary
 

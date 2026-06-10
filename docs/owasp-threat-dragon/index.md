@@ -96,7 +96,7 @@ Click **New Model**. Fill in the form:
 ```
 Title:       Hospital Management System – Threat Model
 Owner:       Your Name
-Reviewer:    Dhruti Avadhani
+Reviewer:    Reviewer's Name
 Description: Threat model for an HMS covering patient records,
              doctor access, appointment booking, and admin portal.
 ```

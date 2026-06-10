@@ -1,0 +1,955 @@
+/* =========================
+   MKDOCS HEADER BANNER (SMALL FIXED VERSION)
+   ========================= */
+
+/* Header background */
+.md-header {
+  background-color: white !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid #eee;
+  padding: 0px 0 !important;
+}
+
+/* Remove extra spacing from Material */
+.md-header__inner {
+  min-height: unset !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
+/* Container */
+.header-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0;
+}
+
+/* 🔥 ACTUAL SIZE CONTROL (THIS IS THE KEY FIX) */
+.header-banner img {
+  width: 100%;           /* 👈 SMALLER (try 20–30%) */
+  max-width: 320px;     /* hard cap */
+
+  height: auto;         /* REMOVE forced height */
+  display: block;
+}
+
+/* =========================
+   NAVBAR BACKGROUND FIX
+   ========================= */
+
+/* Main top navigation bar */
+.md-header {
+  background-color: white !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid #eee !important;
+}
+
+/* Secondary nav / tabs bar (if enabled) */
+.md-tabs {
+  background-color: #C3CBEA !important;
+  border-bottom: 1px solid #eee !important;
+}
+
+/* Ensure text/icons stay visible */
+.md-header__button,
+.md-header__title,
+.md-header__source {
+  color: #111 !important;
+}
+
+/* =========================
+   FIX NAVBAR TEXT VISIBILITY
+   ========================= */
+
+/* Main header text + icons */
+.md-header__title,
+.md-header__button,
+.md-header__source,
+.md-header__option,
+.md-header nav,
+.md-header a {
+  color: #1f2937 !important;   /* dark grey text */
+}
+
+/* Navbar icons (hamburger, search, etc.) */
+.md-header svg {
+  fill: #1f2937 !important;
+}
+
+/* Tabs (if enabled) */
+.md-tabs a {
+  color: #1f2937 !important;
+}
+
+/* Active/hover state */
+.md-header a:hover,
+.md-tabs a:hover {
+  color: #2563eb !important;   /* optional blue highlight */
+}
+
+/* =========================
+   REMOVE DEFAULT MKDOCS LOGO
+   ========================= */
+
+/* Hide the built-in site logo/icon */
+.md-header__button.md-logo {
+  display: none !important;
+}
+
+/* Sometimes Material injects a second logo wrapper */
+.md-header__button[for="__drawer"] {
+  display: flex; /* keep hamburger */
+}
+
+/* Safety: remove any leftover brand icon spacing */
+.md-header__inner .md-logo {
+  display: none !important;
+}
+
+/* =========================
+   REMOVE LEFT HEADER ELEMENTS
+   ========================= */
+
+/* Remove logo completely */
+.md-header__button.md-logo {
+  display: none !important;
+}
+
+/* Remove site title container spacing */
+.md-header__title {
+  display: none !important;
+}
+
+/* OPTIONAL: remove hamburger (three lines) */
+.md-header__button[for="__drawer"] {
+  display: none !important;
+}
+
+/* Remove leftover header spacing shifts */
+.md-header__inner {
+  justify-content: center !important;
+}
+
+
+
+/* =========================
+   FULL WIDTH COLORED SECTION
+   ========================= */
+
+.full-width-section {
+  width: 100vw;               /* full viewport width */
+  margin-left: calc(-50vw + 50%); /* break out of MkDocs container */
+
+  background-color: #EBEEF8;  /* your color */
+  padding: 60px 20px;
+
+  text-align: center;
+}
+
+/* Optional styling inside */
+.full-width-section h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #1f2937;
+}
+
+.full-width-section p {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #4b5563;
+  font-size: 16px;
+}
+
+/* =========================
+   REMOVE TOP GAP ABOVE CONTENT
+   ========================= */
+
+/* Remove spacing between header and page content */
+.md-main__inner {
+  margin-top: 0 !important;
+}
+
+/* Remove top padding in content area */
+.md-content {
+  padding-top: 0 !important;
+}
+
+/* Remove first-child margin collapse issues */
+.md-content > :first-child {
+  margin-top: 0 !important;
+}
+
+/* =========================
+   REMOVE ALL GAP BETWEEN NAVBAR AND FIRST SECTION
+   ========================= */
+
+.md-main__inner {
+    margin-top: 0 !important;
+}
+
+.md-content {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+.md-content__inner {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Remove top margin from first element on page */
+.md-content__inner > :first-child {
+    margin-top: 0 !important;
+}
+
+/* Remove margin from your purple section */
+.full-width-section {
+    margin-top: 0 !important;
+}
+
+/* HOMEPAGE ONLY */
+.md-content h1,
+.md-path,
+.md-breadcrumb {
+    display: none !important;
+}
+
+/* Remove all spacing above content */
+.md-main__inner,
+.md-content,
+.md-content__inner,
+.md-content__inner.md-typeset {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Remove top margin from first homepage element */
+.md-content__inner > :first-child {
+    margin-top: 0 !important;
+}
+
+/* Full-width section */
+.full-width-section {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-top: 0 !important;
+
+    background-color: #EBEEF8;
+    padding: 60px 20px;
+
+    text-align: center;
+}
+
+
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* ==========================================================================
+   HOMEPAGE BANNER AND FORM LAYOUT
+   ========================================================================== */
+
+/* Overriding container spacing defaults */
+.hero-container.full-width-section {
+  background-color: #EBEEF8 !important;
+  padding: 60px 10% 40px 10% !important;
+  box-sizing: border-box;
+}
+
+.hero-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Left Column Styling */
+.hero-content-left {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  margin-right: 40px;
+}
+
+.hero-content-left .main-title {
+  font-size: 42px !important;
+  font-weight: 700;
+  color: #2557CE !important;
+  line-height: 1.2;
+  margin-bottom: 20px !important;
+  display: block !important; /* Overrides the display:none rule for default h1 */
+}
+
+.hero-content-left .subtitle {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+.features-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.features-list .checkmark {
+  background-color: #00B19D;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  margin-right: 12px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.features-list li p {
+  margin: 0 !important;
+  font-size: 14px;
+  color: #2c3e50;
+  line-height: 1.4;
+}
+
+.enroll-btn {
+  display: inline-block;
+  background-color: #1A365D;
+  color: white !important;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.enroll-btn:hover {
+  background-color: #2557CE !important;
+}
+
+/* Right Column (Form Card) Styling */
+.hero-form-right {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 420px;
+}
+
+.counsellor-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.counsellor-card h3 {
+  text-align: center;
+  color: #1A365D;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1A365D;
+  margin-bottom: 6px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.phone-input-wrapper {
+  display: flex;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.phone-input-wrapper select {
+  border: none;
+  background: #F8FAFC;
+  padding: 0 8px;
+  font-size: 13px;
+  border-right: 1px solid #CBD5E1;
+  outline: none;
+}
+
+.phone-input-wrapper input {
+  border: none;
+  padding: 10px 12px;
+  width: 100%;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-checkbox input {
+  margin-top: 3px;
+}
+
+.form-checkbox label {
+  font-size: 10.5px;
+  color: #64748B;
+  line-height: 1.4;
+}
+
+.form-checkbox a {
+  color: #2557CE;
+  text-decoration: underline;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #F27457;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #E05A3C;
+}
+
+.form-footer-links {
+  text-align: center;
+  font-size: 11px;
+  color: #94A3B8;
+  margin-top: 14px;
+}
+
+.form-footer-links a {
+  color: #64748B;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   BOTTOM INFO STRIP
+   ========================================================================== */
+.info-strip-section {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background-color: #2557CE;
+  padding: 24px 0;
+  box-sizing: border-box;
+}
+
+.info-strip-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-align: left;
+}
+
+.info-icon {
+  font-size: 32px;
+  margin-right: 14px;
+}
+
+.info-text h4 {
+  margin: 0 !important;
+  font-size: 18px !important;
+  font-weight: 600;
+  color: white !important;
+}
+
+.info-text p {
+  margin: 0 !important;
+  font-size: 12px;
+  color: #E0E7FF;
+}
+
+/* Mobile responsiveness adaptations */
+@media (max-width: 768px) {
+  .hero-grid {
+    flex-direction: column;
+  }
+  .hero-content-left {
+    margin-right: 0;
+    margin-bottom: 40px;
+    max-width: 100%;
+  }
+  .hero-form-right {
+    max-width: 100%;
+  }
+  .info-strip-grid {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+  }
+}
+
+
+/* ==========================================================================
+   ADDED COURSE CURRICULUM SECTIONS (WHAT YOU LEARN, SKILLS, & TOOLS)
+   ========================================================================== */
+
+.course-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  text-align: left;
+  font-family: inherit;
+}
+
+/* Master Section Headings styling */
+.section-heading {
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  color: #1A365D !important;
+  margin-top: 40px !important;
+  margin-bottom: 24px !important;
+  border-bottom: none !important; /* Removes default MkDocs header underline border */
+}
+
+/* Two-column styling for What you'll learn */
+.learn-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.learn-column {
+  flex: 1;
+  min-width: 280px;
+}
+
+.learn-column ul {
+  list-style-type: disc !important;
+  padding-left: 20px !important;
+  margin: 0 !important;
+}
+
+.learn-column li {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #334155;
+  margin-bottom: 14px;
+}
+
+/* Skills dynamic badge wrapper styling */
+.skills-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-bottom: 20px;
+}
+
+.skill-tag {
+  background-color: #E2E8F0; /* Soft Periwinkle/Grey Tone styling */
+  color: #1E293B;
+  padding: 8px 16px;
+  font-size: 13.5px;
+  font-weight: 500;
+  border-radius: 8px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Tools item grids positioning layout */
+.tools-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.tool-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  height: 55px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.tool-card img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive adjustment splits */
+@media (max-width: 768px) {
+  .learn-grid {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .section-heading {
+    font-size: 26px !important;
+  }
+}
+
+
+/* ==========================================================================
+   CAMPUS IMMERSION AND CERTIFICATE STYLING
+   ========================================================================== */
+
+/* Immersion section structure overrides */
+.immersion-section.full-width-section {
+  background-color: #EBEEF8 !important;
+  padding: 50px 20px 60px 20px !important;
+  margin-top: 40px !important;
+}
+
+.immersion-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.immersion-title {
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  color: #1A365D !important;
+  margin-bottom: 12px !important;
+}
+
+.immersion-subtitle {
+  font-size: 14px !important;
+  color: #64748B !important;
+  max-width: 850px;
+  margin: 0 auto 40px auto !important;
+  line-height: 1.6 !important;
+}
+
+/* 4-Card layout setup */
+.immersion-cards-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.immersion-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 30px 20px;
+  flex: 1;
+  min-width: 220px;
+  max-width: 250px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.immersion-card .card-icon {
+  font-size: 36px;
+  color: #2557CE;
+  margin-bottom: 20px;
+}
+
+.immersion-card p {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #1A365D !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+}
+
+/* Certificate Segment Containers */
+.certificate-section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.certificate-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.certificate-text-left {
+  flex: 1;
+  min-width: 320px;
+  max-width: 480px;
+  text-align: left;
+}
+
+.certificate-text-left h2 {
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  color: #1A365D !important;
+  margin-bottom: 16px !important;
+  border-bottom: none !important;
+}
+
+.certificate-text-left p {
+  font-size: 15px !important;
+  color: #475569 !important;
+  line-height: 1.6 !important;
+}
+
+/* Certificate Graphic & Circle Graphic elements */
+.certificate-visual-right {
+  flex: 1;
+  min-width: 400px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.circle-backdrop {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  background-color: #B4C3F1;
+  border-radius: 50%;
+  right: 15%;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+/* Mock document visual CSS */
+.mock-certificate {
+  background: #FFFFFF;
+  border: 10px solid #475569;
+  padding: 24px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  font-family: 'Georgia', serif;
+  text-align: center;
+}
+
+.cert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #E2E8F0;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.cert-logo-main {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1A365D;
+  font-family: sans-serif;
+}
+
+.cert-body h3 {
+  font-size: 18px !important;
+  color: #B4943A !important;
+  margin: 0 0 2px 0 !important;
+  font-weight: 700;
+}
+
+.cert-sub {
+  font-size: 8px !important;
+  margin: 0 auto 14px auto !important;
+  font-family: sans-serif;
+  color: #475569;
+}
+
+.cert-main-title {
+  font-size: 24px !important;
+  color: #B4943A !important;
+  margin: 10px 0 !important;
+  font-weight: 600;
+}
+
+.cert-text-line {
+  font-size: 10px !important;
+  font-style: italic;
+  color: #64748B;
+  margin: 4px 0 !important;
+}
+
+.cert-student-name, .cert-course-name {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #1E293B !important;
+  margin: 4px 0 !important;
+  font-family: sans-serif;
+}
+
+.cert-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.cert-qr {
+  font-size: 28px;
+  border: 1px solid #CBD5E1;
+  padding: 4px;
+}
+
+.cert-sig {
+  text-align: right;
+  max-width: 200px;
+}
+
+.sig-line {
+  border-bottom: 1px solid #94A3B8;
+  width: 120px;
+  margin-left: auto;
+  margin-bottom: 4px;
+}
+
+.cert-sig p {
+  font-size: 8px !important;
+  margin: 0 !important;
+  font-family: sans-serif;
+  color: #1E293B;
+}
+
+.cert-sig .sig-sub {
+  color: #64748B;
+  font-size: 6.5px !important;
+}
+
+.cert-bottom-bar {
+  border-top: 1px solid #E2E8F0;
+  margin-top: 12px;
+  padding-top: 6px;
+  font-size: 6.5px !important;
+  color: #64748B;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* Responsiveness break setups */
+@media (max-width: 992px) {
+  .certificate-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+  .certificate-text-left {
+    max-width: 100%;
+    text-align: center;
+  }
+  .circle-backdrop {
+    right: 10%;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificate-visual-right {
+    min-width: 100%;
+  }
+  .circle-backdrop {
+    display: none;
+  }
+}
+
+/* =========================
+   FORCE RESTORE ALL PAGE TITLES
+   ========================= */
+
+.md-content h1 {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+
+
+
+/* Nav items as buttons */
+.md-nav__item .md-nav__link {
+  display: block;
+  padding: 9px 14px;
+  margin-bottom: 4px;
+  border: 0.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  font-size: 13.5px;
+  color: var(--md-typeset-color);
+  transition: background 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+}
+
+.md-nav__item .md-nav__link:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.md-nav__item .md-nav__link--active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+/* Remove default MkDocs active underline/indicator */
+.md-nav__item .md-nav__link--active::before {
+  display: none;
+}
+
+/* --- Fix: Remove button style from the LABS heading --- */
+.md-nav__item--nested > .md-nav__link:first-child,
+.md-nav__item--nested > label.md-nav__link {
+  background: transparent !important;
+  border: none !important;
+  pointer-events: none; /* Stops hover effects */
+  padding-left: 0; /* Aligns text cleanly with the sidebar edge */
+}

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Professional Certification in Generative AI & Cybersecurity — E&ICT Academy, IIT Kanpur">
+        <meta name="description" content="Cybersecurity Labs and Technical Documentation">
       
       
       
@@ -51,7 +51,7 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/eicta.css">
+      <link rel="stylesheet" href="styles.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -83,6 +83,22 @@
     </div>
     
     
+<header class="md-header" data-md-component="header">
+
+  <nav class="md-header__inner md-grid">
+
+    <!-- LEFT: hamburger + logo area (kept empty safely) -->
+    <div class="md-header__title">
+    </div>
+
+    <!-- CENTER: YOUR BANNER -->
+    <div class="header-banner">
+      <img src="./images/image-1.jpg" alt="Header Banner">
+    </div>
+
+    <!-- RIGHT: keep search + icons working -->
+    <div class="md-header__options">
+      
       
 
 <header class="md-header" data-md-component="header">
@@ -192,6 +208,11 @@
   
 </header>
     
+    </div>
+
+  </nav>
+</header>
+
     <div class="md-container" data-md-component="container">
       
       
@@ -254,9 +275,7 @@
           
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -325,17 +344,13 @@
     
       
       
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -409,7 +424,7 @@
   <span class="md-ellipsis">
     
   
-    Microsoft Threat Modeling Software
+    Threat Modeling with Microsoft Threat Modeling Tool
   
 
     
@@ -466,9 +481,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -490,635 +503,396 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
 
 
 
+<!-- # Gen-AI Cyber Security IITK
 
-<div class="eicta-wrap" markdown="0">
+Welcome to the cybersecurity lab portal.
 
-<!-- ======== HEADER BANNER ======== -->
-<div class="eicta-header-banner">
-  🎓 E&ICT Academy, IIT Kanpur &nbsp;|&nbsp; Professional Certification Programme in Generative AI & Cybersecurity &nbsp;|&nbsp; Powered by MeitY
-</div>
+This platform contains hands-on security labs covering:
 
-<!-- ======== HERO ======== -->
-<div class="eicta-hero">
-  <div class="eicta-hero-inner">
+- Zero Trust Architecture
+- Identity and Access Management
+- Cloud Security
+- Detection Engineering
+- SIEM & SOC Operations
+- Linux Hardening
+- AI-assisted Security Analysis
 
-    <!-- LEFT: Course info -->
-    <div class="eicta-hero-left">
-      <div class="eicta-iit-badge">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-        IIT Kanpur &bull; EICTA Consortium
-      </div>
-      <h1 class="eicta-hero-title">Professional Certification Course in Generative AI &amp; Cybersecurity</h1>
-      <p class="eicta-hero-subtitle">Master Cybersecurity with the Power of AI to Build, Defend, and Lead in the Future of Digital Security</p>
+---
 
-      <ul class="eicta-bullets">
+## Featured Labs
+
+### Microsoft Threat Modeling Software
+
+Learn how to:
+
+- Create a threat model for an Online Exam System using MTMT
+- Generate and analyze threats using the STRIDE methodology
+- Interpret threat reports and understand the associated security risks
+- Use Generative AI to explain, analyze, and suggest remediations for identified threats
+
+Use the sidebar to navigate to the lab.
+
+---
+
+## Lab Format
+
+Each lab includes:
+
+- Step-by-step instructions
+- Security concepts
+- Verification steps
+- Diagrams and screenshots
+- Check-your-understanding questions
+
+---
+
+> Developed by Dhruti Avadhani and Karrthik Adabettu -->
+
+<!-- <style>
+/* Hide sidebars only on homepage */
+.md-sidebar--primary,
+.md-sidebar--secondary {
+    display: none !important;
+}
+
+/* Expand homepage content */
+.md-content {
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+</style>
+
+<style>
+/* =========================
+   REMOVE PAGE TITLE + BREADCRUMB (HOME ONLY)
+   ========================= */
+
+/* Remove page title */
+.md-content h1 {
+  display: none !important;
+}
+
+/* Remove breadcrumb navigation */
+.md-path {
+  display: none !important;
+}
+
+/* Sometimes Material uses this variant */
+.md-breadcrumb {
+  display: none !important;
+}
+
+/* Remove spacing left behind by title */
+.md-content {
+  padding-top: 0 !important;
+}
+</style>
+
+<style>
+  /* Hide sidebar ONLY on homepage */
+  .md-sidebar--primary,
+  .md-sidebar--secondary {
+    display: none !important;
+  }
+
+  /* Expand content to full width */
+  .md-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+  }
+</style>
+
+ -->
+
+<style>
+/* Hide sidebars only on homepage */
+.md-sidebar--primary,
+.md-sidebar--secondary {
+    display: none !important;
+}
+
+/* Expand homepage content */
+.md-content {
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+/* Remove page title */
+.md-content h1 {
+  display: none !important;
+}
+
+/* Remove breadcrumb navigation */
+.md-path {
+  display: none !important;
+}
+
+.md-breadcrumb {
+  display: none !important;
+}
+
+.md-content {
+  padding-top: 0 !important;
+}
+</style>
+
+<div class="hero-container full-width-section">
+  <div class="hero-grid">
+
+    <div class="hero-content-left">
+      <h1 class="main-title">Professional Certification Course in Generative AI & Cybersecurity</h1>
+      <p class="subtitle">Master Cybersecurity with the Power of AI to Build, Defend, and Lead in the Future of Digital Security</p>
+
+      <ul class="features-list">
         <li>
-          <span class="eicta-bullet-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"/></svg></span>
-          <span>Earn an industry-recognised EICTA Consortium Certification backed by a prestigious national academic body.</span>
+          <span class="checkmark">✓</span>
+          <p>Earn an industry recognized EICTA Consortium Certification backed by a prestigious national academic body.</p>
         </li>
         <li>
-          <span class="eicta-bullet-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"/></svg></span>
-          <span>Includes cyber range simulations and enterprise-level capstone project.</span>
+          <span class="checkmark">✓</span>
+          <p>Includes cyber range simulations and enterprise-level capstone project</p>
         </li>
         <li>
-          <span class="eicta-bullet-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"/></svg></span>
-          <span>Gain access to the EICTA Connect privilege that links you with industry, startups, and professionals.</span>
+          <span class="checkmark">✓</span>
+          <p>Gain access to the EICTA Connect privilege that links you with industry, startups, and professionals.</p>
         </li>
         <li>
-          <span class="eicta-bullet-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"/></svg></span>
-          <span>Learn through masterclasses delivered by faculty from IIT Kanpur and other IITs, NITs, and IIITs.</span>
+          <span class="checkmark">✓</span>
+          <p>Learn through masterclasses delivered by faculty from IIT Kanpur and other IITs, NITs, and IIITs.</p>
         </li>
         <li>
-          <span class="eicta-bullet-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"/></svg></span>
-          <span>Covers ethical hacking, AI-powered offensive security, SOC operations, and quantum-ready defense.</span>
+          <span class="checkmark">✓</span>
+          <p>Covers ethical hacking, AI-powered offensive security, SOC operations, and quantum-ready defense</p>
         </li>
       </ul>
 
-      <a href="https://www.eicta.iitk.ac.in/payment/professional-certification-course-in-generative-ai-cybersecurity?mode=ONLINE" class="eicta-enroll-btn" target="_blank">
-        Enroll Now &rarr;
-      </a>
+      <a href="#" class="enroll-btn">Enroll Now</a>
     </div>
 
-    <!-- RIGHT: Counsellor form -->
-    <div class="eicta-hero-right">
-      <div class="eicta-form-card">
-        <h2>Talk to our Counsellor</h2>
-        <div class="eicta-form-row">
-          <div class="eicta-form-group">
-            <label for="fn">Name</label>
-            <input type="text" id="fn" placeholder="Enter your first name">
+    <div class="hero-form-right">
+      <div class="counsellor-card">
+        <h3>Talk to our Counsellor</h3>
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" placeholder="Enter your first name">
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Enter your last name">
+            </div>
           </div>
-          <div class="eicta-form-group">
-            <label for="ln">Last Name</label>
-            <input type="text" id="ln" placeholder="Enter your last name">
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="Your email">
+          </div>
+
+          <div class="form-group">
+            <label>Contact Number</label>
+            <div class="phone-input-wrapper">
+              <select>
+                <option>+91 (IN)</option>
+              </select>
+              <input type="tel" placeholder="Phone number">
+            </div>
+          </div>
+
+          <div class="form-checkbox">
+            <input type="checkbox" id="auth" checked>
+            <label for="auth">
+              I authorise EICTA Consortium (IITK Foundation) and its representatives to contact me with updates and notifications via Email/SMS/WhatsApp/Call. This will override DND/NDNC. By submitting this form you agree to our <a href="#">privacy policy</a> and <a href="#">terms & conditions</a>
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        <div class="form-footer-links">
+          <a href="#">Privacy policy</a> • <a href="#">Terms of use</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="info-strip-section">
+  <div class="info-strip-grid">
+    <div class="info-item">
+      <div class="info-icon">💻</div>
+      <div class="info-text">
+        <h4>Online</h4>
+        <p>Mode of Delivery</p>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <div class="info-icon">🕒</div>
+      <div class="info-text">
+        <h4>9 Months</h4>
+        <p>Course Duration</p>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <div class="info-icon">📅</div>
+      <div class="info-text">
+        <h4>June 27, 2026</h4>
+        <p>Start Date</p>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <div class="info-icon">🏅</div>
+      <div class="info-text">
+        <h4>₹90,000 + GST</h4>
+        <p>Program Fee</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="course-details-container">
+
+  <h2 class="section-heading">What you'll learn</h2>
+  <div class="learn-grid">
+    <div class="learn-column">
+      <ul>
+        <li>Perform penetration testing and ethical hacking to identify and exploit system vulnerabilities.</li>
+        <li>Monitor, detect, and respond to threats as a SOC Analyst or Blue Team Specialist.</li>
+        <li>Conduct digital forensics investigations, including incident analysis and evidence handling.</li>
+        <li>Execute red team operations by simulating advanced real-world cyber attacks.</li>
+      </ul>
+    </div>
+    <div class="learn-column">
+      <ul>
+        <li>Secure cloud environments and implement DevSecOps practices across CI/CD pipelines.</li>
+        <li>Apply AI techniques for threat detection, analysis, and automated security response.</li>
+        <li>Understand the fundamentals of quantum-ready cybersecurity and next-generation cryptography.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-heading">Skills you'll gain</h2>
+  <div class="skills-flex-container">
+    <span class="skill-tag">System security and hardening</span>
+    <span class="skill-tag">Log analysis and operating system auditing</span>
+    <span class="skill-tag">AI-assisted threat identification</span>
+    <span class="skill-tag">Ethical hacking and penetration testing</span>
+    <span class="skill-tag">OSINT automation</span>
+    <span class="skill-tag">Exploit development and payload mutation</span>
+    <span class="skill-tag">Active Directory exploitation</span>
+    <span class="skill-tag">AI-driven offensive security techniques</span>
+    <span class="skill-tag">SOC operations and threat hunting</span>
+    <span class="skill-tag">Digital forensics and incident response</span>
+    <span class="skill-tag">Malware detection and classification using machine learning</span>
+    <span class="skill-tag">Network anomaly detection</span>
+    <span class="skill-tag">Cloud security in AWS and Azure</span>
+    <span class="skill-tag">DevSecOps pipeline automation</span>
+    <span class="skill-tag">Post-quantum cryptography fundamentals</span>
+    <span class="skill-tag">Cyber range execution and simulation</span>
+    <span class="skill-tag">Professional reporting and documentation</span>
+  </div>
+
+  <h2 class="section-heading">Tools</h2>
+  <div class="tools-flex-container">
+    <div class="tool-card"><img src="https://img.shields.io/badge/Burp_Suite-orange?style=for-the-badge&logo=portswigger&logoColor=white" alt="Burp Suite" style="height:40px; width:auto; max-width:none;"></div>
+    <div class="tool-card"><img src="https://img.shields.io/badge/Metasploit-002F4F?style=for-the-badge&logo=metasploit&logoColor=white" alt="Metasploit" style="height:40px; width:auto; max-width:none;"></div>
+    <div class="tool-card"><img src="https://img.shields.io/badge/Nmap-0080C0?style=for-the-badge&logo=nmap&logoColor=white" alt="Nmap" style="height:40px; width:auto; max-width:none;"></div>
+    <div class="tool-card"><img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white" alt="Wireshark" style="height:40px; width:auto; max-width:none;"></div>
+    <div class="tool-card"><img src="https://img.shields.io/badge/Kali_Linux-blue?style=for-the-badge&logo=kali-linux&logoColor=white" alt="Kali Linux" style="height:40px; width:auto; max-width:none;"></div>
+    <div class="tool-card"><img src="https://img.shields.io/badge/ELK_Stack-005571?style=for-the-badge&logo=elastic-stack&logoColor=white" alt="ELK Stack" style="height:40px; width:auto; max-width:none;"></div>
+    <div class="tool-card"><img src="https://img.shields.io/badge/Splunk-black?style=for-the-badge&logo=splunk&logoColor=FF7A00" alt="Splunk" style="height:40px; width:auto; max-width:none;"></div>
+    <div class="tool-card"><img src="https://img.shields.io/badge/pfSense-black?style=for-the-badge&logo=pfsense&logoColor=white" alt="pfSense" style="height:40px; width:auto; max-width:none;"></div>
+    <div class="tool-card"><img src="https://img.shields.io/badge/Maltego-orange?style=for-the-badge&logo=maltego&logoColor=white" alt="Maltego" style="height:40px; width:auto; max-width:none;"></div>
+    <div class="tool-card"><img src="https://img.shields.io/badge/Wazuh-00A4EF?style=for-the-badge&logo=wazuh&logoColor=white" alt="Wazuh" style="height:40px; width:auto; max-width:none;"></div>
+    <div class="tool-card"><img src="https://img.shields.io/badge/Amazon_GuardDuty-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="Amazon GuardDuty" style="height:40px; width:auto; max-width:none;"></div>
+    <div class="tool-card"><img src="https://img.shields.io/badge/Microsoft_Sentinel-0078D4?style=for-the-badge&logo=microsoft&logoColor=white" alt="Microsoft Sentinel" style="height:40px; width:auto; max-width:none;"></div>
+  </div>
+
+</div>
+
+<div class="immersion-section full-width-section">
+  <div class="immersion-inner">
+    <h2 class="immersion-title">Campus Immersion Program</h2>
+    <p class="immersion-subtitle">
+      A focused on-campus engagement at IIT Kanpur designed to provide senior professionals with direct exposure to academic thought leadership, structured peer exchange, and high-level discussions on real-world digital transformation challenges and strategies.
+    </p>
+
+    <div class="immersion-cards-grid">
+      <div class="immersion-card">
+        <div class="card-icon">🎓</div>
+        <p>Immersive Learning Experience at IIT Kanpur</p>
+      </div>
+
+      <div class="immersion-card">
+        <div class="card-icon">👤</div>
+        <p>Faculty Interaction & Academic Engagement</p>
+      </div>
+
+      <div class="immersion-card">
+        <div class="card-icon">👥</div>
+        <p>Peer Networking & Collaborative Discussions</p>
+      </div>
+
+      <div class="immersion-card">
+        <div class="card-icon">📅</div>
+        <p>Access to EICTA Connect Events</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="certificate-section-container">
+  <div class="certificate-flex">
+
+    <div class="certificate-text-left">
+      <h2>Earn a career certificate</h2>
+      <p>Add this credential to your LinkedIn profile, resume, or CV. Share it on social media and in your performance review.</p>
+    </div>
+
+    <div class="certificate-visual-right">
+      <div class="circle-backdrop"></div>
+      <div class="mock-certificate">
+        <div class="cert-header">
+          <div class="cert-logo-placeholder">🌐 <span style="font-size: 8px;">MeitY</span></div>
+          <div class="cert-logo-placeholder">🏛️ <span style="font-size: 8px;">IITK</span></div>
+          <div class="cert-logo-main">EICTA Consortium</div>
+        </div>
+
+        <div class="cert-body">
+          <h3>EICTA Consortium</h3>
+          <p class="cert-sub">(A Joint Initiative of MeitY and IITs, NITs and IIITs)</p>
+
+          <h4 class="cert-main-title">Certificate</h4>
+          <p class="cert-text-line">This is to certify that</p>
+          <p class="cert-student-name">Dr. / Mr. / Ms. Student Name</p>
+          <p class="cert-text-line">has successfully completed certification course on</p>
+          <p class="cert-course-name">Course Name</p>
+        </div>
+
+        <div class="cert-footer">
+          <div class="cert-qr">🏁</div>
+          <div class="cert-sig">
+            <div class="sig-line"></div>
+            <p>Prof B. V. Phani</p>
+            <p class="sig-sub">Chief Investigator, EICTA Academy, IIT Kanpur</p>
           </div>
         </div>
-        <div class="eicta-form-row">
-          <div class="eicta-form-group">
-            <label for="em">Email</label>
-            <input type="email" id="em" placeholder="Your email">
-          </div>
-          <div class="eicta-form-group">
-            <label for="ph">Contact Number</label>
-            <input type="tel" id="ph" placeholder="+91 Phone number">
-          </div>
+        <div class="cert-bottom-bar">
+          EICTA Academies: IIT Kanpur, IIT Guwahati, IIT Roorkee, MNIT Jaipur, IIITDM Jabalpur, NIT Patna, NIT Warangal
         </div>
-        <div class="eicta-form-check">
-          <input type="checkbox" checked>
-          <span>I authorise EICTA Consortium (IITK Foundation) and its representatives to contact me via Email/SMS/WhatsApp/Call. By submitting you agree to our <a href="https://www.eicta.iitk.ac.in/privacy-policy">privacy policy</a> and <a href="https://www.eicta.iitk.ac.in/terms-and-conditions">terms &amp; conditions</a>.</span>
-        </div>
-        <button class="eicta-submit-btn">Submit</button>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- ======== FEATURE STRIP ======== -->
-<div class="eicta-feature-strip">
-  <div class="eicta-feature-strip-inner">
-    <div class="eicta-feature-item">
-      <div class="eicta-feature-icon">🖥️</div>
-      <div>
-        <p class="eicta-feature-value">Online</p>
-        <p class="eicta-feature-label">Mode of Delivery</p>
-      </div>
-    </div>
-    <div class="eicta-feature-item">
-      <div class="eicta-feature-icon">⏱️</div>
-      <div>
-        <p class="eicta-feature-value">9 Months</p>
-        <p class="eicta-feature-label">Course Duration</p>
-      </div>
-    </div>
-    <div class="eicta-feature-item">
-      <div class="eicta-feature-icon">📅</div>
-      <div>
-        <p class="eicta-feature-value">June 27, 2026</p>
-        <p class="eicta-feature-label">Start Date</p>
-      </div>
-    </div>
-    <div class="eicta-feature-item">
-      <div class="eicta-feature-icon">🏆</div>
-      <div>
-        <p class="eicta-feature-value">₹90,000 + GST</p>
-        <p class="eicta-feature-label">Program Fee</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ======== SECTION MENU ======== -->
-<div class="eicta-section-menu">
-  <div class="eicta-section-menu-inner">
-    <button onclick="scrollToId('eicta-about')">About</button>
-    <button onclick="scrollToId('eicta-curriculum')">Curriculum</button>
-    <button onclick="scrollToId('eicta-instructors')">Instructors</button>
-    <button onclick="scrollToId('eicta-faq')">FAQs</button>
-  </div>
-</div>
-
-<!-- ======== ABOUT ======== -->
-<div id="eicta-about" class="eicta-about">
-  <div class="eicta-about-inner">
-
-    <h2 class="eicta-section-title">What you'll learn</h2>
-    <ul class="eicta-learn-list">
-      <li>Perform penetration testing and ethical hacking to identify and exploit system vulnerabilities.</li>
-      <li>Monitor, detect, and respond to threats as a SOC Analyst or Blue Team Specialist.</li>
-      <li>Conduct digital forensics investigations, including incident analysis and evidence handling.</li>
-      <li>Execute red team operations by simulating advanced real-world cyber attacks.</li>
-      <li>Secure cloud environments and implement DevSecOps practices across CI/CD pipelines.</li>
-      <li>Apply AI techniques for threat detection, analysis, and automated security response.</li>
-      <li>Understand the fundamentals of quantum-ready cybersecurity and next-generation cryptography.</li>
-    </ul>
-
-    <h2 class="eicta-section-title">Skills you'll gain</h2>
-    <div class="eicta-skills">
-      <span class="eicta-skill-tag">System security and hardening</span>
-      <span class="eicta-skill-tag">Log analysis and OS auditing</span>
-      <span class="eicta-skill-tag">AI-assisted threat identification</span>
-      <span class="eicta-skill-tag">Ethical hacking and penetration testing</span>
-      <span class="eicta-skill-tag">OSINT automation</span>
-      <span class="eicta-skill-tag">Exploit development and payload mutation</span>
-      <span class="eicta-skill-tag">Active Directory exploitation</span>
-      <span class="eicta-skill-tag">AI-driven offensive security techniques</span>
-      <span class="eicta-skill-tag">SOC operations and threat hunting</span>
-      <span class="eicta-skill-tag">Digital forensics and incident response</span>
-      <span class="eicta-skill-tag">Malware detection using machine learning</span>
-      <span class="eicta-skill-tag">Network anomaly detection</span>
-      <span class="eicta-skill-tag">Cloud security in AWS and Azure</span>
-      <span class="eicta-skill-tag">DevSecOps pipeline automation</span>
-      <span class="eicta-skill-tag">Post-quantum cryptography fundamentals</span>
-      <span class="eicta-skill-tag">Cyber range execution and simulation</span>
-      <span class="eicta-skill-tag">Professional reporting and documentation</span>
-    </div>
-
-    <h2 class="eicta-section-title" style="margin-top:32px">Tools</h2>
-    <div class="eicta-tools-grid">
-      <div class="eicta-tool-item">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="6" fill="#FF6633"/><text x="4" y="22" fill="white" font-size="11" font-weight="bold">Burp</text></svg>
-        Burp Suite
-      </div>
-      <div class="eicta-tool-item">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="6" fill="#2d6db4"/><text x="3" y="22" fill="white" font-size="9" font-weight="bold">MSF</text></svg>
-        Metasploit
-      </div>
-      <div class="eicta-tool-item">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="6" fill="#4caf50"/><text x="4" y="22" fill="white" font-size="10" font-weight="bold">nmap</text></svg>
-        Nmap
-      </div>
-      <div class="eicta-tool-item">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="6" fill="#1679c8"/><text x="2" y="22" fill="white" font-size="8" font-weight="bold">Wire</text></svg>
-        Wireshark
-      </div>
-      <div class="eicta-tool-item">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="6" fill="#2979ff"/><text x="4" y="22" fill="white" font-size="9" font-weight="bold">Kali</text></svg>
-        Kali Linux
-      </div>
-      <div class="eicta-tool-item">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="6" fill="#00bcd4"/><text x="4" y="22" fill="white" font-size="10" font-weight="bold">ELK</text></svg>
-        ELK Stack
-      </div>
-      <div class="eicta-tool-item">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="6" fill="#ff5722"/><text x="2" y="22" fill="white" font-size="8" font-weight="bold">Splunk</text></svg>
-        Splunk
-      </div>
-      <div class="eicta-tool-item">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="6" fill="#607d8b"/><text x="2" y="22" fill="white" font-size="7" font-weight="bold">pfSense</text></svg>
-        pfSense
-      </div>
-      <div class="eicta-tool-item">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="6" fill="#673ab7"/><text x="2" y="22" fill="white" font-size="8" font-weight="bold">Maltego</text></svg>
-        Maltego
-      </div>
-      <div class="eicta-tool-item">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="6" fill="#0097a7"/><text x="3" y="22" fill="white" font-size="8" font-weight="bold">Wazuh</text></svg>
-        Wazuh
-      </div>
-      <div class="eicta-tool-item">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="6" fill="#ff9900"/><text x="5" y="22" fill="white" font-size="9" font-weight="bold">AWS</text></svg>
-        AWS
-      </div>
-      <div class="eicta-tool-item">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="6" fill="#0078d4"/><text x="2" y="22" fill="white" font-size="7" font-weight="bold">Azure</text></svg>
-        Azure Sentinel
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ======== CAMPUS IMMERSION ======== -->
-<div class="eicta-campus">
-  <div class="eicta-campus-inner">
-    <h2 class="eicta-section-title">Campus Immersion Program</h2>
-    <p class="eicta-campus-subtitle">A focused on-campus engagement at IIT Kanpur designed to provide senior professionals with direct exposure to academic thought leadership, structured peer exchange, and high-level discussions on real-world digital transformation challenges and strategies.</p>
-    <div class="eicta-campus-grid">
-      <div class="eicta-campus-card">
-        <div class="eicta-campus-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        </div>
-        <h3>Immersive Learning Experience at IIT Kanpur</h3>
-      </div>
-      <div class="eicta-campus-card">
-        <div class="eicta-campus-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <h3>Faculty Interaction &amp; Academic Engagement</h3>
-      </div>
-      <div class="eicta-campus-card">
-        <div class="eicta-campus-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>Peer Networking &amp; Collaborative Discussions</h3>
-      </div>
-      <div class="eicta-campus-card">
-        <div class="eicta-campus-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <h3>Access to EICTA Connect Events</h3>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ======== CERTIFICATE ======== -->
-<div class="eicta-certificate">
-  <div class="eicta-certificate-inner">
-    <div class="eicta-certificate-text">
-      <h2 class="eicta-section-title">Earn a career certificate</h2>
-      <p>Add this credential to your LinkedIn profile, resume, or CV. Share it on social media and in your performance review. Backed by E&amp;ICT Academy, IIT Kanpur — one of India's premier technical institutions.</p>
-    </div>
-    <div class="eicta-certificate-img">
-      <div class="eicta-cert-placeholder">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-        <p>E&amp;ICT Academy, IIT Kanpur</p>
-        <p style="font-size:0.72rem;opacity:0.6">Professional Certification</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ======== INSTRUCTORS ======== -->
-<div id="eicta-instructors" class="eicta-instructors">
-  <div class="eicta-instructors-inner">
-    <h2 class="eicta-section-title">Course Instructors</h2>
-    <div class="eicta-instructors-grid">
-      <div class="eicta-instructor-card">
-        <div class="eicta-instructor-avatar">AK</div>
-        <div>
-          <p class="eicta-instructor-name">Adarsh Kant</p>
-          <p class="eicta-instructor-title">Founder &amp; CEO, AnveVoice | AI × Cybersecurity Expert</p>
-          <p class="eicta-instructor-desc">Over 8 years of experience in AI and cybersecurity training. Trained more than 14,000 students and professionals globally, with stints at RBI, IIT Kanpur, and John Deere.</p>
-        </div>
-      </div>
-      <div class="eicta-instructor-card">
-        <div class="eicta-instructor-avatar">SN</div>
-        <div>
-          <p class="eicta-instructor-name">Dr. Suvendu Naskar</p>
-          <p class="eicta-instructor-title">Faculty Advisor, IIT Kanpur</p>
-          <p class="eicta-instructor-desc">Teaches at IIT Kanpur's Department of Management Sciences, specialising in business analytics, supply chain management, and digital transformation. IIM Calcutta &amp; IIM Kozhikode alumnus.</p>
-        </div>
-      </div>
-      <div class="eicta-instructor-card">
-        <div class="eicta-instructor-avatar">MK</div>
-        <div>
-          <p class="eicta-instructor-name">Dr. Manish Kumar</p>
-          <p class="eicta-instructor-title">Associate Professor</p>
-          <p class="eicta-instructor-desc">Ph.D. in Computer Science with 16+ years in Information Security and Digital Forensics. Subject Matter Expert with IBM-Coursera and edX. Contributes to cyber forensics labs for law enforcement agencies.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ======== HIGHLIGHTS / PRICING ======== -->
-<div class="eicta-highlights">
-  <div class="eicta-highlights-inner">
-    <div class="eicta-price-left">
-      <p class="eicta-price-label">Course Fee</p>
-      <p class="eicta-price-value">₹90,000 <span>+ GST</span></p>
-      <a href="https://www.eicta.iitk.ac.in/payment/professional-certification-course-in-generative-ai-cybersecurity?mode=ONLINE" class="eicta-enroll-btn-light" target="_blank">Enroll Now</a>
-    </div>
-    <div class="eicta-highlights-cards">
-      <div class="eicta-highlight-card">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        <div>
-          <h3>Structured Weekend Learning</h3>
-          <p>A flexible weekend program designed for students and professionals to build skills without disrupting their routine.</p>
-        </div>
-      </div>
-      <div class="eicta-highlight-card">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        <div>
-          <h3>Real-World &amp; AI-Driven Scenario-Based Learning</h3>
-          <p>Learn through enterprise-grade simulations, including AI-powered threat detection and modern cyber attack scenarios.</p>
-        </div>
-      </div>
-      <div class="eicta-highlight-card">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        <div>
-          <h3>Hands-On Cyber Range &amp; Industry Tools Exposure</h3>
-          <p>Practice on real cybersecurity tools like SIEM, Metasploit, ELK, and cloud platforms in a simulated enterprise environment.</p>
-        </div>
-      </div>
-      <div class="eicta-highlight-card">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        <div>
-          <h3>Capstone Project for Job Readiness</h3>
-          <p>Build an industry-ready project that showcases your practical skills and strengthens your cybersecurity portfolio.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ======== CURRICULUM ======== -->
-<div id="eicta-curriculum" class="eicta-modules">
-  <div class="eicta-modules-inner">
-    <h2 class="eicta-section-title">Curriculum</h2>
-    <div class="eicta-modules-grid">
-
-      <div class="eicta-module-item">
-        <button class="eicta-module-header" onclick="toggleModule(this)">
-          <span>Module 1 — Foundations &amp; System Security</span>
-          <span>&#9660;</span>
-        </button>
-        <div class="eicta-module-body">
-          <ul>
-            <li>Cybersecurity domains: Red, Blue, SOC, DFIR, GRC</li>
-            <li>Kill Chain &amp; ATT&amp;CK framework</li>
-            <li>Threat actors &amp; risk concepts</li>
-            <li>Secure Development Lifecycle</li>
-            <li>STRIDE &amp; ATT&amp;CK threat modeling</li>
-            <li>Zero Trust principles &amp; NIST SP 800-207</li>
-            <li>Governance, Risk &amp; Compliance: NIST CSF, ISO 27001, FedRAMP</li>
-            <li>Networking fundamentals: TCP/IP, protocol abuse, Wireshark lab</li>
-            <li>Linux security, SSH, permissions, hardening lab</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="eicta-module-item">
-        <button class="eicta-module-header" onclick="toggleModule(this)">
-          <span>Module 2 — Pentesting &amp; Ethical Hacking</span>
-          <span>&#9660;</span>
-        </button>
-        <div class="eicta-module-body">
-          <ul>
-            <li>Active vs Passive recon, WHOIS, Shodan, Maltego lab</li>
-            <li>Nmap advanced scanning, Nessus/OpenVAS, CVSS interpretation</li>
-            <li>Web Application Security — OWASP Top 10</li>
-            <li>SQLi, XSS, IDOR, CSRF, SSRF, RCE, API security testing</li>
-            <li>Metasploit framework, shell handling, privilege escalation</li>
-            <li>WPA2 cracking, rogue AP lab</li>
-            <li>Rules of Engagement &amp; Regulatory Context</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="eicta-module-item">
-        <button class="eicta-module-header" onclick="toggleModule(this)">
-          <span>Module 3 — Advanced Red Teaming + AI-Driven Attacks</span>
-          <span>&#9660;</span>
-        </button>
-        <div class="eicta-module-body">
-          <ul>
-            <li>Active Directory attacks: Kerberos abuse, Pass-the-Hash, Mimikatz</li>
-            <li>Lateral movement, SMB/RDP pivoting, SOCKS tunneling</li>
-            <li>Payload development &amp; AV evasion, AMSI bypass, sandbox evasion</li>
-            <li>GenAI-Assisted Offensive Security: AI phishing, recon automation</li>
-            <li>Adversarial AI: data poisoning, model evasion, prompt injection, deepfakes</li>
-            <li>Ethics &amp; Governance of AI Offense</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="eicta-module-item">
-        <button class="eicta-module-header" onclick="toggleModule(this)">
-          <span>Module 4 — SOC, DFIR + AI/ML for Defense</span>
-          <span>&#9660;</span>
-        </button>
-        <div class="eicta-module-body">
-          <ul>
-            <li>SOC workflow, alert triage, escalation &amp; playbooks</li>
-            <li>Detection engineering: ELK/Splunk log ingestion, Sigma rules</li>
-            <li>ATT&amp;CK-based threat hunts &amp; alert tuning</li>
-            <li>DFIR: disk &amp; memory acquisition, Volatility, forensic artifacts</li>
-            <li>Ransomware recovery &amp; immutable backup vaults</li>
-            <li>AI/ML for malware classification &amp; network anomaly detection</li>
-            <li>Incident Response for AI Systems</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="eicta-module-item">
-        <button class="eicta-module-header" onclick="toggleModule(this)">
-          <span>Module 5 — Cloud Security, DevSecOps &amp; Quantum Security</span>
-          <span>&#9660;</span>
-        </button>
-        <div class="eicta-module-body">
-          <ul>
-            <li>Cloud IAM roles, storage misconfigurations, WAF, GuardDuty</li>
-            <li>CI/CD security, SAST/DAST, containers &amp; Kubernetes, SBOM</li>
-            <li>API auth, OAuth2, token abuse, gRPC/GraphQL testing</li>
-            <li>AI Security Engineering (MLOps): dataset security, model registry risks</li>
-            <li>Quantum-Ready Cybersecurity: PQC concepts &amp; demo</li>
-            <li>Third-Party &amp; Vendor Risk Management</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="eicta-module-item">
-        <button class="eicta-module-header" onclick="toggleModule(this)">
-          <span>Module 6 — Capstone Project</span>
-          <span>&#9660;</span>
-        </button>
-        <div class="eicta-module-body">
-          <ul>
-            <li>Build AI-powered SOC that auto-detects malware traffic</li>
-            <li>Full enterprise pentest including AD exploitation and forensics</li>
-            <li>Hybrid Red + Blue + Purple Team cyber range simulation</li>
-            <li>Post-Quantum secure cloud architecture for an organisation</li>
-            <li>DevSecOps pipeline with automated SAST/DAST + threat response</li>
-          </ul>
-          <p style="margin-top:10px"><strong>Deliverables:</strong> Technical execution &amp; demo, detailed documentation, executive summary, ATT&amp;CK mapping, GitHub portfolio submission, and final presentation.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- ======== FAQ ======== -->
-<div id="eicta-faq" class="eicta-faq">
-  <div class="eicta-faq-inner">
-    <h2 class="eicta-section-title" style="text-align:center">FAQs</h2>
-
-    <div class="eicta-faq-item">
-      <button class="eicta-faq-btn" onclick="toggleFaq(this)">
-        <span>What is the Professional Certification in Generative AI &amp; Cybersecurity?</span> <span>&#9660;</span>
-      </button>
-      <div class="eicta-faq-answer">
-        It is a 9-month, industry-focused program designed to build expertise in cybersecurity along with AI-driven security techniques, preparing learners for modern enterprise roles.
-      </div>
-    </div>
-
-    <div class="eicta-faq-item">
-      <button class="eicta-faq-btn" onclick="toggleFaq(this)">
-        <span>Who should enroll in this course?</span> <span>&#9660;</span>
-      </button>
-      <div class="eicta-faq-answer">
-        This program is ideal for students, IT professionals, developers, and anyone looking to transition into cybersecurity or AI-driven security roles.
-      </div>
-    </div>
-
-    <div class="eicta-faq-item">
-      <button class="eicta-faq-btn" onclick="toggleFaq(this)">
-        <span>What are the key skills I will gain?</span> <span>&#9660;</span>
-      </button>
-      <div class="eicta-faq-answer">
-        You will learn ethical hacking, SOC operations, digital forensics, cloud security, DevSecOps, and AI-based threat detection and response.
-      </div>
-    </div>
-
-    <div class="eicta-faq-item">
-      <button class="eicta-faq-btn" onclick="toggleFaq(this)">
-        <span>Does this course include hands-on training?</span> <span>&#9660;</span>
-      </button>
-      <div class="eicta-faq-answer">
-        Yes, the program includes extensive hands-on labs, real-world simulations, and cyber range exercises using industry tools.
-      </div>
-    </div>
-
-    <div class="eicta-faq-item">
-      <button class="eicta-faq-btn" onclick="toggleFaq(this)">
-        <span>Which tools are covered?</span> <span>&#9660;</span>
-      </button>
-      <div class="eicta-faq-answer">
-        ELK, Splunk, Metasploit, Wireshark, Kali Linux, Maltego, Wazuh, AWS, Docker, Azure Sentinel, and AI/ML frameworks used in cybersecurity.
-      </div>
-    </div>
-
-    <div class="eicta-faq-item">
-      <button class="eicta-faq-btn" onclick="toggleFaq(this)">
-        <span>What is the duration and structure?</span> <span>&#9660;</span>
-      </button>
-      <div class="eicta-faq-answer">
-        It is a 9-month weekend program with 144 hours of training, including theory, hands-on labs, and a capstone project.
-      </div>
-    </div>
-
-    <div class="eicta-faq-item">
-      <button class="eicta-faq-btn" onclick="toggleFaq(this)">
-        <span>Do I need prior cybersecurity experience?</span> <span>&#9660;</span>
-      </button>
-      <div class="eicta-faq-answer">
-        Basic knowledge of computers and networking is recommended, but prior cybersecurity or programming experience is not mandatory.
-      </div>
-    </div>
-
-    <div class="eicta-faq-item">
-      <button class="eicta-faq-btn" onclick="toggleFaq(this)">
-        <span>What career opportunities are available after this course?</span> <span>&#9660;</span>
-      </button>
-      <div class="eicta-faq-answer">
-        You can pursue roles such as Ethical Hacker, SOC Analyst, Digital Forensic Investigator, Cloud Security Engineer, and AI-based Cyber Analyst.
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ======== FOOTER ======== -->
-<div class="eicta-footer">
-  <div class="eicta-footer-inner">
-    <div class="eicta-footer-grid">
-      <div>
-        <p class="eicta-footer-heading">About EICTA Consortium</p>
-        <p class="eicta-footer-text">EICTA consortium offers short and long-term online courses in engineering, sciences, data, management, and more — through online, offline, and blended modes. A joint initiative of MeitY and IITs, NITs, IIITs, the academy is committed to national capacity building through certified learning programs.</p>
-        <p class="eicta-footer-heading" style="margin-top:16px">Subscribe</p>
-        <p class="eicta-footer-text" style="margin-bottom:8px">Get expert insights and updates on emerging tech directly from EICTA consortium.</p>
-        <div class="eicta-footer-subscribe">
-          <input type="email" placeholder="Enter your email">
-          <button>Subscribe</button>
-        </div>
-      </div>
-      <div>
-        <p class="eicta-footer-heading">Our Courses</p>
-        <ul class="eicta-footer-links">
-          <li><a href="https://www.eicta.iitk.ac.in/fdp">Faculty Development Programs</a></li>
-          <li><a href="https://www.eicta.iitk.ac.in/sdp">Student Development Programs</a></li>
-          <li><a href="https://www.eicta.iitk.ac.in/courses">Professional Development Programs</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="eicta-footer-heading">Connect With Us</p>
-        <div class="eicta-footer-socials">
-          <a href="https://in.linkedin.com/company/eicta-iitk" target="_blank" title="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="https://www.instagram.com/eicta_iitk/" target="_blank" title="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C9.28 2 8.94 2.01 7.88 2.06 6.81 2.11 6.09 2.28 5.45 2.52a5.9 5.9 0 00-2.12 1.38A5.9 5.9 0 001.95 6.02C1.72 6.66 1.55 7.38 1.5 8.45 1.45 9.51 1.44 9.85 1.44 12.57s.01 3.06.06 4.12c.05 1.07.22 1.79.46 2.43a5.9 5.9 0 001.38 2.13 5.9 5.9 0 002.13 1.38c.64.24 1.36.41 2.43.46 1.06.05 1.4.06 4.12.06s3.06-.01 4.12-.06c1.07-.05 1.79-.22 2.43-.46a5.9 5.9 0 002.13-1.38 5.9 5.9 0 001.38-2.13c.24-.64.41-1.36.46-2.43.05-1.06.06-1.4.06-4.12s-.01-3.06-.06-4.12c-.05-1.07-.22-1.79-.46-2.43a5.9 5.9 0 00-1.38-2.13 5.9 5.9 0 00-2.13-1.38C18.36 2.28 17.64 2.11 16.57 2.06 15.51 2.01 15.17 2 12.45 2H12zm0 1.8h.57c2.67 0 2.99.01 4.04.06.98.04 1.51.2 1.86.33.47.18.8.4 1.15.75.35.35.57.68.75 1.15.13.35.29.88.33 1.86.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.04.98-.2 1.51-.33 1.86a3.1 3.1 0 01-.75 1.15 3.1 3.1 0 01-1.15.75c-.35.13-.88.29-1.86.33-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-.98-.04-1.51-.2-1.86-.33a3.1 3.1 0 01-1.15-.75 3.1 3.1 0 01-.75-1.15c-.13-.35-.29-.88-.33-1.86C3.81 15 3.8 14.68 3.8 12s.01-2.99.06-4.04c.04-.98.2-1.51.33-1.86.18-.47.4-.8.75-1.15.35-.35.68-.57 1.15-.75.35-.13.88-.29 1.86-.33C8.96 3.81 9.28 3.8 12 3.8zM12 7a5 5 0 100 10A5 5 0 0012 7zm0 1.8a3.2 3.2 0 110 6.4A3.2 3.2 0 0112 8.8zm5.2-1.4a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/></svg>
-          </a>
-          <a href="https://www.facebook.com/iitkfacet" target="_blank" title="Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-          <a href="https://x.com/eicta_iitk" target="_blank" title="X / Twitter">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M17.69 3.06L12.69 8.77 8.37 3.06H2.11l7.48 9.78L2.5 20.94h3.04l5.47-6.25 4.78 6.25H21.9l-7.8-10.33 6.63-7.56h-3.04zM16.62 19.12L5.65 4.78h1.8l10.85 14.34h-1.68z"/></svg>
-          </a>
-        </div>
-        <p class="eicta-footer-heading" style="margin-top:20px">Contact Us</p>
-        <p class="eicta-footer-text">+91-9219972805<br>support@eicta.iitk.ac.in</p>
-      </div>
-    </div>
-
-    <div class="eicta-footer-bottom">
-      <span>Copyright &copy; 2026 | EICTA Consortium | Powered by MeitY</span>
-      <nav class="eicta-footer-nav">
-        <a href="https://www.eicta.iitk.ac.in/contact-us">Contact Us</a>
-        <a href="https://www.eicta.iitk.ac.in/privacy-policy">Privacy Policy</a>
-        <a href="https://www.eicta.iitk.ac.in/terms-and-conditions">Terms &amp; Conditions</a>
-        <a href="https://www.eicta.iitk.ac.in/refund-policy">Refund Policy</a>
-        <a href="https://www.eicta.iitk.ac.in/careers">Careers</a>
-      </nav>
-    </div>
-    <div class="eicta-disclaimer">
-      Kindly note that all certificates given by EICTA Consortium do not entitle the person to claim the status of an alumni of IITK unless specifically stated. All internships, projects, and placements promised are the sole responsibility of the concerned delivery partner.
-    </div>
-  </div>
-</div>
-
-<!-- ======== JS for toggles ======== -->
-<script>
-function toggleModule(btn) {
-  var body = btn.nextElementSibling;
-  var isOpen = body.classList.contains('open');
-  // close all
-  document.querySelectorAll('.eicta-module-body').forEach(function(b){ b.classList.remove('open'); });
-  document.querySelectorAll('.eicta-module-header').forEach(function(b){ b.classList.remove('open'); });
-  if (!isOpen) {
-    body.classList.add('open');
-    btn.classList.add('open');
-  }
-}
-function toggleFaq(btn) {
-  var answer = btn.nextElementSibling;
-  var isOpen = answer.classList.contains('open');
-  document.querySelectorAll('.eicta-faq-answer').forEach(function(a){ a.classList.remove('open'); });
-  if (!isOpen) answer.classList.add('open');
-}
-function scrollToId(id) {
-  var el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: 'smooth' });
-}
-</script>
-
-</div>
 
 
 
@@ -1126,13 +900,7 @@ function scrollToId(id) {
 
 
 
-  
-  
 
-
-
-
-  
 
 
 
@@ -1181,7 +949,7 @@ function scrollToId(id) {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>

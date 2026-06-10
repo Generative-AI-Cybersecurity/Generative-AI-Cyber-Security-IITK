@@ -2,13 +2,16 @@ site_name: Gen-AI Cyber Security IITK
 site_description: Cybersecurity Labs and Technical Documentation
 site_url: https://sitename.example
 
+extra_css:
+  - styles.css
+
+
 theme:
   name: material
+  custom_dir: overrides
 
   features:
     - navigation.tabs
-    - navigation.sections
-    - navigation.expand
     - navigation.top
     - search.highlight
     - search.suggest

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block header %}
+<header class="md-header" data-md-component="header">
+
+  <nav class="md-header__inner md-grid">
+
+    <!-- LEFT: hamburger + logo area (kept empty safely) -->
+    <div class="md-header__title">
+    </div>
+
+    <!-- CENTER: YOUR BANNER -->
+    <div class="header-banner">
+      <img src="{{ base_url }}/images/image-1.jpg" alt="Header Banner">
+    </div>
+
+    <!-- RIGHT: keep search + icons working -->
+    <div class="md-header__options">
+      {{ super() }}
+    </div>
+
+  </nav>
+</header>
+{% endblock %}

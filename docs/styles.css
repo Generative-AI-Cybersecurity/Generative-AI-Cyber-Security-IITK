@@ -914,42 +914,411 @@
 
 
 
+/* ==================================================
+   CYBER LANDING PAGE - LIGHT EICTA THEME
+   ================================================== */
 
-/* Nav items as buttons */
-.md-nav__item .md-nav__link {
-  display: block;
-  padding: 9px 14px;
-  margin-bottom: 4px;
-  border: 0.5px solid rgba(0, 0, 0, 0.12);
-  border-radius: 8px;
-  font-size: 13.5px;
-  color: var(--md-typeset-color);
-  transition: background 0.15s ease, border-color 0.15s ease;
-  text-decoration: none;
+.cyber-home {
+    background: #E7ECF7;
+    color: #111827;
+    margin-top: -20px;
 }
 
-.md-nav__item .md-nav__link:hover {
-  background: rgba(0, 0, 0, 0.05);
-  border-color: rgba(0, 0, 0, 0.2);
+/* HERO */
+
+.cyber-hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    background:
+    radial-gradient(circle at top right,#2A52BE15,transparent 40%),
+    radial-gradient(circle at bottom left,#FF6B5310,transparent 35%),
+    linear-gradient(
+        135deg,
+        #D2D7F4 0%,
+        #E7ECF7 100%
+    );
 }
 
-.md-nav__item .md-nav__link--active {
-  background: #2563eb;
-  border-color: #2563eb;
-  color: #ffffff !important;
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+    linear-gradient(rgba(42,82,190,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42,82,190,.04) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    padding: 40px;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: white;
+    border: 1px solid #D2D7F4;
+    color: #2A52BE;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    color: #2A52BE !important;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    color: #4B5563;
+    max-width: 700px;
+    margin: auto;
+}
+
+.hero-buttons {
+    margin-top: 40px;
+}
+
+.primary-btn,
+.secondary-btn {
+    text-decoration: none !important;
+    padding: 14px 28px;
+    border-radius: 12px;
+    margin: 8px;
+    display: inline-block;
+    transition: all .25s ease;
+    font-weight: 600;
+}
+
+.primary-btn {
+    background: #FF6B53;
+    color: white !important;
+    box-shadow: 0 8px 20px rgba(255,107,83,.25);
+}
+
+.secondary-btn {
+    background: white;
+    border: 1px solid #D2D7F4;
+    color: #2A52BE !important;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-3px);
+}
+
+.hero-stats {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.hero-stats div {
+    background: white;
+    border: 1px solid #D2D7F4;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(42,82,190,.08);
+}
+
+.hero-stats span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FF6B53;
+}
+
+.hero-stats p {
+    margin-top: 6px;
+    color: #64748B;
+}
+
+/* SECTIONS */
+
+.labs-section,
+.path-section,
+.arsenal-section,
+.terminal-section {
+    padding: 80px 10%;
+}
+
+.labs-section h2,
+.path-section h2,
+.arsenal-section h2,
+.terminal-section h2 {
+    color: #2A52BE !important;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.2rem;
+}
+
+/* LAB CARDS */
+
+.lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 24px;
+}
+
+.lab-card {
+    background: white;
+    color: #111827 !important;
+    border: 1px solid #D2D7F4;
+    border-radius: 20px;
+    padding: 28px;
+    text-decoration: none !important;
+    transition: all .25s ease;
+
+    box-shadow:
+    0 8px 20px rgba(42,82,190,.06);
+}
+
+.lab-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #2A52BE;
+
+    box-shadow:
+    0 14px 32px rgba(42,82,190,.15);
+}
+
+.lab-card h3 {
+    color: #2A52BE !important;
+    margin-bottom: 12px;
+}
+
+.lab-card p {
+    color: #64748B;
+}
+
+/* LEARNING PATH */
+
+.path-container {
+    max-width: 650px;
+    margin: auto;
+}
+
+.path-step {
+    background: white;
+    color: #111827;
+
+    border-left: 5px solid #FF6B53;
+
+    padding: 18px 22px;
+    border-radius: 12px;
+
+    box-shadow:
+    0 6px 16px rgba(42,82,190,.08);
+}
+
+.path-line {
+    width: 3px;
+    height: 36px;
+    background: #2A52BE;
+    margin: auto;
+}
+
+/* ARSENAL */
+
+.arsenal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 20px;
+}
+
+.arsenal-card {
+    background: white;
+    color: #111827;
+
+    border: 1px solid #D2D7F4;
+
+    border-radius: 16px;
+    padding: 20px;
+
+    text-align: center;
+    font-weight: 600;
+
+    transition: all .25s ease;
+
+    box-shadow:
+    0 6px 16px rgba(42,82,190,.06);
+}
+
+.arsenal-card:hover {
+    border-color: #2A52BE;
+
+    box-shadow:
+    0 10px 25px rgba(42,82,190,.15);
+}
+
+/* TERMINAL */
+
+.terminal {
+    background: #111827;
+
+    border: 2px solid #2A52BE;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    max-width: 900px;
+    margin: auto;
+
+    box-shadow:
+    0 15px 40px rgba(42,82,190,.15);
+}
+
+.terminal pre {
+    color: #00ff88;
+    margin: 0;
+    font-family: "Courier New", monospace;
+    white-space: pre-wrap;
+}
+
+/* MOBILE */
+
+@media (max-width:768px) {
+
+.hero-content h1 {
+    font-size: 2.5rem;
+}
+
+.hero-stats {
+    grid-template-columns: repeat(2,1fr);
+}
+
+.labs-section,
+.path-section,
+.arsenal-section,
+.terminal-section {
+    padding: 60px 20px;
+}
+
+}
+
+/* ==========================================================
+   INTERACTIVE CURRICULUM TABS INTERFACE
+   ========================================================== */
+
+.curriculum-section {
+  padding: 60px 10%;
+  background: #E7ECF7;
+}
+
+.curriculum-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+/* Sidebar styling matching the image blueprint */
+.curriculum-sidebar {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.curriculum-btn {
+  width: 100%;
+  text-align: left;
+  padding: 16px 20px;
+  background-color: #F0F4FC;
+  color: #334155;
+  border: none;
+  border-radius: 6px;
+  font-size: 14.5px;
   font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
 }
 
-/* Remove default MkDocs active underline/indicator */
-.md-nav__item .md-nav__link--active::before {
+.curriculum-btn:hover {
+  background-color: #E2E8F0;
+}
+
+/* Active Highlight Blue Mode */
+.curriculum-btn.active {
+  background-color: #2A52BE;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.curriculum-btn .arrow-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Right Content Window Container */
+.curriculum-content {
+  flex: 1;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 40px;
+  min-height: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+/* Functional toggle switches */
+.tab-pane {
   display: none;
 }
 
-/* --- Fix: Remove button style from the LABS heading --- */
-.md-nav__item--nested > .md-nav__link:first-child,
-.md-nav__item--nested > label.md-nav__link {
-  background: transparent !important;
-  border: none !important;
-  pointer-events: none; /* Stops hover effects */
-  padding-left: 0; /* Aligns text cleanly with the sidebar edge */
+.tab-pane.active {
+  display: block;
+}
+
+/* Curriculum internal item layout formats */
+.content-group {
+  margin-bottom: 28px;
+}
+
+.content-group h3 {
+  font-size: 20px !important;
+  color: #1E3A8A !important;
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+
+.tab-pane ul {
+  list-style-type: disc !important;
+  padding-left: 20px !important;
+  margin: 0 !important;
+}
+
+.tab-pane li {
+  font-size: 15px;
+  color: #334155;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Mobile responsivity layout conversion */
+@media (max-width: 768px) {
+  .curriculum-container {
+    flex-direction: column;
+  }
+  .curriculum-sidebar {
+    flex: 1 1 auto;
+    width: 100%;
+  }
 }

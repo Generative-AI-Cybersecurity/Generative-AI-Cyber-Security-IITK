@@ -1,7 +1,6 @@
 # Zero Trust & Identity Lab
 
 > Beginner Friendly • 2 Hours • Hands-on Security Lab  
-> Author: Dhruti Avadhani
 
 ---
 

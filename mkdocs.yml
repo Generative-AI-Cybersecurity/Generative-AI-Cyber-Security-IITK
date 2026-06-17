@@ -19,6 +19,7 @@ theme:
     - content.tabs.link
     - content.action.edit
 
+
   palette:
     - scheme: default
       primary: blue grey
@@ -56,6 +57,22 @@ nav:
   - Home: index.md
 
   - Labs:
-      - Zero Trust & Identity Lab: test-lab/index.md
-      - Threat Modeling with Microsoft Threat Modeling Tool: microsoft-threat-model-software/index.md
-      - Threat Modeling with OWASP Threat Dragon: owasp-threat-dragon/index.md
+      - Foundations & System Security: 
+        - Microsoft Threat Modeling Tool: foundations-and-system-security/microsoft-threat-model-software/index.md
+        - OWASP Threat Dragon: foundations-and-system-security/owasp-threat-dragon/index.md
+      
+      - Pentesting & Ethical Hacking:
+        - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
+      
+      - Advance Red Teaming & AI-Driven Attacks:
+        - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
+
+      - SOC, DFIR & AIML for Defense: 
+        - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
+
+      - Cloud Security, DevSecOps & Quantum Security:
+        - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
+
+      - Capstone Project: 
+        - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
+

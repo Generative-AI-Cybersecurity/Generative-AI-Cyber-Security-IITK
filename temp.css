@@ -1,0 +1,39 @@
+
+/*Nav items as buttons*/
+.md-nav__item .md-nav__link {
+  display: block;
+  padding: 9px 14px;
+  margin-bottom: 4px;
+  border: 0.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  font-size: 13.5px;
+  color: var(--md-typeset-color);
+  transition: background 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+}
+
+.md-nav__item .md-nav__link:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.md-nav__item .md-nav__link--active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+/* Remove default MkDocs active underline/indicator */
+.md-nav__item .md-nav__link--active::before {
+  display: none;
+}
+
+/* --- Fix: Remove button style from the LABS heading --- */
+.md-nav__item--nested > .md-nav__link:first-child,
+.md-nav__item--nested > label.md-nav__link {
+  background: transparent !important;
+  border: none !important;
+  pointer-events: none; /* Stops hover effects */
+  padding-left: 0; /* Aligns text cleanly with the sidebar edge */
+}

@@ -5,7 +5,6 @@ site_url: https://sitename.example
 extra_css:
   - styles.css
 
-
 theme:
   name: material
   custom_dir: overrides
@@ -18,7 +17,6 @@ theme:
     - content.code.copy
     - content.tabs.link
     - content.action.edit
-
 
   palette:
     - scheme: default
@@ -57,22 +55,22 @@ nav:
   - Home: index.md
 
   - Labs:
-      - Foundations & System Security: 
-        - Microsoft Threat Modeling Tool: foundations-and-system-security/microsoft-threat-model-software/index.md
-        - OWASP Threat Dragon: foundations-and-system-security/owasp-threat-dragon/index.md
-      
-      - Pentesting & Ethical Hacking:
-        - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
-      
-      - Advance Red Teaming & AI-Driven Attacks:
-        - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
+      - Foundations & System Security:
+          - Microsoft Threat Modeling Tool: foundations-and-system-security/microsoft-threat-model-software/index.md
+          - OWASP Threat Dragon: foundations-and-system-security/owasp-threat-dragon/index.md
+          - Zero Day Trust: foundations-and-system-security/zero-day-trust/index.md
 
-      - SOC, DFIR & AIML for Defense: 
-        - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
+      - Pentesting & Ethical Hacking:
+          - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
+
+      - Advance Red Teaming & AI-Driven Attacks:
+          - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
+
+      - SOC, DFIR & AIML for Defense:
+          - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
 
       - Cloud Security, DevSecOps & Quantum Security:
-        - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
+          - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
 
-      - Capstone Project: 
-        - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
-
+      - Capstone Project:
+          - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md

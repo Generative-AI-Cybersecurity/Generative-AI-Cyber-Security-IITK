@@ -142,7 +142,8 @@ On Kali Linux VM, use:
 
 Locate a packet containing a message similar to:
 
-```Who has 192.168.1.1?
+```
+Who has 192.168.1.1?
     Tell 192.168.1.100
 ```
 
@@ -461,8 +462,11 @@ When investigating network traffic, analysts can often view the full contents of
 # Module 2.0: Firewall Fundamentals using GUFW (60 Minutes)
 
 > Lab Type: Firewall Configuration and Traffic Filtering
+>
 > Tool: GUFW (Graphical Uncomplicated Firewall)
+>
 > Duration: 60 Minutes
+>
 > System: Kali Linux (Ubuntu/Debian compatible)
 
 ---
@@ -570,13 +574,7 @@ Click **Add**.
 
 ### Verify Web Access
 
-Open Firefox and navigate to:
-
-```
-https://www.amazon.in
-```
-
-The website should load successfully, confirming that ports 80 and 443 are now permitted through the firewall.
+Open Firefox and navigate to `https://www.amazon.in`. The website should load successfully, confirming that ports 80 and 443 are now permitted through the firewall.
 
 ![GUFW Rules](assets/gufw-rules.png)
 
@@ -609,7 +607,7 @@ In GUFW, click **+** to add a new rule:
 | Field     | Value |
 |-----------|-------|
 | Policy    | Deny  |
-| Direction | In    |
+| Direction | Out   |
 | Protocol  | TCP   |
 | Port      | 23    |
 
@@ -711,8 +709,11 @@ Without assistance, configure the following and verify each:
 # Module 3.0: VPN Fundamentals using OpenVPN (60 Minutes)
 
 > Lab Type: VPN Configuration and Encrypted Tunnel Analysis
+>
 > Tool: OpenVPN
+>
 > Duration: 60 Minutes
+>
 > System: Kali Linux (Ubuntu/Debian compatible)
 
 ---
@@ -807,7 +808,7 @@ cd ~/Downloads
 sudo openvpn vpnbook-euro1-tcp443.ovpn
 ```
 
-When prompted, enter the VPNBook credentials shown on their website. Wait until the terminal displays:
+When prompted, enter the VPNBook credentials. Wait until the terminal displays:
 
 ```
 Initialization Sequence Completed
@@ -834,9 +835,9 @@ Initialization Sequence Completed
 
 ### Objective
 
-Confirm that the VPN tunnel has been established by checking for the `tun0` virtual network interface and verifying that your public IP address has changed.
+Confirm that the VPN tunnel has been established by checking for the tunnel network interface and verifying that your public IP address has changed.
 
-### Check for the tun0 Interface
+### Check for the Tunnel Interface
 
 Open a new terminal and run:
 
@@ -844,11 +845,11 @@ Open a new terminal and run:
 ip addr
 ```
 
-Look for an interface named `tun0` in the output. It will have an IP address assigned by the VPN server, typically in the range `10.x.x.x` or `172.x.x.x`.
+Look for an interface named `tun0` or `tun1` in the output. It will have an IP address assigned by the VPN server, typically in the range `10.x.x.x` or `172.x.x.x`.
 
 ![tun0 Interface](assets/tun0-interface.png)
 
-The presence of `tun0` confirms that an active VPN tunnel exists. All traffic routed through this interface is encrypted before leaving your machine.
+The presence of a `tun` interface confirms that an active VPN tunnel exists. All traffic routed through this interface is encrypted before leaving your machine.
 
 ### Verify Your Public IP Has Changed
 
@@ -868,7 +869,7 @@ Open Firefox and navigate to `https://www.amazon.in`. The website should load no
 
 ??? question "What is a tunnel interface (tun0) and how does it work?"
 
-    A tunnel interface is a virtual network adapter created by OpenVPN. When traffic is sent through `tun0`, OpenVPN intercepts it, encrypts it, and forwards it to the VPN server over the physical network interface. The VPN server decrypts the traffic and forwards it to the actual destination. From the destination's perspective, the traffic appears to originate from the VPN server, not your machine.
+    A tunnel interface is a virtual network adapter created by OpenVPN. When traffic is sent through the tunnel interface, OpenVPN intercepts it, encrypts it, and forwards it to the VPN server over the physical network interface. The VPN server decrypts the traffic and forwards it to the actual destination. From the destination's perspective, the traffic appears to originate from the VPN server, not your machine.
 
 ??? question "Why does your public IP address change when connected to a VPN?"
 
@@ -932,7 +933,7 @@ Browse the same websites as Milestone 10. Observe:
 | DNS queries in Wireshark | Fully visible in plain text | Hidden inside encrypted tunnel |
 | Traffic destinations visible | Yes — multiple server IPs | No — only VPN server IP |
 | Payload readable in Wireshark | Partially (HTTP) | No — fully encrypted |
-| Network interface used | eth0 / wlan0 directly | tun0 → encrypted → eth0 / wlan0 |
+| Network interface used | eth0 / wlan0 directly | tun interface → encrypted → eth0 / wlan0 |
 
 ### Discussion Questions
 
@@ -965,16 +966,19 @@ Start a capture and apply these filters one at a time:
 ```
 dns
 ```
+
 Are DNS queries getting responses? If not, DNS may be blocked.
 
 ```
 tcp
 ```
+
 Are TCP connections completing? Or are they being reset?
 
 ```
 openvpn
 ```
+
 Is VPN traffic flowing? If nothing appears, the VPN is not connected.
 
 ## Step 2 — Review Firewall Rules
@@ -1002,10 +1006,10 @@ sudo ufw allow out 53/udp
 ## Step 3 — Verify the VPN Tunnel
 
 ```bash
-ip addr | grep tun0
+ip addr | grep tun
 ```
 
-If `tun0` is absent, reconnect:
+If no `tun` interface appears, reconnect:
 
 ```bash
 cd ~/Downloads
@@ -1028,7 +1032,7 @@ sudo openvpn your-profile.ovpn
 | 1 | Screenshot of DNS packet capture | Wireshark filter `dns` during browsing |
 | 2 | Screenshot of TCP three-way handshake | Wireshark filter `tcp.flags.syn == 1` |
 | 3 | Screenshot of GUFW rules window | Rules tab inside GUFW |
-| 4 | Screenshot of `ip addr` showing tun0 | Terminal after OpenVPN connects |
+| 4 | Screenshot of tunnel interface | `ip addr` output showing tun0 or tun1 |
 | 5 | Screenshot of OpenVPN connection | Terminal showing "Initialization Sequence Completed" |
 | 6 | Written comparison of traffic before and after VPN | Based on Wireshark DNS observations in Milestones 10 and 13 |
 

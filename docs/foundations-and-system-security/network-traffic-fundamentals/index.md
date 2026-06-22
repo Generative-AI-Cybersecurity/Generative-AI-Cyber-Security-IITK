@@ -458,8 +458,6 @@ When investigating network traffic, analysts can often view the full contents of
 
 ---
 
----
-
 # Module 2.0: Firewall Fundamentals using GUFW (60 Minutes)
 
 > Lab Type: Firewall Configuration and Traffic Filtering
@@ -660,9 +658,7 @@ Use Wireshark to observe the difference between allowed and blocked traffic at t
 sudo wireshark
 ```
 
-Select your active interface (`eth0` or `wlan0`) and start capturing.
-
-Apply the following filter:
+Select your active interface (`eth0` or `wlan0`) and start capturing. Apply the following filter:
 
 ```
 tcp
@@ -670,13 +666,7 @@ tcp
 
 ### Test Allowed Traffic
 
-Open Firefox and load:
-
-```
-https://www.amazon.in
-```
-
-Observe in Wireshark:
+Open Firefox and load `https://www.amazon.in`. Observe in Wireshark:
 
 - TCP packets flow normally.
 - The three-way handshake (SYN → SYN-ACK → ACK) completes successfully.
@@ -794,13 +784,13 @@ Obtain a VPN configuration profile and establish an encrypted VPN tunnel using O
 
 ### Obtain a Free VPN Profile
 
-For this lab, you can use a free VPN profile from VPNBook:
+For this lab, use a free VPN profile from VPNBook:
 
 1. Open Firefox and go to `https://www.vpnbook.com`
 2. Scroll down to the **Free VPN** section.
 3. Download any available `.zip` bundle (for example, Euro1 or US).
-4. Note the **username** and **password** displayed on that page — you will need these.
-5. Extract the zip file. You will get several `.ovpn` configuration files.
+4. Note the **username** and **password** displayed on that page.
+5. Extract the zip file to get the `.ovpn` configuration files.
 
 ```bash
 cd ~/Downloads
@@ -808,20 +798,16 @@ unzip vpnbook-*.zip
 ```
 
 !!! tip "Which .ovpn file to use?"
-    Use a TCP-based profile (filename contains `tcp`) if UDP is blocked on your network. Otherwise, any profile will work. For example: `vpnbook-euro1-tcp443.ovpn`
+    Use a TCP-based profile (filename contains `tcp`) if UDP is blocked on your network. For example: `vpnbook-euro1-tcp443.ovpn`
 
 ### Connect to the VPN
-
-Navigate to the folder containing your `.ovpn` file and connect:
 
 ```bash
 cd ~/Downloads
 sudo openvpn vpnbook-euro1-tcp443.ovpn
 ```
 
-When prompted, enter the VPNBook credentials shown on their website.
-
-Wait until the terminal displays:
+When prompted, enter the VPNBook credentials shown on their website. Wait until the terminal displays:
 
 ```
 Initialization Sequence Completed
@@ -870,19 +856,13 @@ The presence of `tun0` confirms that an active VPN tunnel exists. All traffic ro
 curl ifconfig.me
 ```
 
-Compare this output to the IP address you recorded in Milestone 10. The IP address should now reflect the VPN server's location rather than your real IP.
+Compare this output to the IP address recorded in Milestone 10. It should now show the VPN server's IP instead of your real IP.
 
 ![IP After VPN](assets/ip-after-vpn.png)
 
 ### Verify Browsing Still Works
 
-Open Firefox and navigate to:
-
-```
-https://www.amazon.in
-```
-
-The website should load normally, confirming that traffic is flowing correctly through the VPN tunnel.
+Open Firefox and navigate to `https://www.amazon.in`. The website should load normally, confirming traffic is flowing correctly through the VPN tunnel.
 
 ### Discussion Questions
 
@@ -892,11 +872,11 @@ The website should load normally, confirming that traffic is flowing correctly t
 
 ??? question "Why does your public IP address change when connected to a VPN?"
 
-    When connected to a VPN, your traffic exits the internet through the VPN server rather than your own router. The destination websites see the VPN server's IP address as the source of the request, not your real IP address. This provides a degree of anonymity and location masking.
+    When connected to a VPN, your traffic exits the internet through the VPN server rather than your own router. The destination websites see the VPN server's IP address as the source of the request, not your real IP address.
 
 ??? question "Can a VPN provider see your traffic?"
 
-    Yes. A VPN provider can see your traffic because they operate the server that decrypts your data before forwarding it to the internet. This is why selecting a trustworthy VPN provider with a clear no-logs policy is important. A VPN protects you from ISP surveillance and local network eavesdropping, but it shifts trust to the VPN provider.
+    Yes. A VPN provider can see your traffic because they operate the server that decrypts your data before forwarding it to the internet. A VPN protects you from ISP surveillance and local network eavesdropping, but it shifts trust to the VPN provider.
 
 ---
 
@@ -908,51 +888,39 @@ Use Wireshark to observe encrypted VPN tunnel traffic and compare DNS visibility
 
 ### Capture VPN Tunnel Traffic
 
-Start a new Wireshark capture on your physical interface (`eth0` or `wlan0`).
-
-Apply the filter:
+Start a new Wireshark capture on your physical interface (`eth0` or `wlan0`). Apply the filter:
 
 ```
 udp.port == 1194
 ```
 
-Or if you are connected via TCP:
+Or if connected via TCP:
 
 ```
 tcp.port == 443
 ```
 
-You can also try:
+Browse several websites while the VPN is active. Observe in Wireshark:
 
-```
-openvpn
-```
-
-Browse several websites while the VPN is active.
-
-Observe in Wireshark:
-
-- All traffic is flowing to a **single destination IP** — the VPN server.
+- All traffic flows to a **single destination IP** — the VPN server.
 - The payload of each packet is **completely encrypted and unreadable**.
-- The actual destination websites (Google, Amazon, YouTube) are no longer visible.
+- The actual destination websites are no longer visible.
 
 ![VPN Traffic in Wireshark](assets/vpn-traffic-wireshark.png)
 
 ### Compare DNS Traffic After VPN
 
-Apply the DNS filter:
+Change the filter to:
 
 ```
 dns
 ```
 
-Browse the same websites you visited in Milestone 10.
+Browse the same websites as Milestone 10. Observe:
 
-Observe:
-
-- DNS queries are no longer visible in plain text on your physical interface.
-- DNS resolution is happening inside the VPN tunnel, encrypted.
-- An observer on your local network can no longer determine which websites you are visiting.
+- DNS queries are no longer visible in plain text.
+- DNS resolution is happening inside the encrypted VPN tunnel.
+- An observer on your local network can no longer see which websites you are visiting.
 
 ![DNS After VPN](assets/dns-after-vpn.png)
 
@@ -970,15 +938,15 @@ Observe:
 
 ??? question "What are the three core security principles that a VPN provides?"
 
-    A VPN provides **Confidentiality** by encrypting traffic so it cannot be read by third parties, **Integrity** by using cryptographic mechanisms to ensure traffic is not tampered with in transit, and **Authentication** by verifying the identity of the VPN server before establishing a tunnel, preventing connection to a rogue server.
+    A VPN provides **Confidentiality** by encrypting traffic so it cannot be read by third parties, **Integrity** by using cryptographic mechanisms to ensure traffic is not tampered with in transit, and **Authentication** by verifying the identity of the VPN server before establishing a tunnel.
 
 ??? question "If a VPN encrypts everything, why can Wireshark still see packets on the physical interface?"
 
-    Wireshark captures packets at the network adapter level before any application-layer processing. The encrypted VPN packets are visible because they still travel over the physical network — the encryption has already been applied by OpenVPN before the packets leave the machine. Wireshark can see the encrypted packets but cannot read their contents.
+    Wireshark captures packets at the network adapter level. The encrypted VPN packets are visible because they still travel over the physical network — the encryption has already been applied by OpenVPN before the packets leave the machine. Wireshark can see the encrypted packets but cannot read their contents.
 
 ??? question "What is split tunneling and when would an organization use it?"
 
-    Split tunneling is a VPN feature that routes only specific traffic through the encrypted tunnel while sending other traffic directly to the internet. An organization might use it to ensure internal company resources are accessed through the secure VPN while allowing general internet traffic to bypass the VPN, reducing bandwidth load on the VPN server.
+    Split tunneling is a VPN feature that routes only specific traffic through the encrypted tunnel while sending other traffic directly to the internet. An organization might use it to ensure internal resources are accessed securely while reducing bandwidth load on the VPN server for general browsing.
 
 ---
 
@@ -992,50 +960,39 @@ As a SOC analyst, your task is to diagnose the issue using the tools covered in 
 
 ## Step 1 — Diagnose with Wireshark
 
-Start a Wireshark capture and apply the following filters one at a time:
-
-**Check DNS:**
+Start a capture and apply these filters one at a time:
 
 ```
 dns
 ```
-
-Are DNS queries being sent and receiving responses? If not, DNS may be blocked.
-
-**Check TCP:**
+Are DNS queries getting responses? If not, DNS may be blocked.
 
 ```
 tcp
 ```
-
-Are TCP connections completing (SYN → SYN-ACK → ACK)? Or are connections being reset?
-
-**Check VPN tunnel:**
+Are TCP connections completing? Or are they being reset?
 
 ```
 openvpn
 ```
-
-Is VPN traffic flowing? If nothing appears, the VPN may not be connected.
+Is VPN traffic flowing? If nothing appears, the VPN is not connected.
 
 ## Step 2 — Review Firewall Rules
-
-Check the current UFW status from the terminal:
 
 ```bash
 sudo ufw status verbose
 ```
 
-Verify that the following ports are permitted:
+Verify these ports are permitted:
 
 | Port | Protocol | Purpose |
 |------|----------|---------|
 | 80   | TCP      | HTTP web traffic |
 | 443  | TCP      | HTTPS web traffic |
-| 1194 | UDP      | OpenVPN (if using UDP profile) |
+| 1194 | UDP      | OpenVPN (UDP profile) |
 | 53   | UDP      | DNS resolution |
 
-If any of these are missing, add them in GUFW or via terminal:
+If missing, add via terminal:
 
 ```bash
 sudo ufw allow out 1194/udp
@@ -1048,7 +1005,7 @@ sudo ufw allow out 53/udp
 ip addr | grep tun0
 ```
 
-If `tun0` does not appear, the VPN is not connected. Reconnect:
+If `tun0` is absent, reconnect:
 
 ```bash
 cd ~/Downloads
@@ -1057,26 +1014,22 @@ sudo openvpn your-profile.ovpn
 
 ## Step 4 — Restore Connectivity
 
-Once you have identified the issue:
-
-- If a firewall rule is missing → add it in GUFW.
-- If the VPN dropped → reconnect using the OpenVPN command.
-- If DNS is broken → test with `nslookup google.com` and ensure port 53 outbound is allowed.
-- Retest by loading a website in Firefox.
+- Missing firewall rule → add it in GUFW
+- VPN dropped → reconnect with OpenVPN command
+- DNS broken → test with `nslookup google.com`, ensure port 53 outbound is allowed
+- Retest by loading a website in Firefox
 
 ---
 
 ## Expected Deliverables
 
-By the end of this lab, you should be able to submit the following:
-
 | # | Deliverable | How to Obtain |
 |---|---|---|
-| 1 | Screenshot of DNS packet capture | Wireshark filter `dns` during nslookup or browsing |
+| 1 | Screenshot of DNS packet capture | Wireshark filter `dns` during browsing |
 | 2 | Screenshot of TCP three-way handshake | Wireshark filter `tcp.flags.syn == 1` |
 | 3 | Screenshot of GUFW rules window | Rules tab inside GUFW |
 | 4 | Screenshot of `ip addr` showing tun0 | Terminal after OpenVPN connects |
-| 5 | Screenshot of OpenVPN connection | Terminal displaying "Initialization Sequence Completed" |
+| 5 | Screenshot of OpenVPN connection | Terminal showing "Initialization Sequence Completed" |
 | 6 | Written comparison of traffic before and after VPN | Based on Wireshark DNS observations in Milestones 10 and 13 |
 
 ---

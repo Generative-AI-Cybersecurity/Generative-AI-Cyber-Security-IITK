@@ -1,39 +1,40 @@
+/* ==================================================
+   CYBER LANDING PAGE - FULL-WIDTH BREAKOUT OVERRIDE
+   ================================================== */
 
-/*Nav items as buttons*/
-.md-nav__item .md-nav__link {
-  display: block;
-  padding: 9px 14px;
-  margin-bottom: 4px;
-  border: 0.5px solid rgba(0, 0, 0, 0.12);
-  border-radius: 8px;
-  font-size: 13.5px;
-  color: var(--md-typeset-color);
-  transition: background 0.15s ease, border-color 0.15s ease;
-  text-decoration: none;
+.cyber-home {
+    background: #E7ECF7;
+    color: #111827;
+    margin-top: -20px;
+
+    /* 🔥 FORCES THE ENTIRE PORTAL WRAPPER EDGE-TO-EDGE */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevents unwanted horizontal scrollbars */
 }
 
-.md-nav__item .md-nav__link:hover {
-  background: rgba(0, 0, 0, 0.05);
-  border-color: rgba(0, 0, 0, 0.2);
+/* Ensure inside content containers center cleanly on large viewports */
+.cyber-home .cyber-hero,
+.cyber-home .labs-section,
+.cyber-home .arsenal-section,
+.cyber-home .terminal-section {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
-.md-nav__item .md-nav__link--active {
-  background: #2563eb;
-  border-color: #2563eb;
-  color: #ffffff !important;
-  font-weight: 500;
+.cyber-home .curriculum-container,
+.cyber-home .lab-grid,
+.cyber-home .arsenal-grid,
+.cyber-home .hero-content {
+    max-width: 1200px; /* Restricts internal content grid from over-stretching */
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
-/* Remove default MkDocs active underline/indicator */
-.md-nav__item .md-nav__link--active::before {
-  display: none;
-}
 
-/* --- Fix: Remove button style from the LABS heading --- */
-.md-nav__item--nested > .md-nav__link:first-child,
-.md-nav__item--nested > label.md-nav__link {
-  background: transparent !important;
-  border: none !important;
-  pointer-events: none; /* Stops hover effects */
-  padding-left: 0; /* Aligns text cleanly with the sidebar edge */
-}

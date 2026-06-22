@@ -58,7 +58,8 @@ nav:
       - Foundations & System Security:
           - Microsoft Threat Modeling Tool: foundations-and-system-security/microsoft-threat-model-software/index.md
           - OWASP Threat Dragon: foundations-and-system-security/owasp-threat-dragon/index.md
-          - Zero Day Trust: foundations-and-system-security/zero-day-trust/index.md
+          - Zero Trust Architecture: foundations-and-system-security/zero-day-trust/index.md
+          - Network Traffic Fundamentals: foundations-and-system-security/network-traffic-fundamentals/index.md
 
       - Pentesting & Ethical Hacking:
           - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md

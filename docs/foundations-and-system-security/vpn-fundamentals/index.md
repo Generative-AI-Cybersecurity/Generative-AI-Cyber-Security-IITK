@@ -1,7 +1,7 @@
 # VPN Fundamentals using OpenVPN (60 Minutes)
 
-> Lab Type: VPN Configuration and Encrypted Tunnel Analysis
-> Tool: OpenVPN
+> Lab Type: VPN Configuration and Encrypted Tunnel Analysis  
+> Tool: OpenVPN  
 > Duration: 60 Minutes  
 > System: Kali Linux (Ubuntu/Debian compatible)
 
@@ -9,7 +9,7 @@
 
 ## Scenario
 
-Employees at the startup are working remotely and need secure, encrypted access to company resources over the public internet. You have been asked to set up and verify a VPN connection and demonstrate the difference in network traffic visibility before and after the VPN is established.
+Employees at the startup are working remotely and need secure, encrypted access to company resources over the public internet. You have been asked to set up and verify a VPN connection and demonstrate the difference in network traffic visibility before and after the VPN has been established.
 
 ---
 

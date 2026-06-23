@@ -35,7 +35,7 @@ You have recently joined the Security Operations Center (SOC) team of a startup 
 
 In this lab, you will capture and analyze various types of network traffic using Wireshark and learn how common protocols operate in real-world environments.
 
-## Milestone 1: Capturing Your First Packets
+## Capturing Your First Packets
 
 ### Objective
 
@@ -106,7 +106,7 @@ This process verifies connectivity between two hosts.
 
 ---
 
-## Milestone 2: Address Resolution Protocol (ARP) Analysis
+## Address Resolution Protocol (ARP) Analysis
 
 ### Objective
 
@@ -186,7 +186,7 @@ This attack can be used for:
 
 ---
 
-## Milestone 3: DNS Traffic Investigation
+## DNS Traffic Investigation
 
 ### Objective
 
@@ -284,7 +284,7 @@ For this reason, DNS monitoring is a critical part of many SOC environments.
 
 ---
 
-## Milestone 4: TCP Three-Way Handshake Analysis
+## TCP Three-Way Handshake Analysis
 
 ### Objective
 
@@ -366,7 +366,7 @@ This is a classic Denial-of-Service (DoS) attack.
 
 ---
 
-## Milestone 5: HTTP vs HTTPS Analysis
+## HTTP vs HTTPS Analysis
 
 ### Objective
 

@@ -22,7 +22,7 @@ In this module, you will configure GUFW to implement these policies and observe 
 
 ---
 
-## Milestone 6: Launching and Enabling GUFW
+## Launching and Enabling GUFW
 
 ### Objective
 
@@ -78,7 +78,7 @@ Setting incoming traffic to **Deny** by default means no unsolicited inbound con
 
 ---
 
-## Milestone 7: Allowing Web Traffic
+## Allowing Web Traffic
 
 ### Objective
 
@@ -129,7 +129,7 @@ Open Firefox and navigate to `https://www.amazon.in`. The website should load su
 
 ---
 
-## Milestone 8: Blocking an Insecure Service (Telnet)
+## Blocking an Insecure Service (Telnet)
 
 ### Objective
 
@@ -183,7 +183,7 @@ A blocked connection may result in a "Connection refused" message, a timeout, or
 
 ---
 
-## Milestone 9: Observing Firewall Impact in Wireshark
+## Observing Firewall Impact in Wireshark
 
 ### Objective
 

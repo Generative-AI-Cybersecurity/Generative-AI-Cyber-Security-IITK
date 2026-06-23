@@ -16,7 +16,7 @@ Employees at the startup are working remotely and need secure, encrypted access 
 
 ---
 
-## Milestone 10: Preparing for VPN — Baseline Observation
+## Preparing for VPN — Baseline Observation
 
 ### Objective
 
@@ -69,7 +69,7 @@ Observe in Wireshark:
 
 ---
 
-## Milestone 11: Obtaining and Connecting to OpenVPN
+## Obtaining and Connecting to OpenVPN
 
 ### Objective
 
@@ -123,7 +123,7 @@ The VPN connection is active only while this terminal is running. Do not close i
 
 ---
 
-## Milestone 12: Verifying the VPN Tunnel
+## Verifying the VPN Tunnel
 
 ### Objective
 
@@ -173,7 +173,7 @@ Open Firefox and navigate to `https://www.amazon.in`. The website should load no
 
 ---
 
-## Milestone 13: Analyzing VPN Traffic in Wireshark
+## Analyzing VPN Traffic in Wireshark
 
 ### Objective
 

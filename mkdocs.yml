@@ -60,6 +60,8 @@ nav:
           - OWASP Threat Dragon: foundations-and-system-security/owasp-threat-dragon/index.md
           - Zero Trust Architecture: foundations-and-system-security/zero-day-trust/index.md
           - Network Traffic Fundamentals: foundations-and-system-security/network-traffic-fundamentals/index.md
+          - Firewall Fundamentals using GUFW: foundations-and-system-security/firewall-fundamentals/index.md
+          - VPN Fundamentals using OpenVPN: foundations-and-system-security/vpn-fundamentals/index.md
 
       - Pentesting & Ethical Hacking:
           - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md

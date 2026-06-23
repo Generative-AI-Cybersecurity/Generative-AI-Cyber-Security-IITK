@@ -1,11 +1,8 @@
 # VPN Fundamentals using OpenVPN (60 Minutes)
 
 > Lab Type: VPN Configuration and Encrypted Tunnel Analysis
->
 > Tool: OpenVPN
->
-> Duration: 60 Minutes
->
+> Duration: 60 Minutes  
 > System: Kali Linux (Ubuntu/Debian compatible)
 
 ---

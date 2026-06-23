@@ -1,8 +1,11 @@
 # Firewall Fundamentals using GUFW (60 Minutes)
 
 > Lab Type: Firewall Configuration and Traffic Filtering
+>
 > Tool: GUFW (Graphical Uncomplicated Firewall)
+>
 > Duration: 60 Minutes
+>
 > System: Kali Linux (Ubuntu/Debian compatible)
 
 ---

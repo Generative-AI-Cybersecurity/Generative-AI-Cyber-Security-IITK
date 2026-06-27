@@ -3,12 +3,11 @@
 > Lab Type: Hands-on Security Analysis  
 > Tool: OWASP Threat Dragon v2.6  
 > Framework: STRIDE  
-> System: Hospital Management System (HMS)  
-
+> System: Hospital Management System (HMS)
 
 ---
 
-## What This Lab Is About
+## Lab Overview
 
 Hospitals store some of the most sensitive data that exists — patient diagnoses, medication histories, personal identifiers. A breach in a Hospital Management System isn't just a data leak, it can directly harm people.
 
@@ -378,3 +377,15 @@ It means a specific control has been identified and documented that reduces or e
 - [Microsoft STRIDE Threat Modeling](https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats)
 - [OWASP Top 10 — A07: Identification and Authentication Failures](https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/)
 - [NIST Guidelines on Healthcare Cybersecurity](https://www.nist.gov/healthcare)
+
+---
+
+## Learning Outcomes
+
+Having completed this lab, you have:
+
+- Created a Data Flow Diagram (DFD) in OWASP Threat Dragon for a Hospital Management System
+- Applied the STRIDE framework to identify and classify security threats across the system
+- Documented mitigations for each identified threat within Threat Dragon
+- Used Generative AI as a security co-pilot to explain threats and suggest remediations
+- Produced a complete threat model report as a security deliverable

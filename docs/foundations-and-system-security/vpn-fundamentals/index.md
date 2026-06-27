@@ -7,9 +7,22 @@
 
 ---
 
-## Scenario
+## Lab Overview
 
 Employees at the startup are working remotely and need secure, encrypted access to company resources over the public internet. You have been asked to set up and verify a VPN connection and demonstrate the difference in network traffic visibility before and after the VPN has been established.
+
+---
+
+## Learning Objectives
+
+By the end of this lab you will be able to:
+
+- Explain how a VPN creates an encrypted tunnel over a public network
+- Record a baseline of DNS and IP traffic before a VPN is active
+- Connect to an OpenVPN server using a `.ovpn` configuration profile
+- Verify VPN connectivity by confirming a changed public IP address
+- Compare network traffic in Wireshark before and after VPN activation
+- Configure GUFW firewall rules to allow VPN traffic through
 
 ---
 
@@ -341,3 +354,16 @@ sudo openvpn your-profile.ovpn
 | `tcp.flags.syn == 1` | TCP handshake SYN packets                |
 | `ip.addr == x.x.x.x` | Traffic to or from a specific IP address |
 | `tcp.port == 80`     | HTTP port traffic                        |
+
+---
+
+## Learning Outcomes
+
+Having completed this lab, you have:
+
+- Captured and documented DNS traffic in plain text before VPN activation as a baseline
+- Obtained an OpenVPN `.ovpn` profile and established an encrypted tunnel
+- Verified the VPN connection by confirming a new public IP address via `curl ifconfig.me`
+- Observed that DNS queries are no longer visible in plain text after VPN activation
+- Configured GUFW rules to permit OpenVPN traffic on port 1194 (UDP) and port 443 (TCP)
+- Produced a written comparison of network traffic behaviour before and after the VPN

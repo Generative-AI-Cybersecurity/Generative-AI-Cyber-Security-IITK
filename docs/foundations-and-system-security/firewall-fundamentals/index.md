@@ -7,7 +7,7 @@
 
 ---
 
-## Scenario
+## Lab Overview
 
 You are a Security Analyst at a growing startup. The organization has asked you to enforce a basic firewall policy on all workstations. The policy requires that:
 
@@ -16,6 +16,18 @@ You are a Security Analyst at a growing startup. The organization has asked you 
 - Specific ports must be explicitly allowed or denied.
 
 In this module, you will configure GUFW to implement these policies and observe the impact on network traffic using Wireshark.
+
+---
+
+## Learning Objectives
+
+By the end of this lab you will be able to:
+
+- Understand the role of a host-based firewall in network security
+- Install and enable GUFW on a Linux system
+- Configure allow and deny rules for specific ports and services
+- Understand the difference between packet drop and packet reject behaviour
+- Observe the effect of firewall rules on live network traffic using Wireshark
 
 ---
 
@@ -239,5 +251,17 @@ Without assistance, configure the following and verify each:
 ??? question "What is the difference between a firewall that drops packets and one that rejects them?"
 
     A firewall configured to **drop** packets silently discards them without sending any response. The sender receives a timeout. A firewall configured to **reject** packets sends back a TCP RST or ICMP Port Unreachable message. Drop provides less information to an attacker, while reject gives faster feedback to legitimate users.
+
+---
+
+## Learning Outcomes
+
+Having completed this lab, you have:
+
+- Installed and enabled GUFW on Kali Linux and applied a default deny policy
+- Created allow rules for web traffic (HTTP port 80 and HTTPS port 443)
+- Created a deny rule for Telnet (port 23) to block an insecure legacy service
+- Captured and compared allowed vs blocked traffic in Wireshark
+- Identified TCP RST packets and understood how firewalls signal rejection vs silent drop
 
 ---

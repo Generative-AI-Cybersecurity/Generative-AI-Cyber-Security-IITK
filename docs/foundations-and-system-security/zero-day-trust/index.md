@@ -7,7 +7,7 @@
 
 ---
 
-## What This Lab Is About
+## Lab Overview
 
 Traditional network security works like a building with one front door — if you're inside, you're trusted. Once someone gets past the firewall, they can move freely through the network. This model is called **perimeter security**, and it's dangerously outdated.
 
@@ -782,3 +782,14 @@ It grants your normal (non-root) user the ability to control Tailscale without n
 - [MITRE ATT&CK — Lateral Movement](https://attack.mitre.org/tactics/TA0008/)
 
 ---
+
+## Learning Outcomes
+
+Having completed this lab, you have:
+
+- Installed Tailscale and registered a device to establish identity-based network access
+- Written ACL rules to enforce micro-segmentation, explicitly allowing only port 8080 and denying all other traffic by default
+- Created a restricted `junior-admin` sudoers entry applying the Principle of Least Privilege
+- Verified that commands outside the allowed scope are blocked for the restricted user
+- Used Generative AI to analyse authentication logs and identify suspicious access patterns
+- Traced the full Zero Trust boundary across network identity, micro-segmentation, and privilege layers

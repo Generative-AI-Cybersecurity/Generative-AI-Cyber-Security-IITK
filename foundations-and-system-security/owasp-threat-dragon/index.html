@@ -1,0 +1,2541 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cybersecurity Labs and Technical Documentation">
+      
+      
+      
+        <link rel="canonical" href="https://sitename.example/foundations-and-system-security/owasp-threat-dragon/">
+      
+      
+        <link rel="prev" href="../microsoft-threat-model-software/">
+      
+      
+        <link rel="next" href="../zero-day-trust/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>OWASP Threat Dragon - Gen-AI Cyber Security IITK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#threat-modeling-with-owasp-threat-dragon" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+<header class="md-header" data-md-component="header">
+
+  <nav class="md-header__inner md-grid">
+
+    <!-- LEFT: hamburger + logo area (kept empty safely) -->
+    <div class="md-header__title">
+    </div>
+
+    <!-- CENTER: YOUR BANNER -->
+    <div class="header-banner">
+      <img src="../../images/image-1.jpg" alt="Header Banner">
+    </div>
+
+    <!-- RIGHT: keep search + icons working -->
+    <div class="md-header__options">
+      
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Gen-AI Cyber Security IITK" class="md-header__button md-logo" aria-label="Gen-AI Cyber Security IITK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Gen-AI Cyber Security IITK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OWASP Threat Dragon
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    </div>
+
+  </nav>
+</header>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../microsoft-threat-model-software/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Gen-AI Cyber Security IITK" class="md-nav__button md-logo" aria-label="Gen-AI Cyber Security IITK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Gen-AI Cyber Security IITK
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations & System Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations & System Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsoft-threat-model-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft Threat Modeling Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OWASP Threat Dragon
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OWASP Threat Dragon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-and-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools and Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-0-understanding-the-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 0 — Understanding the Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 0 — Understanding the Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-threat-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Threat Modeling?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-data-flow-diagram-dfd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Data Flow Diagram (DFD)?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-trust-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Trust Boundary?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-stride" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is STRIDE?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-1-setting-up-owasp-threat-dragon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 1 — Setting Up OWASP Threat Dragon
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 1 — Setting Up OWASP Threat Dragon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-the-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Open the tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-select-local-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Select Local Session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-a-new-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Create a New Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-add-a-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Add a Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-2-defining-the-system-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 2 — Defining the System Scope
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 2 — Defining the System Scope">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-hospital-management-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Hospital Management System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#components-we-are-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components We Are Modeling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-out-of-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Out of Scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-3-drawing-the-threat-model-in-threat-dragon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 3 — Drawing the Threat Model in Threat Dragon
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 3 — Drawing the Threat Model in Threat Dragon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-place-the-actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Place the Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-place-the-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Place the Processes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-place-the-data-stores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Place the Data Stores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-draw-the-arrows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Draw the Arrows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-draw-the-trust-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Draw the Trust Boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-completed-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Completed Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-4-identifying-threats-using-stride" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 4 — Identifying Threats Using STRIDE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 4 — Identifying Threats Using STRIDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#threat-analysis-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threat Analysis Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threat-list-in-threat-dragon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threat List in Threat Dragon
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-5-using-generative-ai-as-a-security-co-pilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 5 — Using Generative AI as a Security Co-Pilot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 5 — Using Generative AI as a Security Co-Pilot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-ai-was-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How AI Was Used
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-1-threat-completeness-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 1 — Threat Completeness Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-2-mitigation-explanation-for-non-technical-stakeholders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 2 — Mitigation Explanation for Non-Technical Stakeholders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-3-generate-a-lab-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 3 — Generate a Lab Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Your Understanding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Outcomes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zero-day-trust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-traffic-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Traffic Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firewall-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firewall Fundamentals using GUFW
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpn-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPN Fundamentals using OpenVPN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pentesting & Ethical Hacking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pentesting & Ethical Hacking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advance Red Teaming & AI-Driven Attacks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advance Red Teaming & AI-Driven Attacks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOC, DFIR & AIML for Defense
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SOC, DFIR & AIML for Defense
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Security, DevSecOps & Quantum Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Security, DevSecOps & Quantum Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capstone Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Capstone Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-and-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools and Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-0-understanding-the-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 0 — Understanding the Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 0 — Understanding the Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-threat-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Threat Modeling?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-data-flow-diagram-dfd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Data Flow Diagram (DFD)?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-trust-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Trust Boundary?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-stride" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is STRIDE?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-1-setting-up-owasp-threat-dragon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 1 — Setting Up OWASP Threat Dragon
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 1 — Setting Up OWASP Threat Dragon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-the-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Open the tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-select-local-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Select Local Session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-a-new-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Create a New Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-add-a-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Add a Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-2-defining-the-system-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 2 — Defining the System Scope
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 2 — Defining the System Scope">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-hospital-management-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Hospital Management System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#components-we-are-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components We Are Modeling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-out-of-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Out of Scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-3-drawing-the-threat-model-in-threat-dragon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 3 — Drawing the Threat Model in Threat Dragon
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 3 — Drawing the Threat Model in Threat Dragon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-place-the-actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Place the Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-place-the-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Place the Processes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-place-the-data-stores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Place the Data Stores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-draw-the-arrows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Draw the Arrows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-draw-the-trust-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Draw the Trust Boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-completed-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Completed Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-4-identifying-threats-using-stride" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 4 — Identifying Threats Using STRIDE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 4 — Identifying Threats Using STRIDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#threat-analysis-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threat Analysis Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threat-list-in-threat-dragon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threat List in Threat Dragon
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-5-using-generative-ai-as-a-security-co-pilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 5 — Using Generative AI as a Security Co-Pilot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 5 — Using Generative AI as a Security Co-Pilot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-ai-was-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How AI Was Used
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-1-threat-completeness-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 1 — Threat Completeness Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-2-mitigation-explanation-for-non-technical-stakeholders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 2 — Mitigation Explanation for Non-Technical Stakeholders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-3-generate-a-lab-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 3 — Generate a Lab Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Your Understanding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Outcomes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="threat-modeling-with-owasp-threat-dragon">Threat Modeling with OWASP Threat Dragon<a class="headerlink" href="#threat-modeling-with-owasp-threat-dragon" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Lab Type: Hands-on Security Analysis<br />
+Tool: OWASP Threat Dragon v2.6<br />
+Framework: STRIDE<br />
+System: Hospital Management System (HMS)</p>
+</blockquote>
+<hr />
+<h2 id="lab-overview">Lab Overview<a class="headerlink" href="#lab-overview" title="Permanent link">&para;</a></h2>
+<p>Hospitals store some of the most sensitive data that exists — patient diagnoses, medication histories, personal identifiers. A breach in a Hospital Management System isn't just a data leak, it can directly harm people.</p>
+<p>This lab walks through how a security analyst thinks <em>before</em> a system gets attacked. Instead of waiting for something to go wrong, we map out the system, figure out where the weak points are, and document how to fix them — all before a single line of production code is deployed.</p>
+<p>The tool we use is <strong>OWASP Threat Dragon</strong>, a free, open-source threat modeling tool built by the Open Web Application Security Project. The methodology we follow is <strong>STRIDE</strong> — a six-category framework developed by Microsoft that gives us a structured checklist of the types of attacks that can happen to any system.</p>
+<hr />
+<h2 id="learning-objectives">Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<p>By the end of this lab you will be able to:</p>
+<ul>
+<li>Understand what threat modeling is and why it matters in software security</li>
+<li>Identify the components of a system using a Data Flow Diagram (DFD)</li>
+<li>Apply the STRIDE framework to classify security threats</li>
+<li>Use OWASP Threat Dragon to document threats and mitigations</li>
+<li>Produce a threat model report as a security deliverable</li>
+</ul>
+<hr />
+<h2 id="tools-and-prerequisites">Tools and Prerequisites<a class="headerlink" href="#tools-and-prerequisites" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OWASP Threat Dragon</td>
+<td>Web-based, no install needed — <a href="https://www.threatdragon.com">threatdragon.com</a></td>
+</tr>
+<tr>
+<td>Browser</td>
+<td>Chrome or Firefox recommended</td>
+</tr>
+<tr>
+<td>Knowledge needed</td>
+<td>None — this lab is beginner-friendly</td>
+</tr>
+<tr>
+<td>Time required</td>
+<td>~2 to 3 hours</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="milestone-0-understanding-the-concepts">Milestone 0 — Understanding the Concepts<a class="headerlink" href="#milestone-0-understanding-the-concepts" title="Permanent link">&para;</a></h2>
+<p>Before touching any tool, let's get the terminology straight. Every new term here comes with a real-world analogy so it actually makes sense.</p>
+<h3 id="what-is-threat-modeling">What is Threat Modeling?<a class="headerlink" href="#what-is-threat-modeling" title="Permanent link">&para;</a></h3>
+<p>Think of it like a fire safety inspection — but for software. Before a building opens to the public, inspectors walk through every room and ask: <em>where could a fire start, how would it spread, and what stops it?</em> Threat modeling does the exact same thing for a software system. You study it before it gets attacked, map out the weak spots, and document fixes.</p>
+<h3 id="what-is-a-data-flow-diagram-dfd">What is a Data Flow Diagram (DFD)?<a class="headerlink" href="#what-is-a-data-flow-diagram-dfd" title="Permanent link">&para;</a></h3>
+<p>A DFD is a map of how data moves through your system. Think of it like a metro map — each station is a process (something the software does), the trains are data flows (information moving around), the depots are data stores (databases), and the passengers who get on and off at the terminals are actors (the people using the system from outside).</p>
+<h3 id="what-is-a-trust-boundary">What is a Trust Boundary?<a class="headerlink" href="#what-is-a-trust-boundary" title="Permanent link">&para;</a></h3>
+<p>An invisible wall between parts of your system that have different levels of trust. The classic example: in an airport, everything past security is trusted (boarding gates, staff areas), everything before it is not. In a software DFD, the trust boundary separates the open internet (untrusted) from your internal server (trusted). Any data that crosses this wall needs to be checked.</p>
+<h3 id="what-is-stride">What is STRIDE?<a class="headerlink" href="#what-is-stride" title="Permanent link">&para;</a></h3>
+<p>STRIDE is a checklist of six attack types. For every component in your system, you ask — does each of these six apply?</p>
+<table>
+<thead>
+<tr>
+<th>Letter</th>
+<th>Threat Type</th>
+<th>Simple Definition</th>
+<th>Hospital Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S</strong></td>
+<td>Spoofing</td>
+<td>Pretending to be someone you're not</td>
+<td>Attacker logs in using a stolen doctor's password</td>
+</tr>
+<tr>
+<td><strong>T</strong></td>
+<td>Tampering</td>
+<td>Changing data without permission</td>
+<td>Hacker modifies a patient's medication record</td>
+</tr>
+<tr>
+<td><strong>R</strong></td>
+<td>Repudiation</td>
+<td>Denying you did something</td>
+<td>Doctor claims they never wrote a prescription</td>
+</tr>
+<tr>
+<td><strong>I</strong></td>
+<td>Information Disclosure</td>
+<td>Data leaking to people who shouldn't see it</td>
+<td>Patient records exposed over an unencrypted connection</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>Denial of Service</td>
+<td>Crashing or overwhelming the system</td>
+<td>Attacker floods the booking system with fake requests</td>
+</tr>
+<tr>
+<td><strong>E</strong></td>
+<td>Elevation of Privilege</td>
+<td>Gaining access you shouldn't have</td>
+<td>A patient accesses the admin panel</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="milestone-1-setting-up-owasp-threat-dragon">Milestone 1 — Setting Up OWASP Threat Dragon<a class="headerlink" href="#milestone-1-setting-up-owasp-threat-dragon" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-open-the-tool">Step 1 — Open the tool<a class="headerlink" href="#step-1-open-the-tool" title="Permanent link">&para;</a></h3>
+<p>Go to <a href="https://www.threatdragon.com">https://www.threatdragon.com</a> in Chrome or Firefox. Click <strong>Get Started</strong>.</p>
+<p><img alt="Local session" src="assets/1.png" /></p>
+<h3 id="step-2-select-local-session">Step 2 — Select Local Session<a class="headerlink" href="#step-2-select-local-session" title="Permanent link">&para;</a></h3>
+<p>When asked how to store your work, click <strong>Local Session</strong>. This means no account, no login — everything saves as a <code>.json</code> file to your computer.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+</div>
+<p>Every time you click Save, Threat Dragon downloads an updated <code>.json</code> file. This is your save file. Don't delete it — it's proof you used the tool.</p>
+<p><img alt="Local session" src="assets/2.png" /></p>
+<h3 id="step-3-create-a-new-model">Step 3 — Create a New Model<a class="headerlink" href="#step-3-create-a-new-model" title="Permanent link">&para;</a></h3>
+<p>Click <strong>New Model</strong>. Fill in the form:</p>
+<div class="highlight"><pre><span></span><code>Title:       Hospital Management System – Threat Model
+Owner:       Your Name
+Reviewer:    Reviewer&#39;s Name
+Description: Threat model for an HMS covering patient records,
+             doctor access, appointment booking, and admin portal.
+</code></pre></div>
+<p>Click <strong>Save</strong>.</p>
+<p><img alt="Filling details" src="assets/3.png" /></p>
+<h3 id="step-4-add-a-diagram">Step 4 — Add a Diagram<a class="headerlink" href="#step-4-add-a-diagram" title="Permanent link">&para;</a></h3>
+<p>Click <strong>+ Add a new diagram</strong>. Name it <code>HMS Data Flow Diagram</code>, select <strong>STRIDE</strong> as the type, and click Save. Then click the diagram name to open the canvas editor.</p>
+<p><img alt="Adding diagram" src="assets/4.png" /></p>
+<hr />
+<h2 id="milestone-2-defining-the-system-scope">Milestone 2 — Defining the System Scope<a class="headerlink" href="#milestone-2-defining-the-system-scope" title="Permanent link">&para;</a></h2>
+<p>Before drawing anything, you need to know what you're modeling. This is called defining the scope — it's the equivalent of deciding which floors of a building the fire inspector will check.</p>
+<h3 id="the-hospital-management-system">The Hospital Management System<a class="headerlink" href="#the-hospital-management-system" title="Permanent link">&para;</a></h3>
+<p>A Hospital Management System is software used by hospitals to manage patient records, doctor appointments, prescriptions, and administrative tasks. It connects multiple types of users to sensitive medical data.</p>
+<h3 id="components-we-are-modeling">Components We Are Modeling<a class="headerlink" href="#components-we-are-modeling" title="Permanent link">&para;</a></h3>
+<p><strong>Actors</strong> — people who interact with the system from outside:</p>
+<ul>
+<li><strong>Patient</strong> — books appointments, views their own records</li>
+<li><strong>Doctor</strong> — views patient records, writes prescriptions</li>
+<li><strong>Nurse</strong> — views records for assigned patients</li>
+<li><strong>Admin</strong> — full system access, manages users and reports</li>
+</ul>
+<p><strong>Processes</strong> — actions the software performs:</p>
+<ul>
+<li>1.0 Login / Authentication</li>
+<li>2.0 View Patient Records</li>
+<li>3.0 Book Appointment</li>
+<li>4.0 Write Prescription</li>
+<li>5.0 Admin Panel</li>
+</ul>
+<p><strong>Data Stores</strong> — where data is permanently saved:</p>
+<ul>
+<li>DS1: Patient Records Database</li>
+<li>DS2: Appointment Database</li>
+<li>DS3: Prescription Database</li>
+<li>DS4: User Credentials Database</li>
+</ul>
+<p><strong>Trust Boundary</strong> — one boundary enclosing all processes and data stores, labeled <code>Internal Server Boundary</code>. All actors sit outside this boundary.</p>
+<h3 id="what-is-out-of-scope">What Is Out of Scope<a class="headerlink" href="#what-is-out-of-scope" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Physical security of the hospital building</li>
+<li>Network infrastructure (routers, firewalls)</li>
+<li>Third-party systems like insurance APIs or lab equipment</li>
+</ul>
+<hr />
+<h2 id="milestone-3-drawing-the-threat-model-in-threat-dragon">Milestone 3 — Drawing the Threat Model in Threat Dragon<a class="headerlink" href="#milestone-3-drawing-the-threat-model-in-threat-dragon" title="Permanent link">&para;</a></h2>
+<p>This is the core of the lab. Open the canvas editor and follow these steps exactly.</p>
+<h3 id="step-1-place-the-actors">Step 1 — Place the Actors<a class="headerlink" href="#step-1-place-the-actors" title="Permanent link">&para;</a></h3>
+<p>Find the <strong>Actor</strong> shape in the left sidebar (rectangle with a double border). Drag four onto the canvas and label them: Patient, Doctor, Nurse, Admin. Place them on the left side.</p>
+<p>This is how the screen will look once you save and go back to click on the diagram:</p>
+<p><img alt="Starting" src="assets/5.png" /></p>
+<p><img alt="Actors" src="assets/6.png" /></p>
+<h3 id="step-2-place-the-processes">Step 2 — Place the Processes<a class="headerlink" href="#step-2-place-the-processes" title="Permanent link">&para;</a></h3>
+<p>Find the <strong>Process</strong> shape (circle or rounded rectangle). Drag five onto the center of the canvas:</p>
+<div class="highlight"><pre><span></span><code>1.0 Login / Authentication
+2.0 View Patient Records
+3.0 Book Appointment
+4.0 Write Prescription
+5.0 Admin Panel
+</code></pre></div>
+<h3 id="step-3-place-the-data-stores">Step 3 — Place the Data Stores<a class="headerlink" href="#step-3-place-the-data-stores" title="Permanent link">&para;</a></h3>
+<p>Find the <strong>Data Store</strong> shape (two parallel horizontal lines). Drag four onto the right side:</p>
+<div class="highlight"><pre><span></span><code>DS1: Patient Records DB
+DS2: Appointment DB
+DS3: Prescription DB
+DS4: User Credentials DB
+</code></pre></div>
+<p><img alt="Data stores" src="assets/7.png" /></p>
+<h3 id="step-4-draw-the-arrows">Step 4 — Draw the Arrows<a class="headerlink" href="#step-4-draw-the-arrows" title="Permanent link">&para;</a></h3>
+<p>Hover over any shape's edge until a small dot appears. Click and drag to the destination to draw an arrow (data flow). Label each one:</p>
+<table>
+<thead>
+<tr>
+<th>From</th>
+<th>Arrow Label</th>
+<th>To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Patient</td>
+<td>Username + Password</td>
+<td>1.0 Login</td>
+</tr>
+<tr>
+<td>Doctor</td>
+<td>Username + Password</td>
+<td>1.0 Login</td>
+</tr>
+<tr>
+<td>1.0 Login</td>
+<td>Verify credentials</td>
+<td>DS4: Credentials DB</td>
+</tr>
+<tr>
+<td>Doctor</td>
+<td>Patient ID</td>
+<td>2.0 View Records</td>
+</tr>
+<tr>
+<td>2.0 View Records</td>
+<td>Read record</td>
+<td>DS1: Patient DB</td>
+</tr>
+<tr>
+<td>Patient</td>
+<td>Appointment request</td>
+<td>3.0 Book Appointment</td>
+</tr>
+<tr>
+<td>3.0 Book Appointment</td>
+<td>Save appointment</td>
+<td>DS2: Appointment DB</td>
+</tr>
+<tr>
+<td>Doctor</td>
+<td>Prescription details</td>
+<td>4.0 Write Prescription</td>
+</tr>
+<tr>
+<td>4.0 Write Prescription</td>
+<td>Store prescription</td>
+<td>DS3: Prescription DB</td>
+</tr>
+<tr>
+<td>Admin</td>
+<td>Admin commands</td>
+<td>5.0 Admin Panel</td>
+</tr>
+<tr>
+<td>5.0 Admin Panel</td>
+<td>Read/Write</td>
+<td>DS1: Patient DB</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Arrows" src="assets/8.png" /></p>
+<h3 id="step-5-draw-the-trust-boundary">Step 5 — Draw the Trust Boundary<a class="headerlink" href="#step-5-draw-the-trust-boundary" title="Permanent link">&para;</a></h3>
+<p>Find the <strong>Trust Boundary</strong> shape (dashed rectangle). Draw it as a large box enclosing all five processes and all four data stores. Leave all actors outside it. Label it <code>Internal Server Boundary</code>.</p>
+<p><img alt="Local session" src="assets/9.png" /></p>
+<h3 id="the-completed-diagram">The Completed Diagram<a class="headerlink" href="#the-completed-diagram" title="Permanent link">&para;</a></h3>
+<p><img alt="Final flow diagram" src="assets/12.png" /></p>
+<hr />
+<h2 id="milestone-4-identifying-threats-using-stride">Milestone 4 — Identifying Threats Using STRIDE<a class="headerlink" href="#milestone-4-identifying-threats-using-stride" title="Permanent link">&para;</a></h2>
+<p>With the diagram drawn, click on each component and add threats via the <strong>Threats tab</strong> on the right panel. Click <strong>Add Threat</strong> and fill in the fields.</p>
+<p>Here are all eight threats identified for this system:</p>
+<h3 id="threat-analysis-table">Threat Analysis Table<a class="headerlink" href="#threat-analysis-table" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>STRIDE</th>
+<th>Component</th>
+<th>Threat</th>
+<th>Mitigation</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>Spoofing</td>
+<td>1.0 Login</td>
+<td>Attacker uses stolen doctor credentials to log in and access patient records</td>
+<td>MFA on all logins; account lockout after 5 failed attempts; CAPTCHA</td>
+<td>Mitigated</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>Tampering</td>
+<td>DS1: Patient DB</td>
+<td>Insider modifies a patient's allergy or medication record in the database</td>
+<td>Audit logs on all DB writes; Role-Based Access Control; encrypt records at rest</td>
+<td>Mitigated</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>Repudiation</td>
+<td>4.0 Prescription</td>
+<td>Doctor denies prescribing a medication — no audit trail exists to disprove the claim</td>
+<td>Immutable audit log with doctor ID, timestamp, and digital signature on every write</td>
+<td>Mitigated</td>
+</tr>
+<tr>
+<td>T4</td>
+<td>Information Disclosure</td>
+<td>2.0 View Records</td>
+<td>Patient records transmitted over HTTP instead of HTTPS — readable by a network sniffer</td>
+<td>Enforce HTTPS (TLS 1.2+) on all connections; reject HTTP; use HSTS headers</td>
+<td>Mitigated</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>Denial of Service</td>
+<td>3.0 Book Appointment</td>
+<td>Attacker sends thousands of automated booking requests, crashing the appointment system</td>
+<td>Rate limiting (5 requests/min per IP); CAPTCHA on the booking form; Web Application Firewall</td>
+<td>Mitigated</td>
+</tr>
+<tr>
+<td>T6</td>
+<td>Elevation of Privilege</td>
+<td>5.0 Admin Panel</td>
+<td>Patient manipulates a URL parameter to reach the Admin Panel and modify other users' data</td>
+<td>Server-side role validation on every request; never trust client-side role claims</td>
+<td>Mitigated</td>
+</tr>
+<tr>
+<td>T7</td>
+<td>Information Disclosure</td>
+<td>DS4: Credentials DB</td>
+<td>Database breach exposes plain-text passwords, instantly compromising all accounts</td>
+<td>Hash all passwords with bcrypt or Argon2; enforce minimum password complexity</td>
+<td>Mitigated</td>
+</tr>
+<tr>
+<td>T8</td>
+<td>Tampering</td>
+<td>DS2: Appointment DB</td>
+<td>Staff member directly queries the database and changes appointment times, bypassing the app</td>
+<td>Restrict direct DB access; all changes must go through the application layer only</td>
+<td>Mitigated</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Adding a threat" src="assets/10.png" /></p>
+<h3 id="threat-list-in-threat-dragon">Threat List in Threat Dragon<a class="headerlink" href="#threat-list-in-threat-dragon" title="Permanent link">&para;</a></h3>
+<p><img alt="Threat List Screenshot" src="assets/11.png" /></p>
+<hr />
+<h2 id="milestone-5-using-generative-ai-as-a-security-co-pilot">Milestone 5 — Using Generative AI as a Security Co-Pilot<a class="headerlink" href="#milestone-5-using-generative-ai-as-a-security-co-pilot" title="Permanent link">&para;</a></h2>
+<p>One of the most practical skills in modern security work is knowing how to use AI tools to accelerate analysis. Here's how AI was used to support this threat model, and the exact prompts used.</p>
+<h3 id="how-ai-was-used">How AI Was Used<a class="headerlink" href="#how-ai-was-used" title="Permanent link">&para;</a></h3>
+<p>AI was not used to replace the thinking — the DFD, the scope definition, and the threat identification were all done manually in Threat Dragon. AI was used to:</p>
+<ul>
+<li>Deepen the explanation of each mitigation</li>
+<li>Generate beginner-friendly analogies for STRIDE categories</li>
+<li>Cross-check whether any threats were missed</li>
+<li>Summarise the findings into a report-ready format</li>
+</ul>
+<h3 id="prompt-1-threat-completeness-check">Prompt 1 — Threat Completeness Check<a class="headerlink" href="#prompt-1-threat-completeness-check" title="Permanent link">&para;</a></h3>
+<p>Used after completing the 8 threats to verify nothing obvious was missed.</p>
+<div class="highlight"><pre><span></span><code>I created a threat model for a Hospital Management System using OWASP
+Threat Dragon and the STRIDE framework. The system has these components:
+
+Actors: Patient, Doctor, Nurse, Admin
+Processes: Login/Authentication, View Patient Records, Book Appointment,
+           Write Prescription, Admin Panel
+Data Stores: Patient Records DB, Appointment DB, Prescription DB,
+             User Credentials DB
+
+I identified these threats: [paste your 8 threats here]
+
+Review my threat list. Are there any significant STRIDE threats I missed
+for this type of system? List any gaps and explain why they matter.
+</code></pre></div>
+<p><strong>Sample AI Output:</strong></p>
+<p>The AI flagged two additional considerations worth noting:</p>
+<blockquote>
+<p><em>Session Hijacking (Information Disclosure + Spoofing overlap): If session tokens are not properly invalidated after logout, an attacker who captures a session token (via XSS or network interception) can reuse it to impersonate a logged-in doctor or admin. Mitigation: use short-lived session tokens, regenerate on login, invalidate on logout, and set the HttpOnly and Secure flags on cookies.</em></p>
+<p><em>Insecure Direct Object Reference on Patient Records (Elevation of Privilege): If the "View Patient Records" endpoint accepts a patient ID in the URL without checking whether the logged-in user has permission to view that specific patient, any authenticated user can access any record by guessing IDs. Mitigation: enforce ownership checks server-side — confirm the requesting user has an explicit right to the specific record being requested.</em></p>
+</blockquote>
+<p>Both are valid and have been noted as additional threats to address in a follow-up review cycle.</p>
+<hr />
+<h3 id="prompt-2-mitigation-explanation-for-non-technical-stakeholders">Prompt 2 — Mitigation Explanation for Non-Technical Stakeholders<a class="headerlink" href="#prompt-2-mitigation-explanation-for-non-technical-stakeholders" title="Permanent link">&para;</a></h3>
+<p>Used to generate plain-English explanations of technical mitigations.</p>
+<div class="highlight"><pre><span></span><code>I am writing a threat modeling lab manual for a cybersecurity internship.
+I have identified this threat in a Hospital Management System:
+
+Threat: An attacker uses a stolen doctor&#39;s password to log in and access
+patient records (STRIDE category: Spoofing).
+
+Mitigation: Multi-Factor Authentication (MFA), account lockout after 5
+failed attempts, CAPTCHA.
+
+Explain each mitigation in plain English using a real-world analogy.
+The audience has no technical background. Keep it to 3-4 sentences per
+mitigation, and make it conversational — not robotic.
+</code></pre></div>
+<p><strong>Sample AI Output:</strong></p>
+<blockquote>
+<p><em>Multi-Factor Authentication is like a bank vault that needs both a key and a fingerprint to open — even if someone steals the key, they still can't get in without the fingerprint. In software terms, after you enter your password, MFA asks for a second proof (like a code sent to your phone). A stolen password alone is useless.</em></p>
+<p><em>Account lockout is like a gym locker that jams itself after too many wrong combination attempts, forcing you to get a staff member to reset it. After 5 wrong passwords, the system locks the account and alerts the admin. Brute-force attacks — where software tries thousands of password combinations — become pointless.</em></p>
+<p><em>CAPTCHA is the "are you a robot?" puzzle at the entrance. Automated attack scripts can try millions of passwords per second, but they can't solve a visual puzzle the way a human can. It's a simple speedbump that stops the vast majority of automated attacks.</em></p>
+</blockquote>
+<hr />
+<h3 id="prompt-3-generate-a-lab-summary">Prompt 3 — Generate a Lab Summary<a class="headerlink" href="#prompt-3-generate-a-lab-summary" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>I completed a threat modeling lab for a Hospital Management System using
+OWASP Threat Dragon and the STRIDE framework. I identified 8 threats:
+2 Spoofing, 2 Tampering, 1 Repudiation, 2 Information Disclosure,
+1 Denial of Service, 1 Elevation of Privilege. All 8 are marked as
+Mitigated with specific technical controls documented.
+
+Write a 2-paragraph summary of findings in a lab report style.
+First paragraph: what was found and the overall risk picture.
+Second paragraph: recommended next steps for the development team.
+Keep it direct and factual — not overly formal, not casual.
+</code></pre></div>
+<hr />
+<h2 id="lab-summary">Lab Summary<a class="headerlink" href="#lab-summary" title="Permanent link">&para;</a></h2>
+<p>Eight threats were identified across the Hospital Management System's core components. The most critical cluster around the authentication layer and patient data access — spoofing via credential theft and privilege escalation through broken access control represent the highest-impact risks, since either one gives an attacker direct access to sensitive medical records. The information disclosure threats (unencrypted transmission, plain-text password storage) are also high priority because they're frequently exploited in healthcare breaches. All eight threats have documented mitigations ranging from MFA and HTTPS enforcement to immutable audit logging and server-side role validation.</p>
+<p>The immediate next step for any team implementing this system is to treat the mitigations in this document as minimum requirements, not optional recommendations. Beyond that, a formal penetration test should be scheduled after the first production deployment to validate that the controls work as intended. Threat models should also be updated whenever a new feature is added — security analysis isn't a one-time exercise, it's a discipline.</p>
+<hr />
+<h2 id="test-your-understanding">Test Your Understanding<a class="headerlink" href="#test-your-understanding" title="Permanent link">&para;</a></h2>
+<p><strong>Q1. What is the difference between a Process and a Data Store in a DFD?</strong><br />
+A Process is something the software <em>does</em> — an action, like "Login" or "Book Appointment." A Data Store is somewhere data <em>lives</em> permanently, like a database. A process handles data temporarily; a data store keeps it.</p>
+<p><strong>Q2. Why are Actors placed outside the Trust Boundary?</strong><br />
+Because actors are external to the system — they're users on the internet or other outside systems. The trust boundary marks where your server begins. You don't control what happens outside it, which is exactly why data crossing that boundary needs to be validated.</p>
+<p><strong>Q3. What STRIDE category would you use for "a patient reads another patient's medical records"?</strong><br />
+Information Disclosure (I). The data is being read by someone who shouldn't have access to it.</p>
+<p><strong>Q4. Why isn't it enough to just identify threats — why do mitigations matter?</strong><br />
+Identifying threats without mitigations is like a fire inspector writing a report that says "the building could catch fire" and then leaving. The mitigation is the fix — the sprinkler system, the fire exit, the alarm. Without it, the threat model is just a list of problems with no solutions.</p>
+<p><strong>Q5. What does "Mitigated" status mean in Threat Dragon?</strong><br />
+It means a specific control has been identified and documented that reduces or eliminates the risk from that threat. It doesn't necessarily mean the fix is already implemented — it means the fix is known and planned.</p>
+<hr />
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.threatdragon.com">OWASP Threat Dragon Official Site</a></li>
+<li><a href="https://owasp.org/www-project-threat-dragon/">OWASP Threat Dragon Documentation</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats">Microsoft STRIDE Threat Modeling</a></li>
+<li><a href="https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/">OWASP Top 10 — A07: Identification and Authentication Failures</a></li>
+<li><a href="https://www.nist.gov/healthcare">NIST Guidelines on Healthcare Cybersecurity</a></li>
+</ul>
+<hr />
+<h2 id="learning-outcomes">Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permanent link">&para;</a></h2>
+<p>Having completed this lab, you have:</p>
+<ul>
+<li>Created a Data Flow Diagram (DFD) in OWASP Threat Dragon for a Hospital Management System</li>
+<li>Applied the STRIDE framework to identify and classify security threats across the system</li>
+<li>Documented mitigations for each identified threat within Threat Dragon</li>
+<li>Used Generative AI as a security co-pilot to explain threats and suggest remediations</li>
+<li>Produced a complete threat model report as a security deliverable</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

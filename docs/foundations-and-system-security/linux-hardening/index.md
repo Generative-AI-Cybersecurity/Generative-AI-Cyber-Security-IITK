@@ -1,11 +1,13 @@
+# Linux OS Hardening Lab — Operation Fortress Ledger
+
+---
+
 > Lab Type: Hands-on System Hardening  
 > Tool: UFW, Fail2Ban, auditd  
 > Framework: CIS Linux Hardening Benchmarks  
 > System: Meridian Trust (Ubuntu Server 24.04 LTS)
 
 ---
-
-# Linux OS Hardening Lab — Operation Fortress Ledger
 
 ## Lab Overview
 

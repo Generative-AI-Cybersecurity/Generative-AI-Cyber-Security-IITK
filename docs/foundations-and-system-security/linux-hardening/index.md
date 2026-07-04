@@ -3,9 +3,13 @@
 > Framework: CIS Linux Hardening Benchmarks  
 > System: Meridian Trust (Ubuntu Server 24.04 LTS)
 
+---
+
 # Linux OS Hardening Lab — Operation Fortress Ledger
 
 ## Lab Overview
+
+---
 
 This lab simulates a real-world post-deployment security audit on a Linux host codenamed **Meridian Trust**. Starting from an unhardened baseline — plaintext remote services, root-accessible SSH, no password policy, and zero log visibility — you will systematically reduce the attack surface, deploy active defense tooling, and validate every change against a measurable checklist.
 

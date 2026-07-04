@@ -381,7 +381,7 @@ _Figure 14: Port 23 confirmed closed / never exposed, port 2222 the only SSH lis
 **Remediation:** disable root login and change the listening port (see Mission 6).
 
 !!! tip "Reflection"
-Changing the port alone does not fix this — an attacker who finds the new port still has an unauthenticated path to root unless password auth and root login are also disabled.
+Changing the port alone does not fix this — an attacker who finds the new port still has an unauthenticated path to root unless password auth and root login are also disabled properly.
 
 ---
 

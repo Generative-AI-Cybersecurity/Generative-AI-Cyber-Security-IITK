@@ -431,6 +431,25 @@ _Figure 15: All eight hardening controls verified in a single session._
 
 ---
 
+## Test Your Understanding
+
+??? question "1. Why is Mission 4 (patching) done before any other hardening step?"
+Unpatched packages are the most commonly exploited weakness on any server. Hardening a service (SSH, firewall, accounts) on top of unpatched software still leaves known CVEs open — patching first ensures every later control is built on a clean foundation.
+
+??? question "2. Why does disabling password authentication in Mission 6 require setting up an SSH key _first_?"
+If `PasswordAuthentication no` is applied before a working key is confirmed, there is no remaining way to authenticate over SSH — you'd be locked out of remote access entirely (console access would still work, but not SSH). Testing key login from a second session before closing the first prevents this.
+
+??? question "3. In Drill B, why doesn't changing the SSH port alone fix a weak SSH config?"
+Changing the port only hides the service from casual/default scans — it doesn't remove the underlying exposure. If root login and password authentication are still enabled, an attacker who finds the new port still has an unauthenticated path to root.
+
+??? question "4. What does a `PASS_MIN_LEN` policy in `/etc/login.defs` actually protect against, and what other control does it depend on?"
+It enforces a minimum password length, raising the cost of brute-force and dictionary attacks. It's only meaningful if `/etc/shadow` is also locked down (Mission 10) — otherwise the password hashes it's meant to protect are readable by any local user.
+
+??? question "5. Why is 'no listener found on port 23' still valid evidence for Drill A, even if Telnet was never installed?"
+The drill is testing whether the _current state_ of the host is secure, not whether a specific remediation action was performed. A host that never exposed the service is at least as secure as one where the service was actively closed — the verification step (`ss -tuln`) is the same either way.
+
+---
+
 ## Bonus Round — Advanced Hardening
 
 - Enforce AppArmor in enforcing mode

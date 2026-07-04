@@ -1,11 +1,9 @@
-# Linux OS Hardening Lab — Operation Fortress Ledger
-
 > Lab Type: Hands-on System Hardening  
 > Tool: UFW, Fail2Ban, auditd  
 > Framework: CIS Linux Hardening Benchmarks  
 > System: Meridian Trust (Ubuntu Server 24.04 LTS)
 
----
+# Linux OS Hardening Lab — Operation Fortress Ledger
 
 ## Lab Overview
 
@@ -14,7 +12,16 @@ This lab simulates a real-world post-deployment security audit on a Linux host c
 The exercise is split into four phases: reconnaissance, hardening operations, incident-response drills, and a timed practical assessment. Each phase builds on evidence captured in the one before it, so missions must be completed in order.
 
 !!! info "Environment"
-This lab was performed on Ubuntu Server 24.04 LTS running in a disposable VM. Several steps disable services and change the SSH listening port — never run this against a production host.
+This lab was performed on **Ubuntu Server 24.04 LTS** (not Desktop — no GUI is needed or used anywhere in this lab) running in a VMware VM. Several steps disable services and change the SSH listening port — never run this against a production host.
+
+!!! tip "Work over SSH, not the VMware console"
+The VMware console window has very limited scrollback and unreliable copy-paste. As soon as your VM is up, find its IP from the console login screen (shown under "IPv4 address for ens33") and connect from your host machine's terminal instead:
+`     ssh ubuntu@<your-vm-ip>
+    `
+Do all lab work from this SSH session. If you ever need the console's own scrollback, use **Shift + Page Up** / **Shift + Page Down** — but switching to SSH avoids needing it at all.
+
+!!! tip "Long command output opens a pager"
+Commands like `systemctl status <service>` and `journalctl -xe` can open a scrolling pager instead of printing and returning to the prompt. If your terminal looks "stuck," press **`q`** to quit the pager and get your prompt back — nothing is broken.
 
 ---
 
@@ -32,7 +39,7 @@ By the end of this lab, you will be able to:
 
 ## Prerequisites
 
-- Ubuntu Server 24.04 LTS VM with `sudo` access
+- Ubuntu Server 24.04 LTS VM with `sudo` access ([download](https://ubuntu.com/download/server))
 - A second terminal/SSH session available before Mission 6
 - Basic familiarity with `nano` or `vi`
 
@@ -55,7 +62,7 @@ cat /etc/os-release
 uname -a
 ```
 
-![Host fingerprint output](../assets/img/linux-hardening/mission01-fingerprint.png)
+![Host fingerprint output](assets/mission01-fingerprint.png)
 _Figure 1: Confirming OS distribution, version, and kernel release before making any changes._
 
 ---
@@ -67,7 +74,7 @@ ss -tuln
 systemctl list-units --type=service
 ```
 
-![Open ports before hardening](../assets/img/linux-hardening/mission02-open-ports.png)
+![Open ports before hardening](assets/mission02-open-ports.png)
 _Figure 2: Listening ports at baseline — note any unexpected service exposed here._
 
 ---
@@ -79,8 +86,11 @@ cat /etc/passwd
 awk -F: '($3>=1000)&&($1!="nobody"){print $1}' /etc/passwd
 ```
 
-![Account audit](../assets/img/linux-hardening/mission03-account-audit.png)
+![Account audit](assets/mission03-account-audit.png)
 _Figure 3: All accounts with UID ≥ 1000 and a valid login shell — the candidate list for Mission 9._
+
+!!! note "A clean result is a valid result"
+On a fresh install, this will likely return only your own login (e.g. `ubuntu`). That's not a failed check — it means the baseline has no unrecognized accounts, which you'll confirm again in Mission 9.
 
 ---
 
@@ -98,7 +108,7 @@ sudo apt update && sudo apt upgrade -y
 apt list --upgradable
 ```
 
-![Patch verification](../assets/img/linux-hardening/mission04-patch-verify.png)
+![Patch verification](assets/mission04-patch-verify.png)
 _Figure 4: No pending updates after patching._
 
 ---
@@ -110,13 +120,16 @@ sudo systemctl disable telnet
 sudo systemctl stop telnet
 ```
 
+!!! note "Telnet may not be installed at all"
+Ubuntu Server doesn't ship Telnet by default. You may see `Failed to stop telnet.service: Unit telnet.service not loaded`. That's expected — it confirms the service isn't present rather than indicating an error. Screenshot the output as-is; it's still valid evidence.
+
 **Verify**
 
 ```bash
 systemctl status telnet
 ```
 
-![Telnet disabled](../assets/img/linux-hardening/mission05-telnet-disabled.png)
+![Telnet disabled](assets/mission05-telnet-disabled.png)
 _Figure 5: Telnet confirmed inactive (or absent) on the host._
 
 ---
@@ -127,7 +140,7 @@ _Figure 5: Telnet confirmed inactive (or absent) on the host._
 sudo nano /etc/ssh/sshd_config
 ```
 
-Set:
+Set these three lines (remove any leading `#`):
 
 ```
 PermitRootLogin no
@@ -139,8 +152,43 @@ Port 2222
 sudo systemctl restart ssh
 ```
 
-!!! danger "Field Warning"
-Confirm login on the new port from a second session before closing the first — this is the step most likely to lock you out.
+!!! danger "Field Warning — set up an SSH key before disabling password login"
+`PasswordAuthentication no` with no key configured will lock you out of SSH entirely (console access still works, SSH does not). Before editing the config, set up key auth from your **host machine**:
+
+    ```
+    ssh-keygen -t ed25519
+    ```
+    (If a key already exists, keep it — don't overwrite.)
+
+    Copy it to the VM. In **Command Prompt** (not PowerShell — the syntax differs):
+    ```
+    type %USERPROFILE%\.ssh\id_ed25519.pub | ssh ubuntu@<your-vm-ip> "cat >> ~/.ssh/authorized_keys"
+    ```
+    In **PowerShell**, the equivalent is:
+    ```
+    type $env:USERPROFILE\.ssh\id_ed25519.pub | ssh ubuntu@<your-vm-ip> "cat >> ~/.ssh/authorized_keys"
+    ```
+    Then confirm key login works — you should **not** be asked for a password:
+    ```
+    ssh ubuntu@<your-vm-ip>
+    ```
+    Only proceed to edit `sshd_config` once this succeeds.
+
+!!! warning "Known issue on Ubuntu 24.04 — ssh.socket overrides your port"
+Ubuntu 24.04 uses **socket activation** for SSH by default. Even after setting `Port 2222` in `sshd_config` and restarting, you may find `sshd` still logs `Server listening on 0.0.0.0 port 22` and `ss -tuln | grep 2222` returns nothing. This is because `ssh.socket` — a separate unit — controls the listening port and overrides your config. Check:
+`bash
+    sudo systemctl status ssh.socket
+    `
+Fix by disabling the socket unit and letting the service itself bind the port from your config:
+`bash
+    sudo systemctl disable --now ssh.socket
+    sudo systemctl enable --now ssh.service
+    sudo systemctl restart ssh
+    `
+Then re-verify — `sudo systemctl status ssh` should log `Server listening on 0.0.0.0 port 2222`.
+
+!!! tip "Restarting ssh does not drop your current session"
+`sudo systemctl restart ssh` only affects _new_ connections — your already-open session stays alive. This is exactly why you test from a **second** window before closing the first: if the new port/key login fails, your original session is still there to fix it.
 
 **Verify**
 
@@ -150,10 +198,16 @@ grep PasswordAuthentication /etc/ssh/sshd_config
 ss -tuln | grep 2222
 ```
 
-![SSH configuration verified](../assets/img/linux-hardening/mission06-sshd-verify.png)
+![SSH configuration verified](assets/mission06-sshd-verify.png)
 _Figure 6: Root login and password auth disabled; new port live._
 
-![Successful SSH login on new port](../assets/img/linux-hardening/mission06-ssh-login-success.png)
+From a **second, new terminal window** (don't close the first):
+
+```
+ssh -p 2222 ubuntu@<your-vm-ip>
+```
+
+![Successful SSH login on new port](assets/mission06-ssh-login-success.png)
 _Figure 7: Key-based login confirmed working on port 2222 from a second session._
 
 ---
@@ -172,7 +226,7 @@ sudo ufw deny 23
 sudo ufw status verbose
 ```
 
-![Firewall ruleset](../assets/img/linux-hardening/mission07-firewall-rules.png)
+![Firewall ruleset](assets/mission07-firewall-rules.png)
 _Figure 8: UFW active, only port 2222 permitted._
 
 ---
@@ -197,12 +251,14 @@ PASS_MIN_LEN 12
 grep -E "PASS_MAX_DAYS|PASS_MIN_DAYS|PASS_MIN_LEN" /etc/login.defs
 ```
 
-![Password policy verified](../assets/img/linux-hardening/mission08-password-policy.png)
+![Password policy verified](assets/mission08-password-policy.png)
 _Figure 9: Password aging and length policy applied._
 
 ---
 
 ### Mission 9 — Neutralize Ghost Accounts
+
+Using your Mission 3 suspect list:
 
 ```bash
 sudo userdel testuser
@@ -210,14 +266,17 @@ sudo userdel testuser
 sudo usermod -L testuser
 ```
 
+!!! note "No suspect accounts found"
+If Mission 3 turned up no unrecognized accounts, `userdel: user 'testuser' does not exist` is the expected, correct result — not an error. Document it as "baseline already clean" rather than as a remediation.
+
 **Verify**
 
 ```bash
 cat /etc/passwd
 ```
 
-![Accounts remediated](../assets/img/linux-hardening/mission09-accounts-remediated.png)
-_Figure 10: Unrecognized accounts from Mission 3 removed or locked._
+![Accounts remediated](assets/mission09-accounts-remediated.png)
+_Figure 10: Unrecognized accounts from Mission 3 removed or locked (or confirmed absent)._
 
 ---
 
@@ -233,7 +292,7 @@ sudo chmod 600 /etc/shadow
 ls -l /etc/shadow
 ```
 
-![Shadow file permissions](../assets/img/linux-hardening/mission10-shadow-permissions.png)
+![Shadow file permissions](assets/mission10-shadow-permissions.png)
 _Figure 11: `/etc/shadow` locked to root-only access._
 
 ---
@@ -248,6 +307,9 @@ sudo apt install auditd -y
 sudo systemctl enable --now auditd
 ```
 
+!!! note "Already installed?"
+Some Ubuntu Server images ship with Fail2Ban and/or auditd pre-installed — `apt install` will report `is already the newest version` in that case. That's fine; the `systemctl enable --now` step still matters, since a package being installed doesn't guarantee the service is enabled and running.
+
 **Verify**
 
 ```bash
@@ -255,7 +317,9 @@ systemctl status fail2ban
 systemctl status auditd
 ```
 
-![Fail2Ban and auditd active](../assets/img/linux-hardening/mission11-fail2ban-auditd.png)
+(Press **`q`** to exit each status view.)
+
+![Fail2Ban and auditd active](assets/mission11-fail2ban-auditd.png)
 _Figure 12: Both active-defense services confirmed running._
 
 ---
@@ -267,8 +331,15 @@ sudo cat /var/log/auth.log
 journalctl -xe
 ```
 
-![Authentication log evidence](../assets/img/linux-hardening/mission12-auth-log-evidence.png)
-_Figure 13: A real authentication event captured, confirming logging is active._
+!!! tip "Filter instead of scrolling the whole log"
+`/var/log/auth.log` fills up fast with routine cron and session noise. Filter for the signal that actually matters — SSH authentication events:
+`bash
+    grep "Accepted" /var/log/auth.log
+    `
+Look specifically for a line like `Accepted publickey for ubuntu from ... ED25519 ...` — this proves your Mission 6 hardening is actually working (key-based login), as opposed to an earlier `Accepted password` line from before you locked SSH down.
+
+![Authentication log evidence](assets/mission12-auth-log-evidence.png)
+_Figure 13: A real authentication event (key-based login) captured, confirming logging is active and SSH hardening took effect._
 
 ---
 
@@ -291,8 +362,11 @@ sudo ufw deny 23
 ss -tuln
 ```
 
-![Port 23 closed](../assets/img/linux-hardening/drillA-port23-closed.png)
-_Figure 14: Port 23 confirmed closed after remediation._
+!!! note "Verified-absent is still a valid drill outcome"
+If Telnet was never installed on your host, you'll see `Unit telnet.service not loaded` and `Skipping adding existing rule` (UFW rule already present from Mission 7). This confirms port 23 has no listener — document it as "verified absent" rather than "actively remediated."
+
+![Port 23 closed](assets/drillA-port23-closed.png)
+_Figure 14: Port 23 confirmed closed / never exposed, port 2222 the only SSH listener._
 
 ---
 
@@ -346,7 +420,7 @@ systemctl status auditd
 | Fail2Ban active     | `active (running)`         |
 | Auditd active       | `active (running)`         |
 
-![Final validation checklist](../assets/img/linux-hardening/final-validation-checklist.png)
+![Final validation checklist](assets/final-validation-checklist.png)
 _Figure 15: All eight hardening controls verified in a single session._
 
 ---
@@ -367,4 +441,5 @@ By completing this lab, you have:
 - Reduced a host's attack surface using measurable, verifiable controls rather than a checklist run blind
 - Practiced recon-before-action, verify-after-every-change, evidence-as-you-go discipline
 - Converted an unhardened host into one with a minimal attack surface, key-only access, active brute-force defense, and a real audit trail
+- Diagnosed and worked around a real platform quirk (Ubuntu 24.04 socket-activated SSH) rather than following steps blindly
 - Built the muscle memory to diagnose a live misconfiguration under time pressure

@@ -62,6 +62,7 @@ nav:
           - Network Traffic Fundamentals: foundations-and-system-security/network-traffic-fundamentals/index.md
           - Firewall Fundamentals using GUFW: foundations-and-system-security/firewall-fundamentals/index.md
           - VPN Fundamentals using OpenVPN: foundations-and-system-security/vpn-fundamentals/index.md
+          - Linux OS Hardening: foundations-and-system-security/linux-hardening/index.md
 
       - Pentesting & Ethical Hacking:
           - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md

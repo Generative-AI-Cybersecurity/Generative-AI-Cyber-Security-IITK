@@ -34,7 +34,7 @@ Commands like `systemctl status <service>` and `journalctl -xe` can open a scrol
 !!! warning "Platform Disclaimer"
 This lab is designed around a **server environment with administrative (root/sudo) access** — that's why every step here was demonstrated on Ubuntu Server rather than a desktop distribution. Server platforms are the realistic target for this kind of hardening work in production.
 
-    That said, you can follow along on other Linux environments (e.g. Kali, Ubuntu Desktop) for practice. If you do, be aware that **some commands may behave differently or not apply at all**, since desktop/pentest distributions are configured with different defaults and priorities than a hardened server target. Read each mission's commands before running them on a non-server OS, and check for a "Platform Note" callout where one exists.
+`That said, you can follow along on other Linux environments (e.g. Kali, Ubuntu Desktop) for practice. If you do, be aware that **some commands may behave differently or not apply at all**, since desktop/pentest distributions are configured with different defaults and priorities than a hardened server target. Read each mission's commands before running them on a non-server OS, and check for a "Platform Note" callout where one exists.`
 
 ---
 

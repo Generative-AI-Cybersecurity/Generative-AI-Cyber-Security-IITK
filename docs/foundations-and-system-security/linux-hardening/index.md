@@ -31,6 +31,13 @@ Commands like `systemctl status <service>` and `journalctl -xe` can open a scrol
 
 ---
 
+!!! warning "Platform Disclaimer"
+This lab is designed around a **server environment with administrative (root/sudo) access** — that's why every step here was demonstrated on Ubuntu Server rather than a desktop distribution. Server platforms are the realistic target for this kind of hardening work in production.
+
+    That said, you can follow along on other Linux environments (e.g. Kali, Ubuntu Desktop) for practice. If you do, be aware that **some commands may behave differently or not apply at all**, since desktop/pentest distributions are configured with different defaults and priorities than a hardened server target. Read each mission's commands before running them on a non-server OS, and check for a "Platform Note" callout where one exists.
+
+---
+
 ## Learning Objectives
 
 By the end of this lab, you will be able to:
@@ -126,6 +133,9 @@ sudo systemctl disable telnet
 sudo systemctl stop telnet
 ```
 
+!!! note "Platform Note"
+On Kali and most desktop distributions, Telnet is typically not installed either — this step will likely show the same "not loaded" result regardless of platform.
+
 !!! note "Telnet may not be installed at all"
 Ubuntu Server doesn't ship Telnet by default. You may see `Failed to stop telnet.service: Unit telnet.service not loaded`. That's expected — it confirms the service isn't present rather than indicating an error. Screenshot the output as-is; it's still valid evidence.
 
@@ -180,6 +190,9 @@ sudo systemctl restart ssh
     ```
     Only proceed to edit `sshd_config` once this succeeds.
 
+!!! note "Platform Note"
+The `ssh.socket` override behavior described above is specific to how Ubuntu 24.04 packages SSH. Other distributions (including Kali) may not use socket activation for SSH at all — if `Port 2222` doesn't take effect on a different OS, check `systemctl list-units | grep ssh` for what's actually managing the service before assuming it's the same root cause.
+
 !!! warning "Known issue on Ubuntu 24.04 — ssh.socket overrides your port"
 Ubuntu 24.04 uses **socket activation** for SSH by default. Even after setting `Port 2222` in `sshd_config` and restarting, you may find `sshd` still logs `Server listening on 0.0.0.0 port 22` and `ss -tuln | grep 2222` returns nothing. This is because `ssh.socket` — a separate unit — controls the listening port and overrides your config. Check:
 `bash
@@ -225,6 +238,9 @@ sudo ufw allow 2222/tcp
 sudo ufw enable
 sudo ufw deny 23
 ```
+
+!!! note "Platform Note"
+Kali often ships with UFW present but intentionally left disabled, since pentesters typically don't want a firewall interfering with their own tools. Enabling it will work, but consider whether that fits the environment you're actually using — on a personal Kali install used for other work, you may want to `sudo ufw disable` afterward.
 
 **Verify**
 
@@ -315,6 +331,9 @@ sudo systemctl enable --now auditd
 
 !!! note "Already installed?"
 Some Ubuntu Server images ship with Fail2Ban and/or auditd pre-installed — `apt install` will report `is already the newest version` in that case. That's fine; the `systemctl enable --now` step still matters, since a package being installed doesn't guarantee the service is enabled and running.
+
+!!! note "Platform Note"
+Package availability and default install state for Fail2Ban and auditd can vary across distributions — if `apt install` isn't available on your platform, substitute your distro's package manager (`dnf`, `pacman`, etc.) and check the equivalent service name.
 
 **Verify**
 

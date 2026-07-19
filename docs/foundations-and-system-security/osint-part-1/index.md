@@ -41,12 +41,7 @@ legal with explicit authorization.
 Analogy: Walking up to the building and testing which doors are unlocked
 
 ### Quick Comparison Table
-Aspect Passive Recon Active Recon
-Target interaction None (uses 3rd-party data) Direct
-Detectability Undetectable by target Can trigger logs/alerts
-Legal risk Low Requires authorization
-Examples WHOIS, Shodan, Google Dorking Nmap scan, live subdomain probing
-Speed Fast Can be slower/noisier
+![reports tab](assets\1-quick-table.png)
 
 ## Milestone 2 - WHOIS Lookup (Passive)
 
@@ -107,16 +102,14 @@ Last time Shodan scanned it
 Sometimes: SSL certificate details, HTTP headers, favicon hash
 
 ### Step 3 — Useful Shodan Search Filters
-Filter Purpose Example
-hostname: Search by domain/hostname hostname:example.com
-port: Filter by specific port port:22
-hostname:example.com
-org:"Example Organization"
-Filter Purpose Example
-org: Search by organization name org:"Acme Corp"
-country: Filter by country code country:IN
-product: Filter by software/product product:nginx
-net: Search a CIDR/IP range net:192.168.1.0/24
+| Filter | Purpose | Example |
+|--------|---------|---------|
+| `hostname:` | Search by domain/hostname | `hostname:example.com` |
+| `port:` | Filter by specific port | `port:22` |
+| `org:` | Search by organization name | `org:"Acme Corp"` |
+| `country:` | Filter by country code | `country:IN` |
+| `product:` | Filter by software/product | `product:nginx` |
+| `net:` | Search a CIDR/IP range | `net:192.168.1.0/24` |
 
 ### Interpreting Results Responsibly
 1. Open ports + old software versions = potential vulnerability, but do not attempt to

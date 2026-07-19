@@ -1,0 +1,3032 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cybersecurity Labs and Technical Documentation">
+      
+      
+      
+        <link rel="canonical" href="https://sitename.example/foundations-and-system-security/zero-day-trust/">
+      
+      
+        <link rel="prev" href="../owasp-threat-dragon/">
+      
+      
+        <link rel="next" href="../network-traffic-fundamentals/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Zero Trust Architecture - Gen-AI Cyber Security IITK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#zero-trust-identity-lab" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+<header class="md-header" data-md-component="header">
+
+  <nav class="md-header__inner md-grid">
+
+    <!-- LEFT: hamburger + logo area (kept empty safely) -->
+    <div class="md-header__title">
+    </div>
+
+    <!-- CENTER: YOUR BANNER -->
+    <div class="header-banner">
+      <img src="../../images/image-1.jpg" alt="Header Banner">
+    </div>
+
+    <!-- RIGHT: keep search + icons working -->
+    <div class="md-header__options">
+      
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Gen-AI Cyber Security IITK" class="md-header__button md-logo" aria-label="Gen-AI Cyber Security IITK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Gen-AI Cyber Security IITK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Zero Trust Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    </div>
+
+  </nav>
+</header>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../microsoft-threat-model-software/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Gen-AI Cyber Security IITK" class="md-nav__button md-logo" aria-label="Gen-AI Cyber Security IITK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Gen-AI Cyber Security IITK
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations & System Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations & System Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsoft-threat-model-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft Threat Modeling Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../owasp-threat-dragon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OWASP Threat Dragon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-and-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools and Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-will-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Will Build
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-traditional-vs-zero-trust-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Traditional vs Zero Trust Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-1-identity-centric-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 1 — Identity-Centric Connectivity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 1 — Identity-Centric Connectivity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-milestone-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Milestone Covers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-your-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Update your system
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-enable-ip-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Enable IP Forwarding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-install-tailscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Install Tailscale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-log-in-with-your-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Log in with your identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-verify-the-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Verify the connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-verify-the-admin-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Verify the admin dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-just-proved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Proved
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-2-micro-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 2 — Micro-segmentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 2 — Micro-segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-milestone-covers_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Milestone Covers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-and-start-a-web-server-on-port-8080" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Create and start a web server on port 8080
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-verify-the-web-server-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Verify the web server works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-view-the-default-tailscale-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — View the default Tailscale ACL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-write-the-micro-segmentation-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Write the micro-segmentation ACL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-test-port-8080-is-allowed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Test port 8080 is allowed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-test-other-ports-are-blocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Test other ports are blocked
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-just-proved_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Proved
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-3-least-privilege" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 3 — Least Privilege
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 3 — Least Privilege">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-milestone-covers_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Milestone Covers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-junior-admin-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Create the junior-admin user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-understand-the-sudoers-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Understand the sudoers file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-the-least-privilege-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Add the least privilege rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-switch-to-junior-admin-and-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Switch to junior-admin and test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-switch-back-to-your-main-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Switch back to your main user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-just-proved_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Proved
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-4-genai-as-security-co-pilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 4 — GenAI as Security Co-Pilot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 4 — GenAI as Security Co-Pilot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-milestone-covers_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Milestone Covers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-view-your-authentication-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — View your authentication logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-copy-the-log-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Copy the log output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-open-claude-or-chatgpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Open Claude or ChatGPT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-paste-this-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Paste this prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-review-the-ais-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Review the AI's response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-good-ai-log-analysis-looks-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What good AI log analysis looks like
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-ai-as-a-security-co-pilot-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using AI as a Security Co-Pilot — Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-just-proved_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Proved
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trust-boundary-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trust Boundary Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Your Understanding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Outcomes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-traffic-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Traffic Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firewall-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firewall Fundamentals using GUFW
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpn-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPN Fundamentals using OpenVPN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-hardening/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux OS Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../windows-hardening/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows OS Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osint-part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reconnaissance and OSINT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pentesting & Ethical Hacking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pentesting & Ethical Hacking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advance Red Teaming & AI-Driven Attacks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advance Red Teaming & AI-Driven Attacks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOC, DFIR & AIML for Defense
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SOC, DFIR & AIML for Defense
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Security, DevSecOps & Quantum Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Security, DevSecOps & Quantum Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-and-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools and Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-will-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Will Build
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-traditional-vs-zero-trust-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Traditional vs Zero Trust Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-1-identity-centric-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 1 — Identity-Centric Connectivity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 1 — Identity-Centric Connectivity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-milestone-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Milestone Covers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-your-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Update your system
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-enable-ip-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Enable IP Forwarding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-install-tailscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Install Tailscale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-log-in-with-your-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Log in with your identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-verify-the-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Verify the connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-verify-the-admin-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Verify the admin dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-just-proved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Proved
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-2-micro-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 2 — Micro-segmentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 2 — Micro-segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-milestone-covers_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Milestone Covers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-and-start-a-web-server-on-port-8080" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Create and start a web server on port 8080
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-verify-the-web-server-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Verify the web server works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-view-the-default-tailscale-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — View the default Tailscale ACL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-write-the-micro-segmentation-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Write the micro-segmentation ACL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-test-port-8080-is-allowed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Test port 8080 is allowed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-test-other-ports-are-blocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Test other ports are blocked
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-just-proved_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Proved
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-3-least-privilege" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 3 — Least Privilege
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 3 — Least Privilege">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-milestone-covers_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Milestone Covers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-junior-admin-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Create the junior-admin user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-understand-the-sudoers-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Understand the sudoers file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-the-least-privilege-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Add the least privilege rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-switch-to-junior-admin-and-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Switch to junior-admin and test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-switch-back-to-your-main-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Switch back to your main user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-just-proved_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Proved
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-4-genai-as-security-co-pilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone 4 — GenAI as Security Co-Pilot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestone 4 — GenAI as Security Co-Pilot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-milestone-covers_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Milestone Covers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-view-your-authentication-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — View your authentication logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-copy-the-log-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Copy the log output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-open-claude-or-chatgpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Open Claude or ChatGPT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-paste-this-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Paste this prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-review-the-ais-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Review the AI's response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-good-ai-log-analysis-looks-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What good AI log analysis looks like
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-ai-as-a-security-co-pilot-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using AI as a Security Co-Pilot — Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-just-proved_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Just Proved
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trust-boundary-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trust Boundary Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Your Understanding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Outcomes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="zero-trust-identity-lab">Zero Trust &amp; Identity Lab<a class="headerlink" href="#zero-trust-identity-lab" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Lab Type: Hands-on Security Implementation<br />
+Tool: Tailscale, Linux sudoers, journalctl<br />
+Framework: NIST SP 800-207 (Zero Trust Architecture)<br />
+System: Kali Linux (Ubuntu/Debian compatible)</p>
+</blockquote>
+<hr />
+<h2 id="lab-overview">Lab Overview<a class="headerlink" href="#lab-overview" title="Permanent link">&para;</a></h2>
+<p>Traditional network security works like a building with one front door — if you're inside, you're trusted. Once someone gets past the firewall, they can move freely through the network. This model is called <strong>perimeter security</strong>, and it's dangerously outdated.</p>
+<p><strong>Zero Trust Architecture (ZTA)</strong> replaces this with a simple principle: <em>never trust, always verify</em> — regardless of where a request comes from. Every resource has its own lock. Every access request must prove who is making it, what they are allowed to do, and whether the request is legitimate.</p>
+<p>This lab is grounded in <strong>NIST SP 800-207</strong> — the US government's official Zero Trust standard — and builds a real, working Zero Trust setup across three layers: network identity, micro-segmentation, and least privilege.</p>
+<hr />
+<h2 id="learning-objectives">Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<p>By the end of this lab you will be able to:</p>
+<ul>
+<li>Explain the difference between perimeter security and Zero Trust Architecture</li>
+<li>Set up identity-based network access using Tailscale</li>
+<li>Write ACL rules to enforce micro-segmentation at the port level</li>
+<li>Apply the Principle of Least Privilege using Linux sudoers</li>
+<li>Use Generative AI to analyse authentication logs as a security co-pilot</li>
+</ul>
+<hr />
+<h2 id="tools-and-prerequisites">Tools and Prerequisites<a class="headerlink" href="#tools-and-prerequisites" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OS</td>
+<td>Kali Linux (Ubuntu/Debian also works)</td>
+</tr>
+<tr>
+<td>Network tool</td>
+<td>Free <a href="https://tailscale.com">Tailscale account</a></td>
+</tr>
+<tr>
+<td>Identity</td>
+<td>Personal GitHub or Google account</td>
+</tr>
+<tr>
+<td>Knowledge needed</td>
+<td>Basic Linux terminal usage</td>
+</tr>
+<tr>
+<td>Time required</td>
+<td>~2 hours</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Use a personal account</p>
+</div>
+<p>Use a <strong>personal</strong> Google or GitHub account for Tailscale — not a university or corporate one. University accounts may not have admin access to the Tailscale dashboard. If you are on a university or corporate WiFi, Tailscale may be blocked — switch to a mobile hotspot if you experience connection issues.</p>
+<hr />
+<h2 id="what-you-will-build">What You Will Build<a class="headerlink" href="#what-you-will-build" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity network</td>
+<td>Tailscale</td>
+<td>Replace IP-based access with identity-based access</td>
+</tr>
+<tr>
+<td>Micro-segmentation</td>
+<td>Tailscale ACLs</td>
+<td>Restrict access to port 8080 only</td>
+</tr>
+<tr>
+<td>Least privilege</td>
+<td>Linux sudoers</td>
+<td>Junior admin can only restart one service</td>
+</tr>
+<tr>
+<td>Security monitoring</td>
+<td>journalctl + AI</td>
+<td>Audit logs using an LLM</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="the-traditional-vs-zero-trust-comparison">The Traditional vs Zero Trust Comparison<a class="headerlink" href="#the-traditional-vs-zero-trust-comparison" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Traditional Perimeter</th>
+<th>Zero Trust</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trust model</td>
+<td>Trust everyone inside</td>
+<td>Trust no one by default</td>
+</tr>
+<tr>
+<td>Access control</td>
+<td>IP address based</td>
+<td>Identity based</td>
+</tr>
+<tr>
+<td>Lateral movement</td>
+<td>Freely possible</td>
+<td>Blocked by micro-segmentation</td>
+</tr>
+<tr>
+<td>Privilege</td>
+<td>Broad permissions</td>
+<td>Least privilege enforced</td>
+</tr>
+<tr>
+<td>Monitoring</td>
+<td>Perimeter logs only</td>
+<td>Every action logged</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="lab-architecture">Lab Architecture<a class="headerlink" href="#lab-architecture" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Your Linux Machine (Kali VM)
+│
+├── Tailscale installed
+│     └── Connected to your personal tailnet
+│           └── Identity: your GitHub/Google account
+│
+├── Python web server
+│     └── Running on port 8080
+│           └── Protected by Tailscale ACL rules
+│
+├── junior-admin user
+│     └── sudoers rule: can ONLY restart ssh service
+│           └── blocked from everything else
+│
+└── auth logs (journalctl)
+      └── Records every sudo action
+            └── Analysed by Claude/ChatGPT
+</code></pre></div>
+<hr />
+<h2 id="milestone-1-identity-centric-connectivity">Milestone 1 — Identity-Centric Connectivity<a class="headerlink" href="#milestone-1-identity-centric-connectivity" title="Permanent link">&para;</a></h2>
+<h3 id="what-this-milestone-covers">What This Milestone Covers<a class="headerlink" href="#what-this-milestone-covers" title="Permanent link">&para;</a></h3>
+<p>In traditional networks, access is granted based on IP addresses — <code>192.168.1.5 is allowed in</code>. The problem is that IP addresses can be spoofed, shared, or reassigned. They tell you <strong>where</strong> a request came from, not <strong>who</strong> made it.</p>
+<p>In this milestone we replace IP-based access with <strong>identity-based access</strong> using Tailscale. After this milestone, your machine is accessible only to authenticated users — not to anyone who simply knows an IP address.</p>
+<hr />
+<h3 id="step-1-update-your-system">Step 1 — Update your system<a class="headerlink" href="#step-1-update-your-system" title="Permanent link">&para;</a></h3>
+<p>Before installing anything, make sure your system is up to date:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</code></pre></div>
+<blockquote>
+<p>⏱️ This may take 5–10 minutes depending on how many updates are pending.</p>
+</blockquote>
+<p>Expected output after <code>apt update</code>:</p>
+<div class="highlight"><pre><span></span><code>Reading package lists... Done
+Building dependency tree... Done
+All packages are up to date.
+</code></pre></div>
+<p><img alt="apt update output" src="assets/sudo_apt_update.png" /></p>
+<hr />
+<h3 id="step-2-enable-ip-forwarding">Step 2 — Enable IP Forwarding<a class="headerlink" href="#step-2-enable-ip-forwarding" title="Permanent link">&para;</a></h3>
+<p>Tailscale requires IP forwarding to be enabled on your machine:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;net.ipv4.ip_forward = 1&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/sysctl.conf
+sudo<span class="w"> </span>sysctl<span class="w"> </span>-p
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>net.ipv4.ip_forward = 1
+</code></pre></div>
+<p><img alt="IP forwarding check" src="assets/check_ip_forwarding.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">What is IP forwarding?</p>
+</div>
+<p>It allows your machine to forward network packets between interfaces — required for Tailscale to route traffic correctly.</p>
+<hr />
+<h3 id="step-3-install-tailscale">Step 3 — Install Tailscale<a class="headerlink" href="#step-3-install-tailscale" title="Permanent link">&para;</a></h3>
+<p>Run this single command to install Tailscale from their official repository:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://tailscale.com/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div>
+<p>Expected output at the end:</p>
+<div class="highlight"><pre><span></span><code>Installation complete! Log in to start using Tailscale by running:
+sudo tailscale up
+</code></pre></div>
+<p><img alt="Tailscale install complete" src="assets/tailscale_installed.png" /></p>
+<hr />
+<h3 id="step-4-log-in-with-your-identity">Step 4 — Log in with your identity<a class="headerlink" href="#step-4-log-in-with-your-identity" title="Permanent link">&para;</a></h3>
+<p>This is the key step — connecting your machine to your personal identity:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tailscale<span class="w"> </span>up<span class="w"> </span>--operator<span class="o">=</span><span class="nv">$USER</span>
+</code></pre></div>
+<p>Tailscale will output a URL like:</p>
+<div class="highlight"><pre><span></span><code>To authenticate, visit:
+https://login.tailscale.com/a/xxxxxxxxxxxxxxx
+</code></pre></div>
+<p><img alt="Tailscale login URL in terminal" src="assets/login_to_tailscale.png" /></p>
+<ol>
+<li>Copy that URL and open it in your browser</li>
+<li>Click <strong>Sign in with GitHub</strong> or <strong>Sign in with Google</strong></li>
+<li>Use your <strong>personal</strong> account (not university)</li>
+<li>Click <strong>Connect</strong> when prompted</li>
+</ol>
+<p><img alt="Browser showing Tailscale connect page" src="assets/connecting_tailscale_to_github.png" /></p>
+<p><img alt="Tailscale connected success" src="assets/connected_to_tailscale.png" /></p>
+<hr />
+<h3 id="step-5-verify-the-connection">Step 5 — Verify the connection<a class="headerlink" href="#step-5-verify-the-connection" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>tailscale<span class="w"> </span>status
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>100.x.x.x    kali    yourname@gmail.com    linux    -
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>tailscale<span class="w"> </span>ip
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>100.x.x.x
+</code></pre></div>
+<p><img alt="tailscale status output" src="assets/tailscale_status_and_ip.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">What is the 100.x.x.x address?</p>
+</div>
+<p>This is your Tailscale IP — a private address tied to your identity, not your physical network location. Anyone who wants to reach your machine must be authenticated on your tailnet.</p>
+<hr />
+<h3 id="step-6-verify-the-admin-dashboard">Step 6 — Verify the admin dashboard<a class="headerlink" href="#step-6-verify-the-admin-dashboard" title="Permanent link">&para;</a></h3>
+<p>Open your browser and go to:</p>
+<div class="highlight"><pre><span></span><code>https://login.tailscale.com/admin/machines
+</code></pre></div>
+<p>You should see your Kali machine listed with its Tailscale IP and your account identity next to it.</p>
+<p><img alt="Tailscale admin dashboard" src="assets/tailscale_admin_panel%281%29.png" /></p>
+<hr />
+<h3 id="what-you-just-proved">What You Just Proved<a class="headerlink" href="#what-you-just-proved" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Before</th>
+<th>After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Machine accessible by IP address</td>
+<td>Machine accessible by verified identity only</td>
+</tr>
+<tr>
+<td>Anyone who knows the IP can try to connect</td>
+<td>Only authenticated users on your tailnet can connect</td>
+</tr>
+<tr>
+<td>No record of who accessed what</td>
+<td>Every connection tied to a named identity</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎉 <strong>Milestone 1 Complete!</strong> Your machine is now on an identity-based network. Access is controlled by <strong>who you are</strong>, not <strong>where you are</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="milestone-2-micro-segmentation">Milestone 2 — Micro-segmentation<a class="headerlink" href="#milestone-2-micro-segmentation" title="Permanent link">&para;</a></h2>
+<h3 id="what-this-milestone-covers_1">What This Milestone Covers<a class="headerlink" href="#what-this-milestone-covers_1" title="Permanent link">&para;</a></h3>
+<p>Being on a private network doesn't mean you should have access to everything on it. In traditional networks, once you're inside, you can reach any service on any port — this is how attackers spread through a network after the initial breach, a technique called <strong>lateral movement</strong>.</p>
+<p><strong>Micro-segmentation</strong> solves this by creating strict rules about which services are accessible and on which ports — even for authenticated users.</p>
+<p>In this milestone we will spin up a real web service on port 8080, write Tailscale ACL rules that allow only port 8080, and prove that all other ports are blocked.</p>
+<hr />
+<h3 id="step-1-create-and-start-a-web-server-on-port-8080">Step 1 — Create and start a web server on port 8080<a class="headerlink" href="#step-1-create-and-start-a-web-server-on-port-8080" title="Permanent link">&para;</a></h3>
+<p>Create a simple webpage to serve:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/lab-server<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&lt;h1&gt;Zero Trust Lab - Service Running on Port 8080&lt;/h1&gt;&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>~/lab-server/index.html
+</code></pre></div>
+<p>Navigate into the folder:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/lab-server
+</code></pre></div>
+<p>Start the web server:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8080</span>
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>Serving HTTP on 0.0.0.0 port 8080 (http://0.0.0.0:8080/) ...
+</code></pre></div>
+<p><img alt="Web server running on port 8080" src="assets/starting_http_server_8080.png" /></p>
+<hr />
+<h3 id="step-2-verify-the-web-server-works">Step 2 — Verify the web server works<a class="headerlink" href="#step-2-verify-the-web-server-works" title="Permanent link">&para;</a></h3>
+<p>Open your browser and visit your Tailscale IP on port 8080:</p>
+<div class="highlight"><pre><span></span><code>http://100.x.x.x:8080
+</code></pre></div>
+<p>Replace <code>100.x.x.x</code> with your actual Tailscale IP from <code>tailscale ip</code>. You should see:</p>
+<div class="highlight"><pre><span></span><code>Zero Trust Lab - Service Running on Port 8080
+</code></pre></div>
+<p><img alt="Browser showing web server via Tailscale IP" src="assets/service_running_on_port_8080.png" /></p>
+<hr />
+<h3 id="step-3-view-the-default-tailscale-acl">Step 3 — View the default Tailscale ACL<a class="headerlink" href="#step-3-view-the-default-tailscale-acl" title="Permanent link">&para;</a></h3>
+<p>Open your browser and go to:</p>
+<div class="highlight"><pre><span></span><code>https://login.tailscale.com/admin/acls
+</code></pre></div>
+<p>You will see the default ACL:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;grants&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;dst&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><img alt="Default Tailscale ACL" src="assets/grants_before.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">What this means</p>
+</div>
+<p>Everyone can reach everything on every port. This is the equivalent of having no security at all — classic perimeter thinking.</p>
+<hr />
+<h3 id="step-4-write-the-micro-segmentation-acl">Step 4 — Write the micro-segmentation ACL<a class="headerlink" href="#step-4-write-the-micro-segmentation-acl" title="Permanent link">&para;</a></h3>
+<p>Update the ACL to allow access on port 8080 only:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;grants&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;dst&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;8080&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;ssh&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;check&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;autogroup:member&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;dst&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;autogroup:self&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;autogroup:nonroot&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><img alt="New ACL JSON in editor" src="assets/grants_after.png" /></p>
+<p>Click <strong>Save</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"src": ["*"]</code></td>
+<td>From any authenticated user on the tailnet</td>
+</tr>
+<tr>
+<td><code>"dst": ["*"]</code></td>
+<td>To any device on the tailnet</td>
+</tr>
+<tr>
+<td><code>"ip": ["8080"]</code></td>
+<td>But ONLY on port 8080</td>
+</tr>
+<tr>
+<td>Everything else</td>
+<td>Implicitly blocked</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Key concept</p>
+</div>
+<p>In Zero Trust, the default is <strong>DENY</strong>. You explicitly allow only what is needed. Everything not mentioned is automatically blocked.</p>
+<hr />
+<h3 id="step-5-test-port-8080-is-allowed">Step 5 — Test port 8080 is allowed<a class="headerlink" href="#step-5-test-port-8080-is-allowed" title="Permanent link">&para;</a></h3>
+<p>Visit your web server again via Tailscale IP:</p>
+<div class="highlight"><pre><span></span><code>http://100.x.x.x:8080
+</code></pre></div>
+<p>It should still load successfully.</p>
+<p><img alt="Port 8080 still accessible" src="assets/after_updating_acl_rules_getting_response_on_8080.png" /></p>
+<hr />
+<h3 id="step-6-test-other-ports-are-blocked">Step 6 — Test other ports are blocked<a class="headerlink" href="#step-6-test-other-ports-are-blocked" title="Permanent link">&para;</a></h3>
+<p>Open a new terminal and run:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-v<span class="w"> </span>http://100.x.x.x:9090<span class="w"> </span>--max-time<span class="w"> </span><span class="m">5</span>
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>* Trying 100.x.x.x:9090...
+* Connection timed out after 5001 milliseconds
+* Closing connection 0
+curl: (28) Connection timed out after 5000 milliseconds
+</code></pre></div>
+<p><img alt="Port 9090 blocked" src="assets/connection_closed_on_port_9090_acl_works.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">The timeout is a success</p>
+</div>
+<p>A timeout means the connection never went through. The ACL rule is working exactly as intended.</p>
+<hr />
+<h3 id="what-you-just-proved_1">What You Just Proved<a class="headerlink" href="#what-you-just-proved_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Result</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8080</td>
+<td>Accessible</td>
+<td>Explicitly allowed in ACL</td>
+</tr>
+<tr>
+<td>9090</td>
+<td>Blocked</td>
+<td>Not in ACL, default deny</td>
+</tr>
+<tr>
+<td>All others</td>
+<td>Blocked</td>
+<td>Not in ACL, default deny</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎉 <strong>Milestone 2 Complete!</strong> Even authenticated users on your private network can only reach the specific service you explicitly allowed. Lateral movement is now impossible.</p>
+</blockquote>
+<hr />
+<h2 id="milestone-3-least-privilege">Milestone 3 — Least Privilege<a class="headerlink" href="#milestone-3-least-privilege" title="Permanent link">&para;</a></h2>
+<h3 id="what-this-milestone-covers_2">What This Milestone Covers<a class="headerlink" href="#what-this-milestone-covers_2" title="Permanent link">&para;</a></h3>
+<p>Even authenticated users with network access should only be able to do exactly what their job requires — nothing more. This is the <strong>Principle of Least Privilege</strong>.</p>
+<p>In this milestone we will create a <code>junior-admin</code> user representing a low-privilege employee, configure a sudoers rule giving them exactly one permission, and prove they can restart the ssh service but cannot read sensitive files or install software.</p>
+<hr />
+<h3 id="step-1-create-the-junior-admin-user">Step 1 — Create the junior-admin user<a class="headerlink" href="#step-1-create-the-junior-admin-user" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>useradd<span class="w"> </span>-m<span class="w"> </span>-s<span class="w"> </span>/bin/bash<span class="w"> </span>junior-admin
+</code></pre></div>
+<p>Set a password:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>passwd<span class="w"> </span>junior-admin
+</code></pre></div>
+<div class="admonition tip"></div>
+<p>Use a simple password like <code>Junior@123</code> for this lab environment.</p>
+<p>Verify the user was created:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/etc/passwd<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>junior-admin
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>junior-admin:x:1001:1001::/home/junior-admin:/bin/bash
+</code></pre></div>
+<p><img alt="junior-admin user created" src="assets/create_junior_admin_profile.png" /></p>
+<p><img alt="junior-admin verified in passwd" src="assets/verify_junior_admin_created.png" /></p>
+<hr />
+<h3 id="step-2-understand-the-sudoers-file">Step 2 — Understand the sudoers file<a class="headerlink" href="#step-2-understand-the-sudoers-file" title="Permanent link">&para;</a></h3>
+<p>The <code>/etc/sudoers</code> file controls who can run which commands as root. The syntax is:</p>
+<div class="highlight"><pre><span></span><code>username    ALL=(ALL)    NOPASSWD: /path/to/command
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>Which user this rule applies to</td>
+</tr>
+<tr>
+<td><code>ALL=</code></td>
+<td>On any machine</td>
+</tr>
+<tr>
+<td><code>(ALL)</code></td>
+<td>Can run as any user</td>
+</tr>
+<tr>
+<td><code>NOPASSWD:</code></td>
+<td>Without entering a password</td>
+</tr>
+<tr>
+<td><code>/path/to/command</code></td>
+<td>ONLY this specific command</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Always use visudo</p>
+</div>
+<p>Never edit <code>/etc/sudoers</code> directly with a text editor. <code>visudo</code> checks for syntax errors before saving — a syntax error in sudoers can lock you out of sudo completely.</p>
+<hr />
+<h3 id="step-3-add-the-least-privilege-rule">Step 3 — Add the least privilege rule<a class="headerlink" href="#step-3-add-the-least-privilege-rule" title="Permanent link">&para;</a></h3>
+<p>Open the sudoers file safely:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>visudo
+</code></pre></div>
+<p>Scroll to the very bottom and add this line:</p>
+<div class="highlight"><pre><span></span><code>junior-admin<span class="w"> </span><span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span><span class="w"> </span>NOPASSWD:<span class="w"> </span>/usr/sbin/service<span class="w"> </span>ssh<span class="w"> </span>restart
+</code></pre></div>
+<p><img alt="sudoers file with junior-admin rule" src="assets/new_sudoer_file.png" /></p>
+<p>Save and exit:</p>
+<ul>
+<li><strong>Nano:</strong> <code>Ctrl + X</code> → <code>Y</code> → <code>Enter</code></li>
+<li><strong>Vim:</strong> <code>Esc</code> → <code>:wq</code> → <code>Enter</code></li>
+</ul>
+<hr />
+<h3 id="step-4-switch-to-junior-admin-and-test">Step 4 — Switch to junior-admin and test<a class="headerlink" href="#step-4-switch-to-junior-admin-and-test" title="Permanent link">&para;</a></h3>
+<p>Switch to the junior-admin user:</p>
+<div class="highlight"><pre><span></span><code>su<span class="w"> </span>-<span class="w"> </span>junior-admin
+</code></pre></div>
+<p>Your prompt should change to:</p>
+<div class="highlight"><pre><span></span><code>junior-admin@kali:~$
+</code></pre></div>
+<hr />
+<p><strong>Test 1 — junior-admin CAN restart ssh</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>service<span class="w"> </span>ssh<span class="w"> </span>restart<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>service<span class="w"> </span>ssh<span class="w"> </span>status
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service)
+     Active: active (running) since ...
+</code></pre></div>
+<p><img alt="SSH restart success" src="assets/junior_admin_can_only_restart_service.png" /></p>
+<hr />
+<p><strong>Test 2 — junior-admin CANNOT read sensitive files</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>cat<span class="w"> </span>/etc/shadow
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>Sorry, user junior-admin is not allowed to execute
+&#39;/usr/bin/cat /etc/shadow&#39; as root on kali.
+</code></pre></div>
+<p><img alt="Shadow file blocked" src="assets/junior_admin_has_no_permission_for_anything_else.png" /></p>
+<hr />
+<p><strong>Test 3 — junior-admin CANNOT install software</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>Sorry, user junior-admin is not allowed to execute
+&#39;/usr/bin/apt update&#39; as root on kali.
+</code></pre></div>
+<hr />
+<h3 id="step-5-switch-back-to-your-main-user">Step 5 — Switch back to your main user<a class="headerlink" href="#step-5-switch-back-to-your-main-user" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">exit</span>
+</code></pre></div>
+<p>Your prompt should return to:</p>
+<div class="highlight"><pre><span></span><code>kali@kali:~$
+</code></pre></div>
+<p><img alt="Exited junior-admin session" src="assets/logout_as_junior_admin.png" /></p>
+<hr />
+<h3 id="what-you-just-proved_2">What You Just Proved<a class="headerlink" href="#what-you-just-proved_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>User</th>
+<th>Result</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sudo service ssh restart</code></td>
+<td>junior-admin</td>
+<td>Allowed</td>
+<td>Explicitly in sudoers rule</td>
+</tr>
+<tr>
+<td><code>sudo cat /etc/shadow</code></td>
+<td>junior-admin</td>
+<td>Blocked</td>
+<td>Not in sudoers rule</td>
+</tr>
+<tr>
+<td><code>sudo apt update</code></td>
+<td>junior-admin</td>
+<td>Blocked</td>
+<td>Not in sudoers rule</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎉 <strong>Milestone 3 Complete!</strong> A junior employee can do exactly their job — restart a service when needed — but cannot access sensitive data or make system-wide changes.</p>
+</blockquote>
+<hr />
+<h2 id="milestone-4-genai-as-security-co-pilot">Milestone 4 — GenAI as Security Co-Pilot<a class="headerlink" href="#milestone-4-genai-as-security-co-pilot" title="Permanent link">&para;</a></h2>
+<h3 id="what-this-milestone-covers_3">What This Milestone Covers<a class="headerlink" href="#what-this-milestone-covers_3" title="Permanent link">&para;</a></h3>
+<p>Security analysts deal with thousands of log lines every day. Manually reading every line is slow, error-prone, and exhausting. Generative AI can act as a co-pilot — reading logs instantly, explaining what happened, and flagging suspicious activity in plain English.</p>
+<p>In this milestone we will read the authentication logs from our lab session, paste them into Claude or ChatGPT, and ask the AI to analyse what security events occurred.</p>
+<div class="admonition info">
+<p class="admonition-title">This is a real technique</p>
+</div>
+<p>AI doesn't replace the analyst — it speeds up the investigation so the analyst can focus on decisions, not manual log reading. This is how modern security teams work today.</p>
+<hr />
+<h3 id="step-1-view-your-authentication-logs">Step 1 — View your authentication logs<a class="headerlink" href="#step-1-view-your-authentication-logs" title="Permanent link">&para;</a></h3>
+<p>On Kali Linux, authentication events are stored in the systemd journal. Run this to see all sudo-related activity from the last hour:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>journalctl<span class="w"> </span><span class="nv">_COMM</span><span class="o">=</span>sudo<span class="w"> </span>--since<span class="w"> </span><span class="s2">&quot;1 hour ago&quot;</span>
+</code></pre></div>
+<p>You will see entries recording every sudo command that was run during your lab — including the junior-admin permission grants and denials.</p>
+<p><img alt="journalctl output" src="assets/logs_from_1_hr_ago.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Why no auth.log?</p>
+</div>
+<p>Kali Linux uses <code>systemd-journald</code> instead of the traditional <code>auth.log</code> file. The <code>journalctl</code> command is the modern equivalent and contains the same information.</p>
+<hr />
+<h3 id="step-2-copy-the-log-output">Step 2 — Copy the log output<a class="headerlink" href="#step-2-copy-the-log-output" title="Permanent link">&para;</a></h3>
+<p>Run the command again and select all the output text with your mouse. Copy it.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>journalctl<span class="w"> </span><span class="nv">_COMM</span><span class="o">=</span>sudo<span class="w"> </span>--since<span class="w"> </span><span class="s2">&quot;1 hour ago&quot;</span>
+</code></pre></div>
+<hr />
+<h3 id="step-3-open-claude-or-chatgpt">Step 3 — Open Claude or ChatGPT<a class="headerlink" href="#step-3-open-claude-or-chatgpt" title="Permanent link">&para;</a></h3>
+<p>Open a new browser tab and go to <code>https://claude.ai</code> or <code>https://chatgpt.com</code>.</p>
+<hr />
+<h3 id="step-4-paste-this-prompt">Step 4 — Paste this prompt<a class="headerlink" href="#step-4-paste-this-prompt" title="Permanent link">&para;</a></h3>
+<p>Copy this entire prompt, paste it into the AI chat, then paste your log lines after it:</p>
+<div class="highlight"><pre><span></span><code>You are a security analyst. I am a Junior Security Analyst
+learning about Zero Trust Architecture.
+
+Please analyse the following Linux authentication logs from
+my lab session and explain:
+1. What security events occurred
+2. Which events show successful privilege use
+3. Which events show blocked/denied access attempts
+4. What this tells us about the Principle of Least Privilege
+5. Are there any suspicious or concerning entries?
+
+Here are the logs:
+
+[PASTE YOUR LOG LINES HERE]
+</code></pre></div>
+<p><img alt="Prompt and logs pasted into AI" src="assets/using_ai_to_analyze_logs.png" /></p>
+<hr />
+<h3 id="step-5-review-the-ais-response">Step 5 — Review the AI's response<a class="headerlink" href="#step-5-review-the-ais-response" title="Permanent link">&para;</a></h3>
+<p>The AI will analyse your logs and explain which commands were run with sudo, which were allowed vs denied, what the pattern tells us about access control, and any anomalies.</p>
+<p><img alt="AI analysis response" src="assets/1.png" /></p>
+<hr />
+<h3 id="what-good-ai-log-analysis-looks-like">What good AI log analysis looks like<a class="headerlink" href="#what-good-ai-log-analysis-looks-like" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Log entry type</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>COMMAND=/usr/sbin/service ssh restart</code></td>
+<td>junior-admin restarted ssh — allowed by sudoers</td>
+</tr>
+<tr>
+<td><code>command not allowed</code></td>
+<td>junior-admin tried something outside their permissions</td>
+</tr>
+<tr>
+<td><code>sudo: pam_unix(sudo:auth)</code></td>
+<td>A sudo authentication event occurred</td>
+</tr>
+<tr>
+<td><code>session opened for user root</code></td>
+<td>A sudo command successfully ran as root</td>
+</tr>
+<tr>
+<td><code>session closed for user root</code></td>
+<td>The sudo session ended</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="using-ai-as-a-security-co-pilot-best-practices">Using AI as a Security Co-Pilot — Best Practices<a class="headerlink" href="#using-ai-as-a-security-co-pilot-best-practices" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Be specific in your prompts</p>
+</div>
+<p>The more context you give the AI, the better its analysis. Tell it what you were doing, what users were involved, and what you're looking for.</p>
+<div class="admonition tip">
+<p class="admonition-title">Always verify AI findings</p>
+</div>
+<p>AI can make mistakes. Use it to speed up your analysis but always verify important findings yourself.</p>
+<div class="admonition warning">
+<p class="admonition-title">Never paste real production logs into public AI tools</p>
+</div>
+<p>In a real company, logs may contain sensitive information. Use private/enterprise AI tools or anonymise logs before pasting.</p>
+<div class="admonition tip">
+<p class="admonition-title">Iterate on your prompts</p>
+</div>
+<p>If the first response isn't detailed enough, ask follow-up questions like "Can you explain the denied entries in more detail?" or "What would an attacker learn from these logs?"</p>
+<hr />
+<h3 id="what-you-just-proved_3">What You Just Proved<a class="headerlink" href="#what-you-just-proved_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Traditional approach</th>
+<th>AI-assisted approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manually read hundreds of log lines</td>
+<td>AI reads and summarises instantly</td>
+</tr>
+<tr>
+<td>Easy to miss patterns</td>
+<td>AI identifies patterns across all entries</td>
+</tr>
+<tr>
+<td>Time consuming</td>
+<td>Results in seconds</td>
+</tr>
+<tr>
+<td>Requires deep log expertise</td>
+<td>AI explains in plain English</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎉 <strong>Milestone 4 Complete!</strong> You have used AI as a real security tool — not just a chatbot.</p>
+</blockquote>
+<hr />
+<h2 id="trust-boundary-diagram">Trust Boundary Diagram<a class="headerlink" href="#trust-boundary-diagram" title="Permanent link">&para;</a></h2>
+<p>This diagram shows how your Zero Trust setup controls access at every layer — from network identity all the way down to individual user permissions.</p>
+<p><img alt="Trust Boundary Diagram" src="assets/trust_boundary.png" /></p>
+<p><strong>Boundary 1 — Network layer (Tailscale)</strong><br />
+No one can reach your machine without first authenticating with a verified identity. IP addresses mean nothing here.</p>
+<p><strong>Boundary 2 — Service layer (ACL rules)</strong><br />
+Even authenticated users can only reach port 8080. All other ports are silently blocked regardless of who is asking.</p>
+<p><strong>Boundary 3 — Privilege layer (sudoers)</strong><br />
+Even users with network access can only perform the specific actions their role requires. Everything else is denied.</p>
+<div class="admonition info">
+<p class="admonition-title">Defence in depth</p>
+</div>
+<p>Multiple independent layers of security. An attacker would need to break through all three layers, not just one.</p>
+<hr />
+<h2 id="test-your-understanding">Test Your Understanding<a class="headerlink" href="#test-your-understanding" title="Permanent link">&para;</a></h2>
+<p><strong>Q1. What is the main difference between Traditional Perimeter Security and Zero Trust Architecture?</strong><br />
+Traditional Perimeter Security trusts everyone inside the network — once you're past the firewall, you can reach anything. Zero Trust trusts no one by default — every access request must be verified regardless of where it comes from.</p>
+<p><strong>Q2. In your Tailscale ACL, what happens to traffic on port 443 (HTTPS)?</strong><br />
+It is blocked. In Zero Trust, the default is DENY. Only port 8080 was explicitly allowed in the ACL. Any port not mentioned is automatically blocked — including port 443.</p>
+<p><strong>Q3. Why did we use <code>visudo</code> instead of directly editing <code>/etc/sudoers</code> with a text editor?</strong><br />
+<code>visudo</code> checks the sudoers file for syntax errors before saving. A syntax error in <code>/etc/sudoers</code> can completely lock you out of sudo — meaning you cannot run any admin commands. <code>visudo</code> prevents this by validating the file first.</p>
+<p><strong>Q4. What would happen if <code>junior-admin</code> tried to run <code>sudo reboot</code>?</strong><br />
+It would be blocked. The sudoers rule only allows <code>junior-admin</code> to run <code>/usr/sbin/service ssh restart</code>. Any other command — including <code>sudo reboot</code> — would return "Sorry, user junior-admin is not allowed to execute this command."</p>
+<p><strong>Q5. Why should you never paste real production logs into a public AI tool like ChatGPT?</strong><br />
+Production logs may contain sensitive information such as usernames, IP addresses, hostnames, service names, and access patterns. Pasting these into a public AI tool means that data leaves your organisation and could be exposed in a data breach or used to train AI models. Always use enterprise AI tools or anonymise logs before analysis.</p>
+<p><strong>Q6. What does the <code>--operator=$USER</code> flag do in <code>sudo tailscale up --operator=$USER</code>?</strong><br />
+It grants your normal (non-root) user the ability to control Tailscale without needing <code>sudo</code> every time. Without this flag, only root can run Tailscale commands. <code>$USER</code> automatically fills in your current username.</p>
+<hr />
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://csrc.nist.gov/publications/detail/sp/800/207/final">NIST SP 800-207 — Zero Trust Architecture</a></li>
+<li><a href="https://tailscale.com/kb">Tailscale Documentation</a></li>
+<li><a href="https://tailscale.com/kb/1018/acls">Tailscale ACL Reference</a></li>
+<li><a href="https://www.sudo.ws/docs/man/sudoers.man/">Linux sudoers Manual</a></li>
+<li><a href="https://attack.mitre.org/tactics/TA0008/">MITRE ATT&amp;CK — Lateral Movement</a></li>
+</ul>
+<hr />
+<h2 id="learning-outcomes">Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permanent link">&para;</a></h2>
+<p>Having completed this lab, you have:</p>
+<ul>
+<li>Installed Tailscale and registered a device to establish identity-based network access</li>
+<li>Written ACL rules to enforce micro-segmentation, explicitly allowing only port 8080 and denying all other traffic by default</li>
+<li>Created a restricted <code>junior-admin</code> sudoers entry applying the Principle of Least Privilege</li>
+<li>Verified that commands outside the allowed scope are blocked for the restricted user</li>
+<li>Used Generative AI to analyse authentication logs and identify suspicious access patterns</li>
+<li>Traced the full Zero Trust boundary across network identity, micro-segmentation, and privilege layers</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

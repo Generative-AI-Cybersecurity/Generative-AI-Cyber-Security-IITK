@@ -1,0 +1,2178 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cybersecurity Labs and Technical Documentation">
+      
+      
+      
+        <link rel="canonical" href="https://sitename.example/foundations-and-system-security/vpn-fundamentals/">
+      
+      
+        <link rel="prev" href="../firewall-fundamentals/">
+      
+      
+        <link rel="next" href="../linux-hardening/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>VPN Fundamentals using OpenVPN - Gen-AI Cyber Security IITK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vpn-fundamentals-using-openvpn-60-minutes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+<header class="md-header" data-md-component="header">
+
+  <nav class="md-header__inner md-grid">
+
+    <!-- LEFT: hamburger + logo area (kept empty safely) -->
+    <div class="md-header__title">
+    </div>
+
+    <!-- CENTER: YOUR BANNER -->
+    <div class="header-banner">
+      <img src="../../images/image-1.jpg" alt="Header Banner">
+    </div>
+
+    <!-- RIGHT: keep search + icons working -->
+    <div class="md-header__options">
+      
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Gen-AI Cyber Security IITK" class="md-header__button md-logo" aria-label="Gen-AI Cyber Security IITK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Gen-AI Cyber Security IITK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VPN Fundamentals using OpenVPN
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    </div>
+
+  </nav>
+</header>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../microsoft-threat-model-software/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Gen-AI Cyber Security IITK" class="md-nav__button md-logo" aria-label="Gen-AI Cyber Security IITK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Gen-AI Cyber Security IITK
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations & System Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations & System Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsoft-threat-model-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft Threat Modeling Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../owasp-threat-dragon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OWASP Threat Dragon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zero-day-trust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-traffic-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Traffic Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firewall-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firewall Fundamentals using GUFW
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPN Fundamentals using OpenVPN
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPN Fundamentals using OpenVPN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-for-vpn-baseline-observation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preparing for VPN — Baseline Observation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparing for VPN — Baseline Observation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-your-public-ip-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Your Public IP Address
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observe-dns-traffic-before-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observe DNS Traffic Before VPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discussion-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discussion Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtaining-and-connecting-to-openvpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtaining and Connecting to OpenVPN
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Obtaining and Connecting to OpenVPN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objective_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obtain-a-free-vpn-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtain a Free VPN Profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-the-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connect to the VPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discussion-questions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discussion Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-the-vpn-tunnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying the VPN Tunnel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verifying the VPN Tunnel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objective_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-for-the-tunnel-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check for the Tunnel Interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-your-public-ip-has-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Your Public IP Has Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-browsing-still-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Browsing Still Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discussion-questions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discussion Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analyzing-vpn-traffic-in-wireshark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyzing VPN Traffic in Wireshark
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analyzing VPN Traffic in Wireshark">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objective_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capture-vpn-tunnel-traffic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capture VPN Tunnel Traffic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compare-dns-traffic-after-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compare DNS Traffic After VPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#before-and-after-vpn-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before and After VPN Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discussion-questions_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discussion Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-hardening/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux OS Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../windows-hardening/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows OS Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osint-part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reconnaissance and OSINT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pentesting & Ethical Hacking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pentesting & Ethical Hacking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advance Red Teaming & AI-Driven Attacks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advance Red Teaming & AI-Driven Attacks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOC, DFIR & AIML for Defense
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SOC, DFIR & AIML for Defense
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Security, DevSecOps & Quantum Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Security, DevSecOps & Quantum Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-for-vpn-baseline-observation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preparing for VPN — Baseline Observation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparing for VPN — Baseline Observation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-your-public-ip-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Your Public IP Address
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observe-dns-traffic-before-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observe DNS Traffic Before VPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discussion-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discussion Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtaining-and-connecting-to-openvpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtaining and Connecting to OpenVPN
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Obtaining and Connecting to OpenVPN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objective_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obtain-a-free-vpn-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtain a Free VPN Profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-the-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connect to the VPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discussion-questions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discussion Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-the-vpn-tunnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying the VPN Tunnel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verifying the VPN Tunnel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objective_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-for-the-tunnel-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check for the Tunnel Interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-your-public-ip-has-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Your Public IP Has Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-browsing-still-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Browsing Still Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discussion-questions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discussion Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analyzing-vpn-traffic-in-wireshark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyzing VPN Traffic in Wireshark
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analyzing VPN Traffic in Wireshark">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objective_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capture-vpn-tunnel-traffic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capture VPN Tunnel Traffic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compare-dns-traffic-after-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compare DNS Traffic After VPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#before-and-after-vpn-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before and After VPN Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discussion-questions_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discussion Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="vpn-fundamentals-using-openvpn-60-minutes">VPN Fundamentals using OpenVPN (60 Minutes)<a class="headerlink" href="#vpn-fundamentals-using-openvpn-60-minutes" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Lab Type: VPN Configuration and Encrypted Tunnel Analysis<br />
+Tool: OpenVPN<br />
+Duration: 60 Minutes<br />
+System: Kali Linux (Ubuntu/Debian compatible)</p>
+</blockquote>
+<hr />
+<h2 id="lab-overview">Lab Overview<a class="headerlink" href="#lab-overview" title="Permanent link">&para;</a></h2>
+<p>Employees at the startup are working remotely and need secure, encrypted access to company resources over the public internet. You have been asked to set up and verify a VPN connection and demonstrate the difference in network traffic visibility before and after the VPN has been established.</p>
+<hr />
+<h2 id="learning-objectives">Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<p>By the end of this lab you will be able to:</p>
+<ul>
+<li>Explain how a VPN creates an encrypted tunnel over a public network</li>
+<li>Record a baseline of DNS and IP traffic before a VPN is active</li>
+<li>Connect to an OpenVPN server using a <code>.ovpn</code> configuration profile</li>
+<li>Verify VPN connectivity by confirming a changed public IP address</li>
+<li>Compare network traffic in Wireshark before and after VPN activation</li>
+<li>Configure GUFW firewall rules to allow VPN traffic through</li>
+</ul>
+<hr />
+<h2 id="preparing-for-vpn-baseline-observation">Preparing for VPN — Baseline Observation<a class="headerlink" href="#preparing-for-vpn-baseline-observation" title="Permanent link">&para;</a></h2>
+<h3 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h3>
+<p>Record your current public IP address and observe DNS traffic in plain text before any VPN is active. This creates a baseline for comparison after the VPN is connected.</p>
+<h3 id="check-your-public-ip-address">Check Your Public IP Address<a class="headerlink" href="#check-your-public-ip-address" title="Permanent link">&para;</a></h3>
+<p>Open a terminal and run:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>ifconfig.me
+</code></pre></div>
+<p>Note the IP address returned. This is your real public IP assigned by your Internet Service Provider.</p>
+<p><img alt="IP Before VPN" src="assets/ip-before-vpn.png" /></p>
+<h3 id="observe-dns-traffic-before-vpn">Observe DNS Traffic Before VPN<a class="headerlink" href="#observe-dns-traffic-before-vpn" title="Permanent link">&para;</a></h3>
+<p>Start a Wireshark capture on your active interface. Apply the filter:</p>
+<div class="highlight"><pre><span></span><code>dns
+</code></pre></div>
+<p>Open Firefox and visit the following sites one by one:</p>
+<ul>
+<li><code>https://www.amazon.in</code></li>
+<li><code>https://www.google.com</code></li>
+<li><code>https://www.youtube.com</code></li>
+</ul>
+<p>Observe in Wireshark:</p>
+<ul>
+<li>DNS Query packets are visible in plain text.</li>
+<li>The domain names you are resolving are fully readable.</li>
+<li>The destination DNS server IP is visible.</li>
+<li>Anyone monitoring this network can see exactly which websites you are about to visit.</li>
+</ul>
+<p><img alt="DNS Before VPN" src="assets/dns-before-vpn.png" /></p>
+<h3 id="discussion-questions">Discussion Questions<a class="headerlink" href="#discussion-questions" title="Permanent link">&para;</a></h3>
+<details class="question">
+<summary>What information can an attacker or ISP see from unencrypted DNS traffic?</summary>
+<p>Without a VPN, DNS queries are transmitted in plain text. An attacker or ISP can see every domain name you resolve, which reveals the websites you are visiting, the services you are using, and potentially sensitive information about your activity — even if the website itself uses HTTPS.</p>
+</details>
+<details class="question">
+<summary>Why does using HTTPS not fully protect your privacy without a VPN?</summary>
+<p>HTTPS encrypts the content of your communication with a website, but DNS queries used to resolve the website's domain name are typically sent in plain text. An observer on the network can still see which domains you are connecting to, even though they cannot read the actual content of the HTTPS session.</p>
+</details>
+<hr />
+<h2 id="obtaining-and-connecting-to-openvpn">Obtaining and Connecting to OpenVPN<a class="headerlink" href="#obtaining-and-connecting-to-openvpn" title="Permanent link">&para;</a></h2>
+<h3 id="objective_1">Objective<a class="headerlink" href="#objective_1" title="Permanent link">&para;</a></h3>
+<p>Obtain a VPN configuration profile and establish an encrypted VPN tunnel using OpenVPN.</p>
+<h3 id="obtain-a-free-vpn-profile">Obtain a Free VPN Profile<a class="headerlink" href="#obtain-a-free-vpn-profile" title="Permanent link">&para;</a></h3>
+<p>For this lab, use a free VPN profile from VPNBook:</p>
+<ol>
+<li>Open Firefox and go to <code>https://www.vpnbook.com</code></li>
+<li>Scroll down to the <strong>Free VPN</strong> section.</li>
+<li>Download any available <code>.zip</code> bundle (for example, Euro1 or US).</li>
+<li>Note the <strong>username</strong> and <strong>password</strong> displayed on that page.</li>
+<li>Extract the zip file to get the <code>.ovpn</code> configuration files.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Downloads
+unzip<span class="w"> </span>vpnbook-*.zip
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Which .ovpn file to use?</p>
+</div>
+<p>Use a TCP-based profile (filename contains <code>tcp</code>) if UDP is blocked on your network. For example: <code>vpnbook-euro1-tcp443.ovpn</code></p>
+<h3 id="connect-to-the-vpn">Connect to the VPN<a class="headerlink" href="#connect-to-the-vpn" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Downloads
+sudo<span class="w"> </span>openvpn<span class="w"> </span>vpnbook-euro1-tcp443.ovpn
+</code></pre></div>
+<p>When prompted, enter the VPNBook credentials. Wait until the terminal displays:</p>
+<div class="highlight"><pre><span></span><code>Initialization Sequence Completed
+</code></pre></div>
+<p><img alt="OpenVPN Connected" src="assets/openvpn-connected.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Keep this terminal open</p>
+</div>
+<p>The VPN connection is active only while this terminal is running. Do not close it. Open a new terminal for all subsequent steps.</p>
+<h3 id="discussion-questions_1">Discussion Questions<a class="headerlink" href="#discussion-questions_1" title="Permanent link">&para;</a></h3>
+<details class="question">
+<summary>What is a .ovpn file and what does it contain?</summary>
+<p>A <code>.ovpn</code> file is an OpenVPN configuration file. It contains the VPN server address, port, protocol, encryption settings, and the certificates or keys needed to authenticate with the server. It is the complete set of instructions that OpenVPN needs to establish a tunnel.</p>
+</details>
+<details class="question">
+<summary>What is the difference between a TCP and UDP OpenVPN connection?</summary>
+<p>OpenVPN over UDP is faster and has lower overhead, making it the preferred option when available. OpenVPN over TCP is more reliable in restrictive network environments because TCP traffic on port 443 is typically allowed through firewalls, as it resembles normal HTTPS traffic.</p>
+</details>
+<hr />
+<h2 id="verifying-the-vpn-tunnel">Verifying the VPN Tunnel<a class="headerlink" href="#verifying-the-vpn-tunnel" title="Permanent link">&para;</a></h2>
+<h3 id="objective_2">Objective<a class="headerlink" href="#objective_2" title="Permanent link">&para;</a></h3>
+<p>Confirm that the VPN tunnel has been established by checking for the tunnel network interface and verifying that your public IP address has changed.</p>
+<h3 id="check-for-the-tunnel-interface">Check for the Tunnel Interface<a class="headerlink" href="#check-for-the-tunnel-interface" title="Permanent link">&para;</a></h3>
+<p>Open a new terminal and run:</p>
+<div class="highlight"><pre><span></span><code>ip<span class="w"> </span>addr
+</code></pre></div>
+<p>Look for an interface named <code>tun0</code> or <code>tun1</code> in the output. It will have an IP address assigned by the VPN server, typically in the range <code>10.x.x.x</code> or <code>172.x.x.x</code>.</p>
+<p><img alt="tun0 Interface" src="assets/tun0-interface.png" /></p>
+<p>The presence of a <code>tun</code> interface confirms that an active VPN tunnel exists. All traffic routed through this interface is encrypted before leaving your machine.</p>
+<h3 id="verify-your-public-ip-has-changed">Verify Your Public IP Has Changed<a class="headerlink" href="#verify-your-public-ip-has-changed" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>ifconfig.me
+</code></pre></div>
+<p>Compare this output to the IP address recorded in Milestone 10. It should now show the VPN server's IP instead of your real IP.</p>
+<p><img alt="IP After VPN" src="assets/ip-after-vpn.png" /></p>
+<h3 id="verify-browsing-still-works">Verify Browsing Still Works<a class="headerlink" href="#verify-browsing-still-works" title="Permanent link">&para;</a></h3>
+<p>Open Firefox and navigate to <code>https://www.amazon.in</code>. The website should load normally, confirming traffic is flowing correctly through the VPN tunnel.</p>
+<h3 id="discussion-questions_2">Discussion Questions<a class="headerlink" href="#discussion-questions_2" title="Permanent link">&para;</a></h3>
+<details class="question">
+<summary>What is a tunnel interface (tun0) and how does it work?</summary>
+<p>A tunnel interface is a virtual network adapter created by OpenVPN. When traffic is sent through the tunnel interface, OpenVPN intercepts it, encrypts it, and forwards it to the VPN server over the physical network interface. The VPN server decrypts the traffic and forwards it to the actual destination. From the destination's perspective, the traffic appears to originate from the VPN server, not your machine.</p>
+</details>
+<details class="question">
+<summary>Why does your public IP address change when connected to a VPN?</summary>
+<p>When connected to a VPN, your traffic exits the internet through the VPN server rather than your own router. The destination websites see the VPN server's IP address as the source of the request, not your real IP address.</p>
+</details>
+<details class="question">
+<summary>Can a VPN provider see your traffic?</summary>
+<p>Yes. A VPN provider can see your traffic because they operate the server that decrypts your data before forwarding it to the internet. A VPN protects you from ISP surveillance and local network eavesdropping, but it shifts trust to the VPN provider.</p>
+</details>
+<hr />
+<h2 id="analyzing-vpn-traffic-in-wireshark">Analyzing VPN Traffic in Wireshark<a class="headerlink" href="#analyzing-vpn-traffic-in-wireshark" title="Permanent link">&para;</a></h2>
+<h3 id="objective_3">Objective<a class="headerlink" href="#objective_3" title="Permanent link">&para;</a></h3>
+<p>Use Wireshark to observe encrypted VPN tunnel traffic and compare DNS visibility before and after the VPN is connected.</p>
+<h3 id="capture-vpn-tunnel-traffic">Capture VPN Tunnel Traffic<a class="headerlink" href="#capture-vpn-tunnel-traffic" title="Permanent link">&para;</a></h3>
+<p>Start a new Wireshark capture on your physical interface (<code>eth0</code> or <code>wlan0</code>). Apply the filter:</p>
+<div class="highlight"><pre><span></span><code>udp.port == 1194
+</code></pre></div>
+<p>Or if connected via TCP:</p>
+<div class="highlight"><pre><span></span><code>tcp.port == 443
+</code></pre></div>
+<p>Browse several websites while the VPN is active. Observe in Wireshark:</p>
+<ul>
+<li>All traffic flows to a <strong>single destination IP</strong> — the VPN server.</li>
+<li>The payload of each packet is <strong>completely encrypted and unreadable</strong>.</li>
+<li>The actual destination websites are no longer visible.</li>
+</ul>
+<p><img alt="VPN Traffic in Wireshark" src="assets/vpn-traffic-wireshark.png" /></p>
+<h3 id="compare-dns-traffic-after-vpn">Compare DNS Traffic After VPN<a class="headerlink" href="#compare-dns-traffic-after-vpn" title="Permanent link">&para;</a></h3>
+<p>Change the filter to:</p>
+<div class="highlight"><pre><span></span><code>dns
+</code></pre></div>
+<p>Browse the same websites as Milestone 10. Observe:</p>
+<ul>
+<li>DNS queries are no longer visible in plain text.</li>
+<li>DNS resolution is happening inside the encrypted VPN tunnel.</li>
+<li>An observer on your local network can no longer see which websites you are visiting.</li>
+</ul>
+<p><img alt="DNS After VPN" src="assets/dns-after-vpn.png" /></p>
+<h3 id="before-and-after-vpn-comparison">Before and After VPN Comparison<a class="headerlink" href="#before-and-after-vpn-comparison" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Observation</th>
+<th>Before VPN</th>
+<th>After VPN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Public IP visible to websites</td>
+<td>Your real IP</td>
+<td>VPN server IP</td>
+</tr>
+<tr>
+<td>DNS queries in Wireshark</td>
+<td>Fully visible in plain text</td>
+<td>Hidden inside encrypted tunnel</td>
+</tr>
+<tr>
+<td>Traffic destinations visible</td>
+<td>Yes — multiple server IPs</td>
+<td>No — only VPN server IP</td>
+</tr>
+<tr>
+<td>Payload readable in Wireshark</td>
+<td>Partially (HTTP)</td>
+<td>No — fully encrypted</td>
+</tr>
+<tr>
+<td>Network interface used</td>
+<td>eth0 / wlan0 directly</td>
+<td>tun interface → encrypted → eth0 / wlan0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="discussion-questions_3">Discussion Questions<a class="headerlink" href="#discussion-questions_3" title="Permanent link">&para;</a></h3>
+<details class="question">
+<summary>What are the three core security principles that a VPN provides?</summary>
+<p>A VPN provides <strong>Confidentiality</strong> by encrypting traffic so it cannot be read by third parties, <strong>Integrity</strong> by using cryptographic mechanisms to ensure traffic is not tampered with in transit, and <strong>Authentication</strong> by verifying the identity of the VPN server before establishing a tunnel.</p>
+</details>
+<details class="question">
+<summary>If a VPN encrypts everything, why can Wireshark still see packets on the physical interface?</summary>
+<p>Wireshark captures packets at the network adapter level. The encrypted VPN packets are visible because they still travel over the physical network — the encryption has already been applied by OpenVPN before the packets leave the machine. Wireshark can see the encrypted packets but cannot read their contents.</p>
+</details>
+<details class="question">
+<summary>What is split tunneling and when would an organization use it?</summary>
+<p>Split tunneling is a VPN feature that routes only specific traffic through the encrypted tunnel while sending other traffic directly to the internet. An organization might use it to ensure internal resources are accessed securely while reducing bandwidth load on the VPN server for general browsing.</p>
+</details>
+<hr />
+<h1 id="capstone-investigation-challenge-20-minutes">Capstone Investigation Challenge (20 Minutes)<a class="headerlink" href="#capstone-investigation-challenge-20-minutes" title="Permanent link">&para;</a></h1>
+<h2 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link">&para;</a></h2>
+<p>A user reports: <em>"I cannot access any websites after enabling the firewall and connecting to the VPN."</em></p>
+<p>As a SOC analyst, your task is to diagnose the issue using the tools covered in this lab.</p>
+<h2 id="step-1-diagnose-with-wireshark">Step 1 — Diagnose with Wireshark<a class="headerlink" href="#step-1-diagnose-with-wireshark" title="Permanent link">&para;</a></h2>
+<p>Start a capture and apply these filters one at a time:</p>
+<div class="highlight"><pre><span></span><code>dns
+</code></pre></div>
+<p>Are DNS queries getting responses? If not, DNS may be blocked.</p>
+<div class="highlight"><pre><span></span><code>tcp
+</code></pre></div>
+<p>Are TCP connections completing? Or are they being reset?</p>
+<div class="highlight"><pre><span></span><code>openvpn
+</code></pre></div>
+<p>Is VPN traffic flowing? If nothing appears, the VPN is not connected.</p>
+<h2 id="step-2-review-firewall-rules">Step 2 — Review Firewall Rules<a class="headerlink" href="#step-2-review-firewall-rules" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ufw<span class="w"> </span>status<span class="w"> </span>verbose
+</code></pre></div>
+<p>Verify these ports are permitted:</p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Protocol</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>80</td>
+<td>TCP</td>
+<td>HTTP web traffic</td>
+</tr>
+<tr>
+<td>443</td>
+<td>TCP</td>
+<td>HTTPS web traffic</td>
+</tr>
+<tr>
+<td>1194</td>
+<td>UDP</td>
+<td>OpenVPN (UDP profile)</td>
+</tr>
+<tr>
+<td>53</td>
+<td>UDP</td>
+<td>DNS resolution</td>
+</tr>
+</tbody>
+</table>
+<p>If missing, add via terminal:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span>out<span class="w"> </span><span class="m">1194</span>/udp
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span>out<span class="w"> </span><span class="m">53</span>/udp
+</code></pre></div>
+<h2 id="step-3-verify-the-vpn-tunnel">Step 3 — Verify the VPN Tunnel<a class="headerlink" href="#step-3-verify-the-vpn-tunnel" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>ip<span class="w"> </span>addr<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>tun
+</code></pre></div>
+<p>If no <code>tun</code> interface appears, reconnect:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Downloads
+sudo<span class="w"> </span>openvpn<span class="w"> </span>your-profile.ovpn
+</code></pre></div>
+<h2 id="step-4-restore-connectivity">Step 4 — Restore Connectivity<a class="headerlink" href="#step-4-restore-connectivity" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Missing firewall rule → add it in GUFW</li>
+<li>VPN dropped → reconnect with OpenVPN command</li>
+<li>DNS broken → test with <code>nslookup google.com</code>, ensure port 53 outbound is allowed</li>
+<li>Retest by loading a website in Firefox</li>
+</ul>
+<hr />
+<h2 id="expected-deliverables">Expected Deliverables<a class="headerlink" href="#expected-deliverables" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Deliverable</th>
+<th>How to Obtain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Screenshot of DNS packet capture</td>
+<td>Wireshark filter <code>dns</code> during browsing</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Screenshot of TCP three-way handshake</td>
+<td>Wireshark filter <code>tcp.flags.syn == 1</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Screenshot of GUFW rules window</td>
+<td>Rules tab inside GUFW</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Screenshot of tunnel interface</td>
+<td><code>ip addr</code> output showing tun0 or tun1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Screenshot of OpenVPN connection</td>
+<td>Terminal showing "Initialization Sequence Completed"</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Written comparison of traffic before and after VPN</td>
+<td>Based on Wireshark DNS observations in Milestones 10 and 13</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="wireshark-filter-reference">Wireshark Filter Reference<a class="headerlink" href="#wireshark-filter-reference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>icmp</code></td>
+<td>ICMP ping traffic</td>
+</tr>
+<tr>
+<td><code>dns</code></td>
+<td>DNS queries and responses</td>
+</tr>
+<tr>
+<td><code>tcp</code></td>
+<td>All TCP traffic</td>
+</tr>
+<tr>
+<td><code>http</code></td>
+<td>Plain HTTP traffic (readable)</td>
+</tr>
+<tr>
+<td><code>tls</code></td>
+<td>Encrypted HTTPS traffic</td>
+</tr>
+<tr>
+<td><code>udp.port == 1194</code></td>
+<td>OpenVPN tunnel traffic (UDP)</td>
+</tr>
+<tr>
+<td><code>tcp.port == 443</code></td>
+<td>OpenVPN tunnel traffic (TCP) or HTTPS</td>
+</tr>
+<tr>
+<td><code>tcp.flags.syn == 1</code></td>
+<td>TCP handshake SYN packets</td>
+</tr>
+<tr>
+<td><code>ip.addr == x.x.x.x</code></td>
+<td>Traffic to or from a specific IP address</td>
+</tr>
+<tr>
+<td><code>tcp.port == 80</code></td>
+<td>HTTP port traffic</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="learning-outcomes">Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permanent link">&para;</a></h2>
+<p>Having completed this lab, you have:</p>
+<ul>
+<li>Captured and documented DNS traffic in plain text before VPN activation as a baseline</li>
+<li>Obtained an OpenVPN <code>.ovpn</code> profile and established an encrypted tunnel</li>
+<li>Verified the VPN connection by confirming a new public IP address via <code>curl ifconfig.me</code></li>
+<li>Observed that DNS queries are no longer visible in plain text after VPN activation</li>
+<li>Configured GUFW rules to permit OpenVPN traffic on port 1194 (UDP) and port 443 (TCP)</li>
+<li>Produced a written comparison of network traffic behaviour before and after the VPN</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

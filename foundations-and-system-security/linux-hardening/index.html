@@ -1,0 +1,2259 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cybersecurity Labs and Technical Documentation">
+      
+      
+      
+        <link rel="canonical" href="https://sitename.example/foundations-and-system-security/linux-hardening/">
+      
+      
+        <link rel="prev" href="../vpn-fundamentals/">
+      
+      
+        <link rel="next" href="../windows-hardening/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Linux OS Hardening - Gen-AI Cyber Security IITK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux-os-hardening-lab-operation-fortress-ledger" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+<header class="md-header" data-md-component="header">
+
+  <nav class="md-header__inner md-grid">
+
+    <!-- LEFT: hamburger + logo area (kept empty safely) -->
+    <div class="md-header__title">
+    </div>
+
+    <!-- CENTER: YOUR BANNER -->
+    <div class="header-banner">
+      <img src="../../images/image-1.jpg" alt="Header Banner">
+    </div>
+
+    <!-- RIGHT: keep search + icons working -->
+    <div class="md-header__options">
+      
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Gen-AI Cyber Security IITK" class="md-header__button md-logo" aria-label="Gen-AI Cyber Security IITK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Gen-AI Cyber Security IITK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux OS Hardening
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    </div>
+
+  </nav>
+</header>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../microsoft-threat-model-software/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Gen-AI Cyber Security IITK" class="md-nav__button md-logo" aria-label="Gen-AI Cyber Security IITK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Gen-AI Cyber Security IITK
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations & System Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations & System Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsoft-threat-model-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft Threat Modeling Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../owasp-threat-dragon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OWASP Threat Dragon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zero-day-trust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-traffic-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Traffic Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firewall-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firewall Fundamentals using GUFW
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpn-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPN Fundamentals using OpenVPN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux OS Hardening
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux OS Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rules-of-engagement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules of Engagement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-recon-baseline-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 — Recon &amp; Baseline Assessment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1 — Recon &amp; Baseline Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-1-fingerprint-the-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 1 — Fingerprint the Host
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-2-map-the-attack-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 2 — Map the Attack Surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-3-audit-the-human-attack-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 3 — Audit the Human Attack Surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-hardening-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 — Hardening Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2 — Hardening Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-4-patch-the-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 4 — Patch the Foundation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-5-shut-the-unnecessary-doors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 5 — Shut the Unnecessary Doors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-6-lock-down-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 6 — Lock Down SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-7-raise-the-wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 7 — Raise the Wall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-8-enforce-password-discipline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 8 — Enforce Password Discipline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-9-neutralize-ghost-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 9 — Neutralize Ghost Accounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-10-seal-the-crown-jewels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 10 — Seal the Crown Jewels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-11-deploy-active-defense" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 11 — Deploy Active Defense
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-12-turn-on-the-cameras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 12 — Turn On the Cameras
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-incident-response-drills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3 — Incident Response Drills
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3 — Incident Response Drills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drill-a-the-open-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drill A — The Open Port
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drill-b-the-weak-ssh-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drill B — The Weak SSH Config
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-practical-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4 — Practical Assessment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-validation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Validation Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Your Understanding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-round-advanced-hardening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus Round — Advanced Hardening
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Outcomes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../windows-hardening/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows OS Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osint-part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reconnaissance and OSINT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pentesting & Ethical Hacking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pentesting & Ethical Hacking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advance Red Teaming & AI-Driven Attacks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advance Red Teaming & AI-Driven Attacks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOC, DFIR & AIML for Defense
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SOC, DFIR & AIML for Defense
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Security, DevSecOps & Quantum Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Security, DevSecOps & Quantum Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rules-of-engagement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules of Engagement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-recon-baseline-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 — Recon &amp; Baseline Assessment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1 — Recon &amp; Baseline Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-1-fingerprint-the-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 1 — Fingerprint the Host
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-2-map-the-attack-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 2 — Map the Attack Surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-3-audit-the-human-attack-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 3 — Audit the Human Attack Surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-hardening-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 — Hardening Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2 — Hardening Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-4-patch-the-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 4 — Patch the Foundation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-5-shut-the-unnecessary-doors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 5 — Shut the Unnecessary Doors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-6-lock-down-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 6 — Lock Down SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-7-raise-the-wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 7 — Raise the Wall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-8-enforce-password-discipline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 8 — Enforce Password Discipline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-9-neutralize-ghost-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 9 — Neutralize Ghost Accounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-10-seal-the-crown-jewels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 10 — Seal the Crown Jewels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-11-deploy-active-defense" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 11 — Deploy Active Defense
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-12-turn-on-the-cameras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission 12 — Turn On the Cameras
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-incident-response-drills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3 — Incident Response Drills
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3 — Incident Response Drills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drill-a-the-open-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drill A — The Open Port
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drill-b-the-weak-ssh-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drill B — The Weak SSH Config
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-practical-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4 — Practical Assessment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-validation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Validation Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Your Understanding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-round-advanced-hardening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus Round — Advanced Hardening
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Outcomes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="linux-os-hardening-lab-operation-fortress-ledger">Linux OS Hardening Lab — Operation Fortress Ledger<a class="headerlink" href="#linux-os-hardening-lab-operation-fortress-ledger" title="Permanent link">&para;</a></h1>
+<hr />
+<blockquote>
+<p>Lab Type: Hands-on System Hardening<br />
+Tool: UFW, Fail2Ban, auditd<br />
+Framework: CIS Linux Hardening Benchmarks<br />
+System: Meridian Trust (Ubuntu Server 24.04 LTS)</p>
+</blockquote>
+<hr />
+<h2 id="lab-overview">Lab Overview<a class="headerlink" href="#lab-overview" title="Permanent link">&para;</a></h2>
+<hr />
+<p>This lab simulates a real-world post-deployment security audit on a Linux host codenamed <strong>Meridian Trust</strong>. Starting from an unhardened baseline — plaintext remote services, root-accessible SSH, no password policy, and zero log visibility — you will systematically reduce the attack surface, deploy active defense tooling, and validate every change against a measurable checklist.</p>
+<p>The exercise is split into four phases: reconnaissance, hardening operations, incident-response drills, and a timed practical assessment. Each phase builds on evidence captured in the one before it, so missions must be completed in order.</p>
+<div class="admonition info">
+<p class="admonition-title">Environment</p>
+</div>
+<p>This lab was performed on <strong>Ubuntu Server 24.04 LTS</strong> (not Desktop — no GUI is needed or used anywhere in this lab) running in a VMware VM. Several steps disable services and change the SSH listening port — never run this against a production host.</p>
+<div class="admonition tip">
+<p class="admonition-title">Work over SSH, not the VMware console</p>
+</div>
+<p>The VMware console window has very limited scrollback and unreliable copy-paste. As soon as your VM is up, find its IP from the console login screen (shown under "IPv4 address for ens33") and connect from your host machine's terminal instead:
+<code>ssh ubuntu@&lt;your-vm-ip&gt;</code>
+Do all lab work from this SSH session. If you ever need the console's own scrollback, use <strong>Shift + Page Up</strong> / <strong>Shift + Page Down</strong> — but switching to SSH avoids needing it at all.</p>
+<div class="admonition tip">
+<p class="admonition-title">Long command output opens a pager</p>
+</div>
+<p>Commands like <code>systemctl status &lt;service&gt;</code> and <code>journalctl -xe</code> can open a scrolling pager instead of printing and returning to the prompt. If your terminal looks "stuck," press <strong><code>q</code></strong> to quit the pager and get your prompt back — nothing is broken.</p>
+<hr />
+<div class="admonition warning">
+<p class="admonition-title">Platform Disclaimer</p>
+</div>
+<p>This lab is designed around a <strong>server environment with administrative (root/sudo) access</strong> — that's why every step here was demonstrated on Ubuntu Server rather than a desktop distribution. Server platforms are the realistic target for this kind of hardening work in production.</p>
+<p><code>That said, you can follow along on other Linux environments (e.g. Kali, Ubuntu Desktop) for practice. If you do, be aware that **some commands may behave differently or not apply at all**, since desktop/pentest distributions are configured with different defaults and priorities than a hardened server target. Read each mission's commands before running them on a non-server OS, and check for a "Platform Note" callout where one exists.</code></p>
+<hr />
+<h2 id="learning-objectives">Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<p>By the end of this lab, you will be able to:</p>
+<ul>
+<li>Baseline a Linux host and identify its real attack surface using native recon tools</li>
+<li>Apply core OS hardening controls: patch management, service minimization, SSH lockdown, firewalling, password policy, account hygiene, and file-permission control</li>
+<li>Deploy and verify active defense tooling (Fail2Ban, auditd) and centralized logging</li>
+<li>Diagnose and remediate realistic incident scenarios under time pressure</li>
+<li>Independently pass a practical, checklist-graded security validation</li>
+</ul>
+<hr />
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Ubuntu Server 24.04 LTS VM with <code>sudo</code> access (<a href="https://ubuntu.com/download/server">download</a>)</li>
+<li>A second terminal/SSH session available before Mission 6</li>
+<li>Basic familiarity with <code>nano</code> or <code>vi</code></li>
+</ul>
+<hr />
+<h2 id="rules-of-engagement">Rules of Engagement<a class="headerlink" href="#rules-of-engagement" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Work on a disposable VM or snapshot — never a production host.</li>
+<li>Every mission ends with a <strong>Verify</strong> step — confirm it before moving on.</li>
+<li>Every mission has a 🚩 flag captured below as evidence.</li>
+</ol>
+<hr />
+<h2 id="phase-1-recon-baseline-assessment">Phase 1 — Recon &amp; Baseline Assessment<a class="headerlink" href="#phase-1-recon-baseline-assessment" title="Permanent link">&para;</a></h2>
+<h3 id="mission-1-fingerprint-the-host">Mission 1 — Fingerprint the Host<a class="headerlink" href="#mission-1-fingerprint-the-host" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/etc/os-release
+uname<span class="w"> </span>-a
+</code></pre></div>
+<p><img alt="Host fingerprint output" src="assets/mission01-fingerprint.png" />
+<em>Figure 1: Confirming OS distribution, version, and kernel release before making any changes.</em></p>
+<hr />
+<h3 id="mission-2-map-the-attack-surface">Mission 2 — Map the Attack Surface<a class="headerlink" href="#mission-2-map-the-attack-surface" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>ss<span class="w"> </span>-tuln
+systemctl<span class="w"> </span>list-units<span class="w"> </span>--type<span class="o">=</span>service
+</code></pre></div>
+<p><img alt="Open ports before hardening" src="assets/mission02-open-ports.png" />
+<em>Figure 2: Listening ports at baseline — note any unexpected service exposed here.</em></p>
+<hr />
+<h3 id="mission-3-audit-the-human-attack-surface">Mission 3 — Audit the Human Attack Surface<a class="headerlink" href="#mission-3-audit-the-human-attack-surface" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/etc/passwd
+awk<span class="w"> </span>-F:<span class="w"> </span><span class="s1">&#39;($3&gt;=1000)&amp;&amp;($1!=&quot;nobody&quot;){print $1}&#39;</span><span class="w"> </span>/etc/passwd
+</code></pre></div>
+<p><img alt="Account audit" src="assets/mission03-account-audit.png" />
+<em>Figure 3: All accounts with UID ≥ 1000 and a valid login shell — the candidate list for Mission 9.</em></p>
+<div class="admonition note">
+<p class="admonition-title">A clean result is a valid result</p>
+</div>
+<p>On a fresh install, this will likely return only your own login (e.g. <code>ubuntu</code>). That's not a failed check — it means the baseline has no unrecognized accounts, which you'll confirm again in Mission 9.</p>
+<hr />
+<h2 id="phase-2-hardening-operations">Phase 2 — Hardening Operations<a class="headerlink" href="#phase-2-hardening-operations" title="Permanent link">&para;</a></h2>
+<h3 id="mission-4-patch-the-foundation">Mission 4 — Patch the Foundation<a class="headerlink" href="#mission-4-patch-the-foundation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</code></pre></div>
+<p><strong>Verify</strong></p>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>list<span class="w"> </span>--upgradable
+</code></pre></div>
+<p><img alt="Patch verification" src="assets/mission04-patch-verify.png" />
+<em>Figure 4: No pending updates after patching.</em></p>
+<hr />
+<h3 id="mission-5-shut-the-unnecessary-doors">Mission 5 — Shut the Unnecessary Doors<a class="headerlink" href="#mission-5-shut-the-unnecessary-doors" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>telnet
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>telnet
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Platform Note</p>
+</div>
+<p>On Kali and most desktop distributions, Telnet is typically not installed either — this step will likely show the same "not loaded" result regardless of platform.</p>
+<div class="admonition note">
+<p class="admonition-title">Telnet may not be installed at all</p>
+</div>
+<p>Ubuntu Server doesn't ship Telnet by default. You may see <code>Failed to stop telnet.service: Unit telnet.service not loaded</code>. That's expected — it confirms the service isn't present rather than indicating an error. Screenshot the output as-is; it's still valid evidence.</p>
+<p><strong>Verify</strong></p>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>status<span class="w"> </span>telnet
+</code></pre></div>
+<p><img alt="Telnet disabled" src="assets/mission05-telnet-disabled.png" />
+<em>Figure 5: Telnet confirmed inactive (or absent) on the host.</em></p>
+<hr />
+<h3 id="mission-6-lock-down-ssh">Mission 6 — Lock Down SSH<a class="headerlink" href="#mission-6-lock-down-ssh" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/ssh/sshd_config
+</code></pre></div>
+<p>Set these three lines (remove any leading <code>#</code>):</p>
+<div class="highlight"><pre><span></span><code>PermitRootLogin no
+PasswordAuthentication no
+Port 2222
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>ssh
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Field Warning — set up an SSH key before disabling password login</p>
+</div>
+<p><code>PasswordAuthentication no</code> with no key configured will lock you out of SSH entirely (console access still works, SSH does not). Before editing the config, set up key auth from your <strong>host machine</strong>:</p>
+<div class="highlight"><pre><span></span><code>```
+ssh-keygen -t ed25519
+```
+(If a key already exists, keep it — don&#39;t overwrite.)
+
+Copy it to the VM. In **Command Prompt** (not PowerShell — the syntax differs):
+```
+type %USERPROFILE%\.ssh\id_ed25519.pub | ssh ubuntu@&lt;your-vm-ip&gt; &quot;cat &gt;&gt; ~/.ssh/authorized_keys&quot;
+```
+In **PowerShell**, the equivalent is:
+```
+type $env:USERPROFILE\.ssh\id_ed25519.pub | ssh ubuntu@&lt;your-vm-ip&gt; &quot;cat &gt;&gt; ~/.ssh/authorized_keys&quot;
+```
+Then confirm key login works — you should **not** be asked for a password:
+```
+ssh ubuntu@&lt;your-vm-ip&gt;
+```
+Only proceed to edit `sshd_config` once this succeeds.
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Platform Note</p>
+</div>
+<p>The <code>ssh.socket</code> override behavior described above is specific to how Ubuntu 24.04 packages SSH. Other distributions (including Kali) may not use socket activation for SSH at all — if <code>Port 2222</code> doesn't take effect on a different OS, check <code>systemctl list-units | grep ssh</code> for what's actually managing the service before assuming it's the same root cause.</p>
+<div class="admonition warning">
+<p class="admonition-title">Known issue on Ubuntu 24.04 — ssh.socket overrides your port</p>
+</div>
+<p>Ubuntu 24.04 uses <strong>socket activation</strong> for SSH by default. Even after setting <code>Port 2222</code> in <code>sshd_config</code> and restarting, you may find <code>sshd</code> still logs <code>Server listening on 0.0.0.0 port 22</code> and <code>ss -tuln | grep 2222</code> returns nothing. This is because <code>ssh.socket</code> — a separate unit — controls the listening port and overrides your config. Check:
+<code>bash
+    sudo systemctl status ssh.socket</code>
+Fix by disabling the socket unit and letting the service itself bind the port from your config:
+<code>bash
+    sudo systemctl disable --now ssh.socket
+    sudo systemctl enable --now ssh.service
+    sudo systemctl restart ssh</code>
+Then re-verify — <code>sudo systemctl status ssh</code> should log <code>Server listening on 0.0.0.0 port 2222</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Restarting ssh does not drop your current session</p>
+</div>
+<p><code>sudo systemctl restart ssh</code> only affects <em>new</em> connections — your already-open session stays alive. This is exactly why you test from a <strong>second</strong> window before closing the first: if the new port/key login fails, your original session is still there to fix it.</p>
+<p><strong>Verify</strong></p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>PermitRootLogin<span class="w"> </span>/etc/ssh/sshd_config
+grep<span class="w"> </span>PasswordAuthentication<span class="w"> </span>/etc/ssh/sshd_config
+ss<span class="w"> </span>-tuln<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">2222</span>
+</code></pre></div>
+<p><img alt="SSH configuration verified" src="assets/mission06-sshd-verify.png" />
+<em>Figure 6: Root login and password auth disabled; new port live.</em></p>
+<p>From a <strong>second, new terminal window</strong> (don't close the first):</p>
+<div class="highlight"><pre><span></span><code>ssh -p 2222 ubuntu@&lt;your-vm-ip&gt;
+</code></pre></div>
+<p><img alt="Successful SSH login on new port" src="assets/mission06-ssh-login-success.png" />
+<em>Figure 7: Key-based login confirmed working on port 2222 from a second session.</em></p>
+<hr />
+<h3 id="mission-7-raise-the-wall">Mission 7 — Raise the Wall<a class="headerlink" href="#mission-7-raise-the-wall" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">2222</span>/tcp
+sudo<span class="w"> </span>ufw<span class="w"> </span><span class="nb">enable</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>deny<span class="w"> </span><span class="m">23</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Platform Note</p>
+</div>
+<p>Kali often ships with UFW present but intentionally left disabled, since pentesters typically don't want a firewall interfering with their own tools. Enabling it will work, but consider whether that fits the environment you're actually using — on a personal Kali install used for other work, you may want to <code>sudo ufw disable</code> afterward.</p>
+<p><strong>Verify</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ufw<span class="w"> </span>status<span class="w"> </span>verbose
+</code></pre></div>
+<p><img alt="Firewall ruleset" src="assets/mission07-firewall-rules.png" />
+<em>Figure 8: UFW active, only port 2222 permitted.</em></p>
+<hr />
+<h3 id="mission-8-enforce-password-discipline">Mission 8 — Enforce Password Discipline<a class="headerlink" href="#mission-8-enforce-password-discipline" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/login.defs
+</code></pre></div>
+<p>Set:</p>
+<div class="highlight"><pre><span></span><code>PASS_MAX_DAYS 90
+PASS_MIN_DAYS 10
+PASS_MIN_LEN 12
+</code></pre></div>
+<p><strong>Verify</strong></p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;PASS_MAX_DAYS|PASS_MIN_DAYS|PASS_MIN_LEN&quot;</span><span class="w"> </span>/etc/login.defs
+</code></pre></div>
+<p><img alt="Password policy verified" src="assets/mission08-password-policy.png" />
+<em>Figure 9: Password aging and length policy applied.</em></p>
+<hr />
+<h3 id="mission-9-neutralize-ghost-accounts">Mission 9 — Neutralize Ghost Accounts<a class="headerlink" href="#mission-9-neutralize-ghost-accounts" title="Permanent link">&para;</a></h3>
+<p>Using your Mission 3 suspect list:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>userdel<span class="w"> </span>testuser
+<span class="c1"># or, if the account might be needed later:</span>
+sudo<span class="w"> </span>usermod<span class="w"> </span>-L<span class="w"> </span>testuser
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">No suspect accounts found</p>
+</div>
+<p>If Mission 3 turned up no unrecognized accounts, <code>userdel: user 'testuser' does not exist</code> is the expected, correct result — not an error. Document it as "baseline already clean" rather than as a remediation.</p>
+<p><strong>Verify</strong></p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/etc/passwd
+</code></pre></div>
+<p><img alt="Accounts remediated" src="assets/mission09-accounts-remediated.png" />
+<em>Figure 10: Unrecognized accounts from Mission 3 removed or locked (or confirmed absent).</em></p>
+<hr />
+<h3 id="mission-10-seal-the-crown-jewels">Mission 10 — Seal the Crown Jewels<a class="headerlink" href="#mission-10-seal-the-crown-jewels" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/shadow
+</code></pre></div>
+<p><strong>Verify</strong></p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/etc/shadow
+</code></pre></div>
+<p><img alt="Shadow file permissions" src="assets/mission10-shadow-permissions.png" />
+<em>Figure 11: <code>/etc/shadow</code> locked to root-only access.</em></p>
+<hr />
+<h3 id="mission-11-deploy-active-defense">Mission 11 — Deploy Active Defense<a class="headerlink" href="#mission-11-deploy-active-defense" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>fail2ban<span class="w"> </span>-y
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>fail2ban
+
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>auditd<span class="w"> </span>-y
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>auditd
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Already installed?</p>
+</div>
+<p>Some Ubuntu Server images ship with Fail2Ban and/or auditd pre-installed — <code>apt install</code> will report <code>is already the newest version</code> in that case. That's fine; the <code>systemctl enable --now</code> step still matters, since a package being installed doesn't guarantee the service is enabled and running.</p>
+<div class="admonition note">
+<p class="admonition-title">Platform Note</p>
+</div>
+<p>Package availability and default install state for Fail2Ban and auditd can vary across distributions — if <code>apt install</code> isn't available on your platform, substitute your distro's package manager (<code>dnf</code>, <code>pacman</code>, etc.) and check the equivalent service name.</p>
+<p><strong>Verify</strong></p>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>status<span class="w"> </span>fail2ban
+systemctl<span class="w"> </span>status<span class="w"> </span>auditd
+</code></pre></div>
+<p>(Press <strong><code>q</code></strong> to exit each status view.)</p>
+<p><img alt="Fail2Ban and auditd active" src="assets/mission11-fail2ban-auditd.png" />
+<em>Figure 12: Both active-defense services confirmed running.</em></p>
+<hr />
+<h3 id="mission-12-turn-on-the-cameras">Mission 12 — Turn On the Cameras<a class="headerlink" href="#mission-12-turn-on-the-cameras" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>cat<span class="w"> </span>/var/log/auth.log
+journalctl<span class="w"> </span>-xe
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Filter instead of scrolling the whole log</p>
+</div>
+<p><code>/var/log/auth.log</code> fills up fast with routine cron and session noise. Filter for the signal that actually matters — SSH authentication events:
+<code>bash
+    grep "Accepted" /var/log/auth.log</code>
+Look specifically for a line like <code>Accepted publickey for ubuntu from ... ED25519 ...</code> — this proves your Mission 6 hardening is actually working (key-based login), as opposed to an earlier <code>Accepted password</code> line from before you locked SSH down.</p>
+<p><img alt="Authentication log evidence" src="assets/mission12-auth-log-evidence.png" />
+<em>Figure 13: A real authentication event (key-based login) captured, confirming logging is active and SSH hardening took effect.</em></p>
+<hr />
+<h2 id="phase-3-incident-response-drills">Phase 3 — Incident Response Drills<a class="headerlink" href="#phase-3-incident-response-drills" title="Permanent link">&para;</a></h2>
+<h3 id="drill-a-the-open-port">Drill A — The Open Port<a class="headerlink" href="#drill-a-the-open-port" title="Permanent link">&para;</a></h3>
+<p><strong>Symptom</strong></p>
+<div class="highlight"><pre><span></span><code>ss<span class="w"> </span>-tuln
+<span class="c1"># 0.0.0.0:23 LISTEN  &lt;- unexpected</span>
+</code></pre></div>
+<p><strong>Remediation</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>telnet
+sudo<span class="w"> </span>ufw<span class="w"> </span>deny<span class="w"> </span><span class="m">23</span>
+ss<span class="w"> </span>-tuln
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Verified-absent is still a valid drill outcome</p>
+</div>
+<p>If Telnet was never installed on your host, you'll see <code>Unit telnet.service not loaded</code> and <code>Skipping adding existing rule</code> (UFW rule already present from Mission 7). This confirms port 23 has no listener — document it as "verified absent" rather than "actively remediated."</p>
+<p><img alt="Port 23 closed" src="assets/drillA-port23-closed.png" />
+<em>Figure 14: Port 23 confirmed closed / never exposed, port 2222 the only SSH listener.</em></p>
+<hr />
+<h3 id="drill-b-the-weak-ssh-config">Drill B — The Weak SSH Config<a class="headerlink" href="#drill-b-the-weak-ssh-config" title="Permanent link">&para;</a></h3>
+<p><strong>Symptom:</strong> root login enabled over SSH, default port.</p>
+<p><strong>Remediation:</strong> disable root login and change the listening port (see Mission 6).</p>
+<div class="admonition tip">
+<p class="admonition-title">Reflection</p>
+</div>
+<p>Changing the port alone does not fix this — an attacker who finds the new port still has an unauthenticated path to root unless password auth and root login are also disabled properly.</p>
+<hr />
+<h2 id="phase-4-practical-assessment">Phase 4 — Practical Assessment<a class="headerlink" href="#phase-4-practical-assessment" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Requirement</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task 1</td>
+<td>Identify and close all unused/at-risk ports</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Task 2</td>
+<td>Harden SSH (root login, password auth, port)</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Task 3</td>
+<td>Enable firewall; allow only required ports</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Task 4</td>
+<td>Implement password policy</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Task 5</td>
+<td>Verify system logs for unauthorized attempts</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Task 6</td>
+<td>Deploy Fail2Ban and confirm it's running</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scoring:</strong> 90–100 audit-ready · 70–89 solid, revisit gaps · below 70 repeat Phase 2.</p>
+<hr />
+<h2 id="final-validation-checklist">Final Validation Checklist<a class="headerlink" href="#final-validation-checklist" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ufw<span class="w"> </span>status
+grep<span class="w"> </span>PermitRootLogin<span class="w"> </span>/etc/ssh/sshd_config
+ss<span class="w"> </span>-tuln
+apt<span class="w"> </span>list<span class="w"> </span>--upgradable
+grep<span class="w"> </span>PASS_MIN_LEN<span class="w"> </span>/etc/login.defs
+ls<span class="w"> </span>-l<span class="w"> </span>/etc/shadow
+systemctl<span class="w"> </span>status<span class="w"> </span>fail2ban
+systemctl<span class="w"> </span>status<span class="w"> </span>auditd
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Expected Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firewall active</td>
+<td><code>active</code></td>
+</tr>
+<tr>
+<td>SSH hardened</td>
+<td><code>PermitRootLogin no</code></td>
+</tr>
+<tr>
+<td>Ports minimized</td>
+<td>only required ports listed</td>
+</tr>
+<tr>
+<td>Updates applied</td>
+<td>no pending updates</td>
+</tr>
+<tr>
+<td>Password policy set</td>
+<td><code>PASS_MIN_LEN</code> = 12</td>
+</tr>
+<tr>
+<td>Shadow file locked</td>
+<td><code>-rw------- root root</code></td>
+</tr>
+<tr>
+<td>Fail2Ban active</td>
+<td><code>active (running)</code></td>
+</tr>
+<tr>
+<td>Auditd active</td>
+<td><code>active (running)</code></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Final validation checklist" src="assets/final-validation-checklist.png" />
+<em>Figure 15: All eight hardening controls verified in a single session.</em></p>
+<hr />
+<h2 id="test-your-understanding">Test Your Understanding<a class="headerlink" href="#test-your-understanding" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>1. Why is Mission 4 (patching) done before any other hardening step?</summary>
+</details>
+<p>Unpatched packages are the most commonly exploited weakness on any server. Hardening a service (SSH, firewall, accounts) on top of unpatched software still leaves known CVEs open — patching first ensures every later control is built on a clean foundation.</p>
+<details class="question">
+<summary>2. Why does disabling password authentication in Mission 6 require setting up an SSH key <em>first</em>?</summary>
+</details>
+<p>If <code>PasswordAuthentication no</code> is applied before a working key is confirmed, there is no remaining way to authenticate over SSH — you'd be locked out of remote access entirely (console access would still work, but not SSH). Testing key login from a second session before closing the first prevents this.</p>
+<details class="question">
+<summary>3. In Drill B, why doesn't changing the SSH port alone fix a weak SSH config?</summary>
+</details>
+<p>Changing the port only hides the service from casual/default scans — it doesn't remove the underlying exposure. If root login and password authentication are still enabled, an attacker who finds the new port still has an unauthenticated path to root.</p>
+<details class="question">
+<summary>4. What does a <code>PASS_MIN_LEN</code> policy in <code>/etc/login.defs</code> actually protect against, and what other control does it depend on?</summary>
+</details>
+<p>It enforces a minimum password length, raising the cost of brute-force and dictionary attacks. It's only meaningful if <code>/etc/shadow</code> is also locked down (Mission 10) — otherwise the password hashes it's meant to protect are readable by any local user.</p>
+<details class="question">
+<summary>5. Why is 'no listener found on port 23' still valid evidence for Drill A, even if Telnet was never installed?</summary>
+</details>
+<p>The drill is testing whether the <em>current state</em> of the host is secure, not whether a specific remediation action was performed. A host that never exposed the service is at least as secure as one where the service was actively closed — the verification step (<code>ss -tuln</code>) is the same either way.</p>
+<hr />
+<h2 id="bonus-round-advanced-hardening">Bonus Round — Advanced Hardening<a class="headerlink" href="#bonus-round-advanced-hardening" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Enforce AppArmor in enforcing mode</li>
+<li>Deploy OSSEC or Wazuh and trigger a test alert</li>
+<li>Enable full-disk encryption with LUKS</li>
+<li>Disable USB mass storage via udev rules</li>
+</ul>
+<hr />
+<h2 id="learning-outcomes">Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permanent link">&para;</a></h2>
+<p>By completing this lab, you have:</p>
+<ul>
+<li>Reduced a host's attack surface using measurable, verifiable controls rather than a checklist run blind</li>
+<li>Practiced recon-before-action, verify-after-every-change, evidence-as-you-go discipline</li>
+<li>Converted an unhardened host into one with a minimal attack surface, key-only access, active brute-force defense, and a real audit trail</li>
+<li>Diagnosed and worked around a real platform quirk (Ubuntu 24.04 socket-activated SSH) rather than following steps blindly</li>
+<li>Built the muscle memory to diagnose a live misconfiguration under time pressure</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

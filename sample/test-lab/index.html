@@ -1,0 +1,1747 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cybersecurity Labs and Technical Documentation">
+      
+      
+      
+        <link rel="canonical" href="https://sitename.example/sample/test-lab/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Zero Trust & Identity Lab - Gen-AI Cyber Security IITK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#zero-trust-identity-lab" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+<header class="md-header" data-md-component="header">
+
+  <nav class="md-header__inner md-grid">
+
+    <!-- LEFT: hamburger + logo area (kept empty safely) -->
+    <div class="md-header__title">
+    </div>
+
+    <!-- CENTER: YOUR BANNER -->
+    <div class="header-banner">
+      <img src="../../images/image-1.jpg" alt="Header Banner">
+    </div>
+
+    <!-- RIGHT: keep search + icons working -->
+    <div class="md-header__options">
+      
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Gen-AI Cyber Security IITK" class="md-header__button md-logo" aria-label="Gen-AI Cyber Security IITK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Gen-AI Cyber Security IITK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Zero Trust &amp; Identity Lab
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    </div>
+
+  </nav>
+</header>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../foundations-and-system-security/microsoft-threat-model-software/" class="md-tabs__link">
+          
+  
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Gen-AI Cyber Security IITK" class="md-nav__button md-logo" aria-label="Gen-AI Cyber Security IITK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Gen-AI Cyber Security IITK
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations & System Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations & System Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../foundations-and-system-security/microsoft-threat-model-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft Threat Modeling Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../foundations-and-system-security/owasp-threat-dragon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OWASP Threat Dragon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../foundations-and-system-security/zero-day-trust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../foundations-and-system-security/network-traffic-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Traffic Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../foundations-and-system-security/firewall-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firewall Fundamentals using GUFW
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../foundations-and-system-security/vpn-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPN Fundamentals using OpenVPN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../foundations-and-system-security/linux-hardening/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux OS Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../foundations-and-system-security/windows-hardening/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows OS Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../foundations-and-system-security/osint-part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reconnaissance and OSINT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pentesting & Ethical Hacking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pentesting & Ethical Hacking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advance Red Teaming & AI-Driven Attacks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advance Red Teaming & AI-Driven Attacks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOC, DFIR & AIML for Defense
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SOC, DFIR & AIML for Defense
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Security, DevSecOps & Quantum Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Security, DevSecOps & Quantum Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pentesting-and-ethical-hacking/coming-soon/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coming Soon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technologies-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technologies Used
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="zero-trust-identity-lab">Zero Trust &amp; Identity Lab<a class="headerlink" href="#zero-trust-identity-lab" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Beginner Friendly • 2 Hours • Hands-on Security Lab  </p>
+</blockquote>
+<hr />
+<h2 id="lab-overview">Lab Overview<a class="headerlink" href="#lab-overview" title="Permanent link">&para;</a></h2>
+<p>This lab demonstrates how modern Zero Trust Architecture replaces traditional perimeter-based security using:</p>
+<ul>
+<li>Identity-based networking</li>
+<li>Micro-segmentation</li>
+<li>Least privilege access control</li>
+<li>AI-assisted log analysis</li>
+</ul>
+<p>By the end of this lab, you will build a functioning Zero Trust environment using Linux and Tailscale.</p>
+<hr />
+<h2 id="learning-objectives">Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<p>After completing this lab, you will be able to:</p>
+<ul>
+<li>Configure identity-based networking with Tailscale</li>
+<li>Implement micro-segmentation using ACLs</li>
+<li>Restrict user privileges using Linux sudoers</li>
+<li>Analyse authentication logs with Generative AI</li>
+<li>Understand Zero Trust concepts from NIST SP 800-207</li>
+</ul>
+<hr />
+<h2 id="technologies-used">Technologies Used<a class="headerlink" href="#technologies-used" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity Network</td>
+<td>Tailscale</td>
+<td>Identity-based connectivity</td>
+</tr>
+<tr>
+<td>Access Control</td>
+<td>Tailscale ACLs</td>
+<td>Micro-segmentation</td>
+</tr>
+<tr>
+<td>RBAC</td>
+<td>Linux sudoers</td>
+<td>Least privilege</td>
+</tr>
+<tr>
+<td>Log Analysis</td>
+<td>ChatGPT / Claude</td>
+<td>AI-assisted security analysis</td>
+</tr>
+<tr>
+<td>Operating System</td>
+<td>Kali Linux</td>
+<td>Lab environment</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="understanding-zero-trust">Understanding Zero Trust<a class="headerlink" href="#understanding-zero-trust" title="Permanent link">&para;</a></h1>
+<h2 id="traditional-security-vs-zero-trust">Traditional Security vs Zero Trust<a class="headerlink" href="#traditional-security-vs-zero-trust" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Traditional Perimeter Security</th>
+<th>Zero Trust Architecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trust users inside network</td>
+<td>Trust nobody by default</td>
+</tr>
+<tr>
+<td>IP-based access</td>
+<td>Identity-based access</td>
+</tr>
+<tr>
+<td>Broad permissions</td>
+<td>Least privilege</td>
+</tr>
+<tr>
+<td>Easy lateral movement</td>
+<td>Micro-segmentation</td>
+</tr>
+<tr>
+<td>Single trust boundary</td>
+<td>Continuous verification</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="core-principle">Core Principle<a class="headerlink" href="#core-principle" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p><strong>"Never Trust. Always Verify."</strong></p>
+</div>
+<p>In Zero Trust:
+- Every request must be authenticated
+- Every action must be authorised
+- Every connection is continuously validated</p>
+<hr />
+<h1 id="lab-architecture">Lab Architecture<a class="headerlink" href="#lab-architecture" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code>graph TD
+
+    User[Authenticated User]
+    --&gt; Tailscale[Tailscale Identity Network]
+
+    Tailscale --&gt; ACL[ACL Rules]
+
+    ACL --&gt; Web8080[Port 8080 Allowed]
+    ACL --&gt; Blocked[All Other Ports Blocked]
+
+    Web8080 --&gt; RBAC[Linux sudoers RBAC]
+
+    RBAC --&gt; RestartSSH[Can Restart SSH]
+    RBAC --&gt; Denied[Cannot Read Sensitive Files]
+
+    RBAC --&gt; Logs[Authentication Logs]
+
+    Logs --&gt; AI[ChatGPT / Claude Analysis]
+</code></pre></div>
+<hr />
+<h1 id="lab-environment">Lab Environment<a class="headerlink" href="#lab-environment" title="Permanent link">&para;</a></h1>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OS</td>
+<td>Kali Linux / Ubuntu / Debian</td>
+</tr>
+<tr>
+<td>Account</td>
+<td>GitHub or Google</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>Internet access</td>
+</tr>
+<tr>
+<td>Skill Level</td>
+<td>Beginner</td>
+</tr>
+<tr>
+<td>Time Required</td>
+<td>~2 hours</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Use a personal GitHub or Google account for Tailscale authentication.</p>
+</div>
+<hr />
+<h1 id="milestone-1-identity-centric-connectivity">Milestone 1 — Identity-Centric Connectivity<a class="headerlink" href="#milestone-1-identity-centric-connectivity" title="Permanent link">&para;</a></h1>
+<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
+<p>Replace traditional IP-based trust with identity-based networking using Tailscale.</p>
+<hr />
+<h2 id="step-1-update-your-system">Step 1 — Update Your System<a class="headerlink" href="#step-1-update-your-system" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>Reading package lists... Done
+All packages are up to date.
+</code></pre></div>
+<hr />
+<h2 id="step-2-enable-ip-forwarding">Step 2 — Enable IP Forwarding<a class="headerlink" href="#step-2-enable-ip-forwarding" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;net.ipv4.ip_forward = 1&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/sysctl.conf
+
+sudo<span class="w"> </span>sysctl<span class="w"> </span>-p
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>net.ipv4.ip_forward = 1
+</code></pre></div>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>IP forwarding allows Linux to route packets between interfaces.</p>
+</div>
+<hr />
+<h2 id="step-3-install-tailscale">Step 3 — Install Tailscale<a class="headerlink" href="#step-3-install-tailscale" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://tailscale.com/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>Installation complete!
+</code></pre></div>
+<hr />
+<h2 id="step-4-authenticate-with-your-identity">Step 4 — Authenticate with Your Identity<a class="headerlink" href="#step-4-authenticate-with-your-identity" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tailscale<span class="w"> </span>up<span class="w"> </span>--operator<span class="o">=</span><span class="nv">$USER</span>
+</code></pre></div>
+<p>Tailscale will generate a login URL.</p>
+<p>Open it in your browser and authenticate using:
+- GitHub
+- Google</p>
+<hr />
+<h2 id="step-5-verify-connection">Step 5 — Verify Connection<a class="headerlink" href="#step-5-verify-connection" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>tailscale<span class="w"> </span>status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>tailscale<span class="w"> </span>ip
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>100.x.x.x
+</code></pre></div>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Your machine is now connected to an identity-based network.</p>
+</div>
+<hr />
+<h2 id="what-you-achieved">What You Achieved<a class="headerlink" href="#what-you-achieved" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Before</th>
+<th>After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IP-based trust</td>
+<td>Identity-based trust</td>
+</tr>
+<tr>
+<td>Anyone with IP can connect</td>
+<td>Only authenticated users can connect</td>
+</tr>
+<tr>
+<td>Limited visibility</td>
+<td>Identity-linked activity logging</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="milestone-2-micro-segmentation">Milestone 2 — Micro-segmentation<a class="headerlink" href="#milestone-2-micro-segmentation" title="Permanent link">&para;</a></h1>
+<h2 id="goal_1">Goal<a class="headerlink" href="#goal_1" title="Permanent link">&para;</a></h2>
+<p>Allow access ONLY to port 8080 while blocking all other lateral movement.</p>
+<hr />
+<h2 id="step-1-create-a-web-server">Step 1 — Create a Web Server<a class="headerlink" href="#step-1-create-a-web-server" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/lab-server
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&lt;h1&gt;Zero Trust Lab&lt;/h1&gt;&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>~/lab-server/index.html
+</code></pre></div>
+<hr />
+<h2 id="step-2-start-the-server">Step 2 — Start the Server<a class="headerlink" href="#step-2-start-the-server" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/lab-server
+
+python3<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8080</span>
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>Serving HTTP on 0.0.0.0 port 8080
+</code></pre></div>
+<hr />
+<h2 id="step-3-test-the-web-service">Step 3 — Test the Web Service<a class="headerlink" href="#step-3-test-the-web-service" title="Permanent link">&para;</a></h2>
+<p>Open:</p>
+<div class="highlight"><pre><span></span><code>http://100.x.x.x:8080
+</code></pre></div>
+<p>You should see:</p>
+<div class="highlight"><pre><span></span><code>Zero Trust Lab
+</code></pre></div>
+<hr />
+<h2 id="step-4-configure-tailscale-acls">Step 4 — Configure Tailscale ACLs<a class="headerlink" href="#step-4-configure-tailscale-acls" title="Permanent link">&para;</a></h2>
+<p>Go to the Tailscale ACL dashboard and replace the default ACL with:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;grants&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;dst&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;8080&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="acl-explanation">ACL Explanation<a class="headerlink" href="#acl-explanation" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ACL Component</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"src"</code></td>
+<td>Source user</td>
+</tr>
+<tr>
+<td><code>"dst"</code></td>
+<td>Destination device</td>
+</tr>
+<tr>
+<td><code>"ip"</code></td>
+<td>Allowed port</td>
+</tr>
+<tr>
+<td>Unlisted ports</td>
+<td>Blocked automatically</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Zero Trust follows a default DENY model.</p>
+</div>
+<hr />
+<h2 id="step-5-verify-allowed-port">Step 5 — Verify Allowed Port<a class="headerlink" href="#step-5-verify-allowed-port" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://100.x.x.x:8080
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Zero Trust Lab<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</code></pre></div>
+<hr />
+<h2 id="step-6-verify-blocked-port">Step 6 — Verify Blocked Port<a class="headerlink" href="#step-6-verify-blocked-port" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-v<span class="w"> </span>http://100.x.x.x:9090<span class="w"> </span>--max-time<span class="w"> </span><span class="m">5</span>
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>Connection timed out
+</code></pre></div>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Micro-segmentation is now enforced.</p>
+</div>
+<hr />
+<h2 id="what-you-achieved_1">What You Achieved<a class="headerlink" href="#what-you-achieved_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8080</td>
+<td>Allowed</td>
+</tr>
+<tr>
+<td>9090</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>Other Ports</td>
+<td>Blocked</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="milestone-3-least-privilege">Milestone 3 — Least Privilege<a class="headerlink" href="#milestone-3-least-privilege" title="Permanent link">&para;</a></h1>
+<h2 id="goal_2">Goal<a class="headerlink" href="#goal_2" title="Permanent link">&para;</a></h2>
+<p>Allow a junior administrator to restart SSH — but nothing else.</p>
+<hr />
+<h2 id="step-1-create-user">Step 1 — Create User<a class="headerlink" href="#step-1-create-user" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>useradd<span class="w"> </span>-m<span class="w"> </span>-s<span class="w"> </span>/bin/bash<span class="w"> </span>junior-admin
+</code></pre></div>
+<p>Set password:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>passwd<span class="w"> </span>junior-admin
+</code></pre></div>
+<hr />
+<h2 id="step-2-edit-sudoers-safely">Step 2 — Edit sudoers Safely<a class="headerlink" href="#step-2-edit-sudoers-safely" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>visudo
+</code></pre></div>
+<p>Add:</p>
+<div class="highlight"><pre><span></span><code>junior-admin ALL=(ALL) NOPASSWD: /usr/sbin/service ssh restart
+</code></pre></div>
+<hr />
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Always use <code>visudo</code> instead of directly editing <code>/etc/sudoers</code>.</p>
+</div>
+<hr />
+<h2 id="step-3-switch-user">Step 3 — Switch User<a class="headerlink" href="#step-3-switch-user" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>su<span class="w"> </span>-<span class="w"> </span>junior-admin
+</code></pre></div>
+<hr />
+<h2 id="step-4-test-allowed-command">Step 4 — Test Allowed Command<a class="headerlink" href="#step-4-test-allowed-command" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>service<span class="w"> </span>ssh<span class="w"> </span>restart
+</code></pre></div>
+<p>Expected:
+- Command succeeds</p>
+<hr />
+<h2 id="step-5-test-blocked-command">Step 5 — Test Blocked Command<a class="headerlink" href="#step-5-test-blocked-command" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>cat<span class="w"> </span>/etc/shadow
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code>Sorry, user junior-admin is not allowed to execute this command.
+</code></pre></div>
+<hr />
+<h2 id="step-6-test-package-installation-block">Step 6 — Test Package Installation Block<a class="headerlink" href="#step-6-test-package-installation-block" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</code></pre></div>
+<p>Expected:
+- Access denied</p>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Least privilege is now enforced.</p>
+</div>
+<hr />
+<h2 id="what-you-achieved_2">What You Achieved<a class="headerlink" href="#what-you-achieved_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Restart SSH</td>
+<td>Allowed</td>
+</tr>
+<tr>
+<td>Read <code>/etc/shadow</code></td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>Install packages</td>
+<td>Blocked</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="milestone-4-generative-ai-as-security-co-pilot">Milestone 4 — Generative AI as Security Co-pilot<a class="headerlink" href="#milestone-4-generative-ai-as-security-co-pilot" title="Permanent link">&para;</a></h1>
+<h2 id="goal_3">Goal<a class="headerlink" href="#goal_3" title="Permanent link">&para;</a></h2>
+<p>Use AI to analyse Linux authentication logs.</p>
+<hr />
+<h2 id="step-1-view-authentication-logs">Step 1 — View Authentication Logs<a class="headerlink" href="#step-1-view-authentication-logs" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>journalctl<span class="w"> </span><span class="nv">_COMM</span><span class="o">=</span>sudo<span class="w"> </span>--since<span class="w"> </span><span class="s2">&quot;1 hour ago&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="step-2-copy-the-logs">Step 2 — Copy the Logs<a class="headerlink" href="#step-2-copy-the-logs" title="Permanent link">&para;</a></h2>
+<p>Copy the command output.</p>
+<hr />
+<h2 id="step-3-open-chatgpt-or-claude">Step 3 — Open ChatGPT or Claude<a class="headerlink" href="#step-3-open-chatgpt-or-claude" title="Permanent link">&para;</a></h2>
+<p>Paste the following prompt:</p>
+<div class="highlight"><pre><span></span><code>You are a security analyst.
+
+Please analyse these Linux authentication logs and explain:
+
+1. Successful privilege usage
+2. Denied access attempts
+3. Suspicious activity
+4. Least privilege enforcement
+5. Any security concerns
+
+Logs:
+
+[PASTE LOGS HERE]
+</code></pre></div>
+<hr />
+<h2 id="expected-ai-analysis">Expected AI Analysis<a class="headerlink" href="#expected-ai-analysis" title="Permanent link">&para;</a></h2>
+<p>The AI should identify:
+- Successful sudo actions
+- Blocked commands
+- User privilege boundaries
+- Security patterns
+- Potential concerns</p>
+<hr />
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Never upload real production logs into public AI systems.</p>
+</div>
+<hr />
+<h2 id="why-ai-helps-security-teams">Why AI Helps Security Teams<a class="headerlink" href="#why-ai-helps-security-teams" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Traditional Analysis</th>
+<th>AI-Assisted Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manual review</td>
+<td>Automated summarisation</td>
+</tr>
+<tr>
+<td>Time consuming</td>
+<td>Faster investigations</td>
+</tr>
+<tr>
+<td>Hard to identify patterns</td>
+<td>Pattern recognition</td>
+</tr>
+<tr>
+<td>Requires deep expertise</td>
+<td>Plain-English explanations</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="trust-boundaries">Trust Boundaries<a class="headerlink" href="#trust-boundaries" title="Permanent link">&para;</a></h1>
+<h2 id="three-layers-of-protection">Three Layers of Protection<a class="headerlink" href="#three-layers-of-protection" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Layer 1 — Identity</label><label for="__tabbed_1_2">Layer 2 — ACL Enforcement</label><label for="__tabbed_1_3">Layer 3 — Least Privilege</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Users must authenticate before accessing the network.</p>
+</div>
+<div class="tabbed-block">
+<p>Only explicitly allowed services are reachable.</p>
+</div>
+<div class="tabbed-block">
+<p>Users can perform only approved actions.</p>
+</div>
+</div>
+</div>
+<hr />
+<h1 id="check-your-understanding">Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permanent link">&para;</a></h1>
+<details class="question">
+<summary>Why is Zero Trust safer than perimeter security?</summary>
+<p>Zero Trust validates every request regardless of network location.</p>
+</details>
+<details class="question">
+<summary>Why was port 9090 blocked?</summary>
+<p>Only port 8080 was explicitly allowed in the ACL.</p>
+</details>
+<details class="question">
+<summary>Why use visudo?</summary>
+<p><code>visudo</code> validates syntax before saving changes.</p>
+</details>
+<details class="question">
+<summary>What would happen if junior-admin ran sudo reboot?</summary>
+<p>The action would be denied because it is not allowed in sudoers.</p>
+</details>
+<details class="question">
+<summary>Why should production logs not be pasted into public AI tools?</summary>
+<p>Logs may contain sensitive or confidential organisational data.</p>
+</details>
+<h1 id="final-summary">Final Summary<a class="headerlink" href="#final-summary" title="Permanent link">&para;</a></h1>
+<p>Congratulations! You successfully built a functioning Zero Trust lab environment.</p>
+<h2 id="skills-demonstrated">Skills Demonstrated<a class="headerlink" href="#skills-demonstrated" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Identity-based networking</li>
+<li>Micro-segmentation</li>
+<li>Role-based access control</li>
+<li>Least privilege</li>
+<li>Linux administration</li>
+<li>AI-assisted log analysis</li>
+</ul>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Lab Complete — Zero Trust &amp; Identity Lab</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

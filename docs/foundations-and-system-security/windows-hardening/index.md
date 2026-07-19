@@ -343,6 +343,7 @@ original deck does — students will ask why their checkpoint "failed" if they s
 
 ## Lab Outcomes
 Upon successful completion of the lab exercises, students will have achieved the following deliverables:
+
 1. Secured Local Accounts: An endpoint architecture where the default Administrator SID (-500) is obfuscated and disabled, the Guest account is restricted, and a standard, non-privileged day-to-day user profile is actively deployed.  
 2. Active Threat Mitigation: A fully operational Microsoft Defender environment with green status indicators across real-time, cloud-delivered, and firewall profiles, bolstered by four strict ASR rules running in Block mode.  
 3. Encrypted Volume Architecture: A system drive fully encrypted via BitLocker (XTS-AES 256) with a verified recovery key safely escrowed off the primary volume.  

@@ -72,13 +72,13 @@ nav:
       - Pentesting & Ethical Hacking:
           - Vulnerability Scanning - Nmap Advanced Scanning & Nessus: pentesting-and-ethical-hacking/vulnerability-scanning-nmap-advanced-scanning-nessus/index.md
           - Web App Security Part 1 - Auth & Session Attacks, SQLi: pentesting-and-ethical-hacking/webapp-sec-part-1/index.md
-          - Web App Security Part 2 - XSS, IDOR, CSRF:
-          - Web App & API Security - SSRF, RCE:
-          - Web App & API Security - API Security:
-          - Exploitation Techniques 1 - Metasploit Framework:
-          - Exploitation Techniques 2 - Shell Handling, Privilege Escalation:
-          - Exploitation Techniques 3 - Post-Exploitation Basics:
-          - Wireless Security - WPA2 Cracking Execution, Rogue AP:
+          #- Web App Security Part 2 - XSS, IDOR, CSRF:
+          #- Web App & API Security - SSRF, RCE:
+          #- Web App & API Security - API Security:
+          #- Exploitation Techniques 1 - Metasploit Framework:
+          #- Exploitation Techniques 2 - Shell Handling, Privilege Escalation:
+          #- Exploitation Techniques 3 - Post-Exploitation Basics:
+          #- Wireless Security - WPA2 Cracking Execution, Rogue AP:
 
       - Advance Red Teaming & AI-Driven Attacks:
           - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md

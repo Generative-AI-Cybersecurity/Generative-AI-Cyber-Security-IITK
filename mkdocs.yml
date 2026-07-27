@@ -55,6 +55,9 @@ nav:
   - Home: index.md
 
   - Labs:
+      - Prerequisites & Tools:
+          - Installation Process: prerequisites/index.md
+
       - Foundations & System Security:
           - Microsoft Threat Modeling Tool: foundations-and-system-security/microsoft-threat-model-software/index.md
           - OWASP Threat Dragon: foundations-and-system-security/owasp-threat-dragon/index.md

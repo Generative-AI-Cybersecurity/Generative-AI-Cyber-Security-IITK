@@ -67,7 +67,7 @@ nav:
           - Reconnaissance and OSINT: foundations-and-system-security/osint-part-1/index.md
 
       - Pentesting & Ethical Hacking:
-          - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md
+          - Vulnerability Scanning — Nmap Advanced Scanning & Nessus: pentesting-and-ethical-hacking/vulnerability-scanning-nmap-advanced-scanning-nessus/index.md
 
       - Advance Red Teaming & AI-Driven Attacks:
           - Coming Soon: pentesting-and-ethical-hacking\coming-soon\index.md

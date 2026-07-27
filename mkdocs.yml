@@ -71,7 +71,7 @@ nav:
 
       - Pentesting & Ethical Hacking:
           - Vulnerability Scanning - Nmap Advanced Scanning & Nessus: pentesting-and-ethical-hacking/vulnerability-scanning-nmap-advanced-scanning-nessus/index.md
-          - Web App Security Part 1 - Auth & Session Attacks, SQLi:
+          - Web App Security Part 1 - Auth & Session Attacks, SQLi: pentesting-and-ethical-hacking/webapp-sec-part-1/index.md
           - Web App Security Part 2 - XSS, IDOR, CSRF:
           - Web App & API Security - SSRF, RCE:
           - Web App & API Security - API Security:

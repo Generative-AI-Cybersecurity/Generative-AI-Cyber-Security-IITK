@@ -67,9 +67,10 @@ nav:
           - VPN Fundamentals using OpenVPN: foundations-and-system-security/vpn-fundamentals/index.md
           - Linux OS Hardening: foundations-and-system-security/linux-hardening/index.md
           - Windows OS Hardening: foundations-and-system-security/windows-hardening/index.md
-          - Reconnaissance and OSINT: foundations-and-system-security/osint-part-1/index.md
 
       - Pentesting & Ethical Hacking:
+          - Reconnaissance and OSINT Part 1: pentesting-and-ethical-hacking/osint-part-1/index.md
+          - Reconnaissance and OSINT Part 2: pentesting-and-ethical-hacking/osint-part-2/index.md
           - Vulnerability Scanning - Nmap Advanced Scanning & Nessus: pentesting-and-ethical-hacking/vulnerability-scanning-nmap-advanced-scanning-nessus/index.md
           - Web App Security Part 1 - Auth & Session Attacks, SQLi: pentesting-and-ethical-hacking/webapp-sec-part-1/index.md
           #- Web App Security Part 2 - XSS, IDOR, CSRF:

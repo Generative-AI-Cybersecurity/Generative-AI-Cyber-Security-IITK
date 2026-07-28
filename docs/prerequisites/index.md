@@ -1,7 +1,7 @@
 # Environment Setup — Installing Kali Linux and Metasploitable2
 
 > Lab Type: Environment Setup (Prerequisite)  
-> Tool: VMware Workstation Pro *or* Oracle VirtualBox  
+> Tool: VMware Workstation Pro _or_ Oracle VirtualBox  
 > Duration: 45-90 minutes (depends on download speed)  
 > System: Windows laptop (8 GB+ RAM), virtualization-capable CPU
 
@@ -32,12 +32,12 @@ By the end of this setup you will have:
 
 ## 1. System Requirements
 
-| Requirement | Minimum |
-| --- | --- |
-| RAM | 8 GB or above (both VMs running together use roughly 3-4 GB) |
-| Free disk space | 40 GB or above |
-| OS | Windows laptop (Mac/Linux also work for VirtualBox; VMware Workstation is Windows/Linux only — Mac users should use VMware Fusion instead, same steps) |
-| CPU | Must support hardware virtualization (Intel VT-x / AMD-V) |
+| Requirement     | Minimum                                                                                                                                                |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| RAM             | 8 GB or above (both VMs running together use roughly 3-4 GB)                                                                                           |
+| Free disk space | 40 GB or above                                                                                                                                         |
+| OS              | Windows laptop (Mac/Linux also work for VirtualBox; VMware Workstation is Windows/Linux only — Mac users should use VMware Fusion instead, same steps) |
+| CPU             | Must support hardware virtualization (Intel VT-x / AMD-V)                                                                                              |
 
 ### Enable virtualization (if it's currently disabled)
 
@@ -46,7 +46,7 @@ Most modern laptops ship with virtualization support but it's sometimes switched
 **[How to Enable Intel VT-x in Your Computer's BIOS or UEFI Firmware](https://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/)**
 
 !!! warning
-    If you're on a work-managed/locked-down laptop, BIOS access may itself be restricted. In that case you genuinely do need IT — the self-help guide above only applies if you have BIOS access.
+If you're on a work-managed/locked-down laptop, BIOS access may itself be restricted. In that case you genuinely do need IT — the self-help guide above only applies if you have BIOS access.
 
 ---
 
@@ -75,7 +75,7 @@ Since Broadcom's acquisition of VMware, Workstation Pro is **free for personal, 
 4. Run the installer, accept defaults. **No license key is required** — when prompted, select the free "Personal Use" option.
 
 !!! warning
-    Only versions 17.5.2 (Workstation) and above are available free. If you're offered anything older, that build requires a paid license — go back and select the current release instead.
+Only versions 17.5.2 (Workstation) and above are available free. If you're offered anything older, that build requires a paid license — go back and select the current release instead.
 
 ### Step 2: Download and Import Kali Linux
 
@@ -89,7 +89,7 @@ Since Broadcom's acquisition of VMware, Workstation Pro is **free for personal, 
 Full official walkthrough with screenshots: **[Kali Docs — Import Pre-Made Kali VMware VM](https://www.kali.org/docs/virtualization/import-premade-vmware/)**
 
 !!! warning
-    Change the default password immediately after first login: `passwd`. Never leave a Kali VM on default credentials, especially once it has network/internet access.
+Change the default password immediately after first login: `passwd`. Never leave a Kali VM on default credentials, especially once it has network/internet access.
 
 ### Step 3: Download and Import Metasploitable2
 
@@ -101,7 +101,7 @@ Metasploitable2 is distributed as a pre-built virtual disk, not an installer —
 4. Power on. Default credentials: **username `msfadmin`, password `msfadmin`**.
 
 !!! warning
-    Metasploitable2 is deliberately full of unpatched vulnerabilities. Never bridge it to a real network or expose it to the internet — Host-only or NAT-only, always.
+Metasploitable2 is deliberately full of unpatched vulnerabilities. Never bridge it to a real network or expose it to the internet — Host-only or NAT-only, always.
 
 ### Step 4: Network the Two VMs Together
 
@@ -113,10 +113,10 @@ Metasploitable2 is distributed as a pre-built virtual disk, not an installer —
    `ping -c 3 <metasploitable-ip>`
 
 !!! warning
-    Host-only has no internet access by design — that's intentional, it keeps your scans from ever accidentally reaching a real target. But steps that need the internet (e.g. `apt update`, downloading Nessus) will fail on Host-only. When you hit one of those, temporarily switch the adapter to **NAT**, do the internet-dependent step, then switch back to **Host-only** before scanning the target again.
+Host-only has no internet access by design — that's intentional, it keeps your scans from ever accidentally reaching a real target. But steps that need the internet (e.g. `apt update`, downloading Nessus) will fail on Host-only. When you hit one of those, temporarily switch the adapter to **NAT**, do the internet-dependent step, then switch back to **Host-only** before scanning the target again.
 
 !!! warning
-    If one VM is set to Host-only and the other to NAT, they land on completely different subnets and can't see each other — you'll get `Network is unreachable`. Always double-check both VMs' Network Adapter settings match exactly.
+If one VM is set to Host-only and the other to NAT, they land on completely different subnets and can't see each other — you'll get `Network is unreachable`. Always double-check both VMs' Network Adapter settings match exactly.
 
 ---
 
@@ -141,7 +141,7 @@ Install VirtualBox, then import both VMs using a shared NAT Network so they can 
 4. Start the VM. Default credentials on current Kali releases: **username `kali`, password `kali`**.
 
 !!! warning
-    If you were specifically handed a `Kali-Linux-2019.3-vbox-amd64.ova` file (an older, pre-packaged release, sometimes distributed internally by a team for version consistency across a cohort) instead of downloading fresh from kali.org, its default login is different: **`root` / `toor`**, not `kali`/`kali` — Kali switched the default account around the 2020.1 release. Check with whoever gave you the file which version you're on before assuming credentials.
+If you were specifically handed a `Kali-Linux-2019.3-vbox-amd64.ova` file (an older, pre-packaged release, sometimes distributed internally by a team for version consistency across a cohort) instead of downloading fresh from kali.org, its default login is different: **`root` / `toor`**, not `kali`/`kali` — Kali switched the default account around the 2020.1 release. Check with whoever gave you the file which version you're on before assuming credentials.
 
 ### Step 3: Download and Import Metasploitable2
 
@@ -161,11 +161,11 @@ Metasploitable2 has no official `.ova` — the official distribution is a `.vmdk
 If Manish or your team has already converted Metasploitable2 into an `.ova` and hosted it on an internal repo (as referenced in the setup notes you were given), use that instead — same **File → Import Appliance** flow as Kali, Step 2 above. Ask your team for that repo link directly, since it's an internal resource rather than a public one.
 
 !!! warning
-    Whichever option you use, never bridge Metasploitable2 to your real network. It's intentionally riddled with unpatched vulnerabilities — Host-only or a NAT Network only.
+Whichever option you use, never bridge Metasploitable2 to your real network. It's intentionally riddled with unpatched vulnerabilities — Host-only or a NAT Network only.
 
 ### Step 4: Set Up a Shared NAT Network
 
-Unlike plain "NAT" mode (which isolates each VM so they *can't* see each other), VirtualBox's **NAT Network** mode lets every VM attached to it both reach the internet *and* see each other — exactly what you need here.
+Unlike plain "NAT" mode (which isolates each VM so they _can't_ see each other), VirtualBox's **NAT Network** mode lets every VM attached to it both reach the internet _and_ see each other — exactly what you need here.
 
 **Create the NAT Network (one-time, do this before configuring either VM):**
 
@@ -193,7 +193,7 @@ Confirm the two VMs can see each other — from Kali:
 `ping <metasploitable-ip>`
 
 !!! warning
-    If a VM shows "Attached to: NAT" (singular, no "Network") instead of "NAT Network," it's on the wrong mode — plain NAT won't let the two VMs reach each other. Double check the dropdown says **NAT Network** specifically, on both VMs.
+If a VM shows "Attached to: NAT" (singular, no "Network") instead of "NAT Network," it's on the wrong mode — plain NAT won't let the two VMs reach each other. Double check the dropdown says **NAT Network** specifically, on both VMs.
 
 ---
 
@@ -201,7 +201,7 @@ Confirm the two VMs can see each other — from Kali:
 
 Regardless of which track you used, confirm all of these before moving on to any lab:
 
-- [ ] Kali VM boots and you can log in
+- [ ] Kali VM boots and you can log in (`kali`/`kali`)
 - [ ] Metasploitable2 VM boots and you can log in (`msfadmin`/`msfadmin`)
 - [ ] `ip a` / `ifconfig` on Kali shows an IP in the same subnet as Metasploitable2
 - [ ] `ping -c 3 <metasploitable-ip>` from Kali succeeds

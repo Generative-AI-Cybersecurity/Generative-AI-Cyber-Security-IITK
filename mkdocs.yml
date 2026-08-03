@@ -73,9 +73,9 @@ nav:
           - Reconnaissance and OSINT Part 2: pentesting-and-ethical-hacking/osint-part-2/index.md
           - Vulnerability Scanning - Nmap Advanced Scanning & Nessus: pentesting-and-ethical-hacking/vulnerability-scanning-nmap-advanced-scanning-nessus/index.md
           - Web App Security Part 1 - Auth & Session Attacks, SQLi: pentesting-and-ethical-hacking/webapp-sec-part-1/index.md
-          #- Web App Security Part 2 - XSS, IDOR, CSRF:
-          #- Web App & API Security - SSRF, RCE:
-          #- Web App & API Security - API Security:
+          - Web App Security Part 2 - XSS, IDOR, CSRF: pentesting-and-ethical-hacking/webapp-sec-part-2/index.md
+          - Web App & API Security - SSRF, RCE: pentesting-and-ethical-hacking/webapp-api-part-1/index.md
+          - Web App & API Security - API Security: pentesting-and-ethical-hacking/webapp-api-part-2/index.md
           #- Exploitation Techniques 1 - Metasploit Framework:
           #- Exploitation Techniques 2 - Shell Handling, Privilege Escalation:
           #- Exploitation Techniques 3 - Post-Exploitation Basics:

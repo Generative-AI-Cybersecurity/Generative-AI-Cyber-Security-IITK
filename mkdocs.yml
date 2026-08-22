@@ -76,8 +76,8 @@ nav:
           - Web App Security Part 2 - XSS, IDOR, CSRF: pentesting-and-ethical-hacking/webapp-sec-part-2/index.md
           - Web App & API Security - SSRF, RCE: pentesting-and-ethical-hacking/webapp-api-part-1/index.md
           - Web App & API Security - API Security: pentesting-and-ethical-hacking/webapp-api-part-2/index.md
-          - Exploitation Techniques 1 - Metasploit Framework (Exploits & Payload Delivery): pentesting-and-ethical-hacking/exploitation-techniques-1/index.md
-          - Exploitation Techniques 2 - Shell Handling and Privilege Escalation: pentesting-and-ethical-hacking/exploitation-techniques-2/index.md
+          - Exploitation Techniques 1 - Metasploit Framework (Exploits & Payload Delivery): pentesting-and-ethical-hacking/exploitation-part-1/index.md
+          - Exploitation Techniques 2 - Shell Handling and Privilege Escalation: pentesting-and-ethical-hacking/exploitation-part-2/index.md
           #- Exploitation Techniques 3 - Post-Exploitation Basics:
           #- Wireless Security - WPA2 Cracking Execution, Rogue AP:
 
